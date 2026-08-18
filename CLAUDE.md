@@ -34,7 +34,7 @@ like a memo. Within the Acordo, the Mapa de Dívidas is Anexo II and the pró-la
 The HTML is published as an Artifact at
 `https://claude.ai/code/artifact/98f48a8b-67af-4452-a1de-b9e6934790a3`. Republish the same file path
 to update that URL rather than creating a new one, and bump the version stamp in all three files
-(`versão 3.0` in the docx footer, in the HTML masthead, and `**Versão:**` in the markdown).
+(`versão 4.0` in the docx footer, in the HTML masthead, and `**Versão:**` in the markdown).
 
 ## Regenerating and verifying the .docx
 
@@ -69,15 +69,21 @@ These recur across all three files and are the things most likely to change:
 - **Meta I** — dívida zero of the *Perímetro de Endividamento do Grupo*, defined by **economic
   origin** (business led by Wilson Grison) rather than by CNPJ, so it reaches debts registered under
   children, spouse, or third parties. Proven objectively by certidões + no protest + no Serasa/SPC
-  entry + discharge of gravames. Parcelamento in good standing is explicitly **not** quitação.
+  entry + discharge of gravames. Parcelamento in good standing is **not** quitação — *except* for the
+  fiscal carve-out: debts to Receita Federal (income tax), Receita Estadual, Receita Municipal and
+  TCU under a current, regularly granted installment plan with no partner guarantee need not be paid
+  in cash and do not block Meta I. Losing adimplência restores the lock.
 - **Meta II** — R$ 2.000.000,00 caixa mínimo.
-- **Meta III** — the **gross** amount of the apartment operation, R$ 2.144.197,27 for a furnished
-  apartment of R$ 1.600.000,00. The gross exists because only Elman's biological children (Leonardo
-  and Bárbara, 37,31% each) may bear the apartment's cost, while Wellington and Marcelo (12,44% each)
-  and Leonardo's original 0,5% quota are paid out in cash on the same base. Hence
-  `bruto = valor do imóvel ÷ 74,62%`. The contract fixes 74,62%, not the exact 74,625%, so the
-  document matches the family's spreadsheet — do not "correct" it. These percentages govern this
-  operation only, not other distributions.
+- **Meta III** — the **gross** amount of the apartment operation, R$ 1.876.046,901 for a furnished
+  apartment of R$ 1.400.000,00. The gross exists because only Elman's biological children (Leonardo
+  and Bárbara) may bear the apartment's cost, while the others are paid out in cash on the same base:
+  `bruto = valor do imóvel ÷ 74,625%`. Split of the gross — Bárbara 37,3125% and Leonardo 37,3125%
+  **in kind** (the apartment); Wellington 12,4375% and Marcelo 12,4375% **in cash**; Leonardo a
+  further 0,500% in cash for the quota he already held in Grison e Cia, which predates the holding,
+  is not inherited, and never funds the apartment. Money figures carry **three decimals** by the
+  user's instruction, rounded to the centavo only at payment. The two share percentages keep a fourth
+  decimal because they are exact halves of 74,625% and 24,875% — rounding them to three would close
+  the sum at 100,002%; do not "fix" this. These percentages govern this operation only.
 - **Excluded from the perimeter**: the Santa Helena advance (self-liquidating — the loteador withholds
   repayments), and each partner's strictly personal debts.
 - **Who the lock binds**: children as nu-proprietários, cotistas, and future partners (including

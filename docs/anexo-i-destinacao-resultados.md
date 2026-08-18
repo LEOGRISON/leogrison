@@ -1,6 +1,6 @@
 # Anexo I ao Acordo de Sócios — Critérios de Destinação de Resultados
 
-**Versão:** 3.0 — minuta de trabalho, não assinada
+**Versão:** 4.0 — minuta de trabalho, não assinada
 **Renumeração:** o Mapa de Dívidas passa a Anexo II; o pró-labore aprovado, a Anexo III.
 **Status:** sujeita à revisão do advogado da família e de tributarista antes da assinatura.
 
@@ -10,7 +10,7 @@
 
 A distribuição não é travada por prazo, e sim por metas. Prazo fixo desestimula: se ninguém recebe nada antes de cinco anos, o esforço de hoje não altera nada. A meta é mais rigorosa, porque nenhum decurso de tempo libera a distribuição enquanto houver dívida em aberto, e premia quem resolver antes.
 
-Quanto ao imóvel da usufrutuária: o custo deve recair apenas sobre Leonardo e Bárbara, filhos biológicos e herdeiros dela. Como o dinheiro sai da Companhia, que pertence aos quatro, distribui-se um montante bruto calibrado para que a fatia dos dois cubra exatamente o imóvel e os demais recebam em dinheiro o equivalente à sua participação. Daí a divisão por 74,62%, soma das participações de Leonardo e Bárbara — adotada com duas casas, e não pela fração exata de 74,625%, para que o número do contrato seja o da planilha.
+Quanto ao imóvel da usufrutuária: o custo deve recair apenas sobre Leonardo e Bárbara, filhos biológicos e herdeiros dela. Como o dinheiro sai da Companhia, que pertence aos quatro, distribui-se um montante bruto calibrado para que a fatia dos dois cubra exatamente o imóvel e os demais recebam em dinheiro o equivalente à sua participação. Daí a divisão por 74,625%, soma das participações de Leonardo e Bárbara. Os percentuais de 37,3125% e 12,4375% carregam a quarta casa por serem metades exatas de 74,625% e de 24,875%; arredondá-los à terceira faria a soma fechar em 100,002% e os valores deixariam de bater com o bruto.
 
 ---
 
@@ -30,7 +30,9 @@ Quanto ao imóvel da usufrutuária: o custo deve recair apenas sobre Leonardo e 
 
 **2.4.** Não integra o Perímetro o adiantamento recebido do loteador parceiro (Santa Helena), recomposto por retenção, pelo próprio loteador, dos repasses devidos ao grupo. Sua liquidação é automática e independe de desembolso ou de ato de gestão dos sócios.
 
-**2.5.** Dívida Quitada é aquela cujo saldo é zero e cuja exigibilidade se extinguiu perante todos os coobrigados, por pagamento, deságio, transação, novação, decisão transitada em julgado, prescrição ou assunção liberatória com exoneração dos garantidores. É indiferente o valor desembolsado. **Parcelamento em curso, ainda que adimplente, não é Dívida Quitada.**
+**2.5.** Dívida Quitada é aquela cujo saldo é zero e cuja exigibilidade se extinguiu perante todos os coobrigados, por pagamento, deságio, transação, novação, decisão transitada em julgado, prescrição ou assunção liberatória com exoneração dos garantidores. É indiferente o valor desembolsado. **Parcelamento em curso não é Dívida Quitada, ressalvado o item 2.6.**
+
+**2.6. Dívidas Fiscais Parceladas.** Não precisam ser quitadas à vista, nem impedem o cumprimento da Meta I, as obrigações perante a Receita Federal, inclusive imposto de renda, a Receita Estadual, a Receita Municipal e o Tribunal de Contas da União submetidas a parcelamento ou transação regularmente deferidos, adimplentes e sem garantia pessoal de Sócio Sujeito à Retenção. A perda da adimplência restabelece a trava do item 5 até a regularização.
 
 ## 3. Metas de liberação
 
@@ -38,7 +40,7 @@ Quanto ao imóvel da usufrutuária: o custo deve recair apenas sobre Leonardo e 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**(a) Meta I — Dívida zero.** Quitação de 100% das obrigações do Perímetro.
 &nbsp;&nbsp;&nbsp;&nbsp;**(b) Meta II — Caixa mínimo.** Caixa e equivalentes de livre movimentação iguais ou superiores a R$ 2.000.000,00, mantidos por dois balancetes mensais consecutivos.
-&nbsp;&nbsp;&nbsp;&nbsp;**(c) Meta III — Imóvel da usufrutuária.** Disponibilidade, em reserva vinculada, do montante bruto apurado na forma do item 4.3, correspondente a R$ 2.144.197,27 para imóvel mobiliado de R$ 1.600.000,00 — ou operação já concluída.
+&nbsp;&nbsp;&nbsp;&nbsp;**(c) Meta III — Imóvel da usufrutuária.** Disponibilidade, em reserva vinculada, do montante bruto apurado na forma do item 4.3, correspondente a R$ 1.876.046,901 para imóvel mobiliado de R$ 1.400.000,00 — ou operação já concluída.
 
 **3.2.** A Meta I somente se tem por cumprida mediante, cumulativamente: certidões negativas, ou positivas com efeito de negativas, federais, estaduais e municipais da Grison e Cia Ltda. e das demais pessoas do Perímetro; ausência de protesto; ausência de anotação restritiva em Serasa, SPC ou equivalente; e baixa dos gravames. Anotação decorrente de dívida particular de sócio não impede o cumprimento da Meta.
 
@@ -50,33 +52,36 @@ Quanto ao imóvel da usufrutuária: o custo deve recair apenas sobre Leonardo e 
 
 **4.2.** O custo econômico da aquisição recai exclusivamente sobre Leonardo Grison e Bárbara Grison, filhos biológicos e herdeiros da usufrutuária. Wellington Grison e Marcelo Grison não concorrem para esse custeio e recebem em dinheiro o correspondente à sua participação no montante bruto.
 
-**4.3. Fórmula.** O montante bruto da operação corresponde ao valor do imóvel mobiliado dividido por 74,62%, percentual que corresponde à soma das participações de Leonardo (37,31%) e Bárbara (37,31%).
+**4.3. Fórmula.** O montante bruto da operação corresponde ao valor do imóvel mobiliado dividido por 74,625%, soma das participações de Leonardo (37,3125%) e Bárbara (37,3125%) na qualidade de herdeiros da usufrutuária.
 
-> **Montante Bruto = Valor do Imóvel Mobiliado ÷ 74,62%**
+> **Montante Bruto = Valor do Imóvel Mobiliado ÷ 74,625%**
 
 **4.4.** Apurado o montante bruto, a operação se decompõe em:
 
-&nbsp;&nbsp;&nbsp;&nbsp;**(a)** 37,31% a Bárbara Grison e 37,31% a Leonardo Grison, satisfeitos em bem, pela aquisição do imóvel;
-&nbsp;&nbsp;&nbsp;&nbsp;**(b)** 12,44% a Wellington Grison, em dinheiro;
-&nbsp;&nbsp;&nbsp;&nbsp;**(c)** 12,44% a Marcelo Grison, em dinheiro;
-&nbsp;&nbsp;&nbsp;&nbsp;**(d)** 0,5% a Leonardo Grison, em dinheiro, correspondente à sua participação originária na Grison e Cia Ltda.
+&nbsp;&nbsp;&nbsp;&nbsp;**(a) parcela satisfeita em bem** — 37,3125% a Bárbara Grison e 37,3125% a Leonardo Grison, integralmente aplicados na aquisição do imóvel;
+&nbsp;&nbsp;&nbsp;&nbsp;**(b) parcelas em dinheiro** — 12,4375% a Wellington Grison e 12,4375% a Marcelo Grison;
+&nbsp;&nbsp;&nbsp;&nbsp;**(c) parcela em dinheiro** — 0,500% a Leonardo Grison.
 
-**4.5.** A aquisição do imóvel e os pagamentos em dinheiro são simultâneos, constituem execução da Meta III e não configuram distribuição vedada pelo item 5.
+**4.5.** A participação de 0,500% de Leonardo Grison na Grison e Cia Ltda. é anterior à reorganização societária e não decorre de herança. Seu produto é pago em dinheiro e **não integra o custeio do imóvel**.
 
-**4.6.** Os percentuais deste item aplicam-se exclusivamente a esta operação e não estabelecem critério de rateio para as demais distribuições.
+**4.6.** Os percentuais e valores deste item são expressos com três casas decimais e arredondados ao centavo no momento do pagamento.
 
-**4.7.** O enquadramento tributário da aquisição pela Companhia e da transferência ao patrimônio da usufrutuária será definido previamente com o tributarista, e seu custo integra o montante bruto.
+**4.7.** A aquisição do imóvel e os pagamentos em dinheiro são simultâneos, constituem execução da Meta III e não configuram distribuição vedada pelo item 5.
 
-**4.8.** Aplicação da fórmula a imóvel mobiliado de R$ 1.600.000,00, a título ilustrativo:
+**4.8.** Os percentuais deste item aplicam-se exclusivamente a esta operação e não estabelecem critério de rateio para as demais distribuições.
+
+**4.9.** O enquadramento tributário da aquisição e da transferência ao patrimônio da usufrutuária será definido previamente com o tributarista, e seu custo integra o montante bruto.
+
+**4.10.** Aplicação da fórmula a imóvel mobiliado de R$ 1.400.000,00, a título ilustrativo:
 
 | Sócio | Participação | Valor (R$) |
 |---|---|---:|
-| Bárbara Grison | 37,31% — em bem | 800.000,00 |
-| Leonardo Grison | 37,31% — em bem | 800.000,00 |
-| Wellington Grison | 12,44% — em dinheiro | 266.738,14 |
-| Marcelo Grison | 12,44% — em dinheiro | 266.738,14 |
-| Leonardo Grison | 0,5% — em dinheiro | 10.720,99 |
-| **Montante bruto** | **100%** | **2.144.197,27** |
+| Bárbara Grison | 37,3125% — em bem | 700.000,000 |
+| Leonardo Grison | 37,3125% — em bem | 700.000,000 |
+| Wellington Grison | 12,4375% — em dinheiro | 233.333,333 |
+| Marcelo Grison | 12,4375% — em dinheiro | 233.333,333 |
+| Leonardo Grison | 0,500% — em dinheiro | 9.380,235 |
+| **Montante bruto** | **100,000%** | **1.876.046,901** |
 
 ## 5. Retenção
 
