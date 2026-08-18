@@ -80,9 +80,38 @@ Two open questions are flagged in the documents for the family's lawyer (Dr. Rog
 stay flagged until answered: the effect of a 120-month PGFN transaction on Meta I, and the statutory
 mechanism for retaining some partners' dividends while paying the usufructuaries.
 
+## Segunda frente: estudos de viabilidade
+
+A partir de agosto de 2026, o repositório tem **duas frentes paralelas e independentes**:
+
+1. **`docs/`** — Minuta jurídica (regra dos três formatos). Veja acima.
+2. **`estudos/`** — Estudos de viabilidade imobiliária com IA (formato único, markdown). Veja abaixo.
+
+Não há sincronização obrigatória entre as frentes. Edições em `docs/` **não** afetam `estudos/`,
+e vice-versa. Cada frente tem seu próprio branch (quando necessário) e convenção.
+
+### Estudos de viabilidade — organização
+
+`estudos/` contém:
+
+| Arquivo | Conteúdo |
+|---|---|
+| `ia-viabilidade-imobiliaria.md` | Guia de aprendizado: método de IA para modelagem de loteamentos, engenharia de prompt, laboratório com seis exercícios |
+
+**Formato único:** markdown, sem `.docx`, sem Artifact. A razão: estes são estudos iterativos
+(versões 1.0, 1.1, etc.), não um documento "finalizado para assinatura". Markdown versiona bem;
+Artifact é para docs prontos.
+
+**Licença de mudança:** edite sem cerimônia. Não há "relação 1:1 entre ficheiros". Quando o
+conteúdo crescer e ficar muito longo, refatore — divida em `ia-viabilidade-part1.md`,
+`ia-viabilidade-part2.md`, etc., conforme julgamento de época.
+
+**Commit:** mensagens em português, tom direto. Exemplo: `Atualiza seção de engenharia de prompt
+com 3 técnicas novas`.
+
 ## Working conventions
 
-- Branch: `claude/family-property-debt-structure-gvet5m`. Commit messages in Portuguese, matching the
+- Branch: `claude/ia-viabilidade-imobiliaria-z2f2om`. Commit messages in Portuguese, matching the
   existing log.
 - Drafting voice: clause text is formal legal Portuguese with bracketed placeholders (`[•]`, `[90]`,
   `[IPCA]`) for what the lawyer fills in. Cover notes and drafting notes are plain-spoken.
