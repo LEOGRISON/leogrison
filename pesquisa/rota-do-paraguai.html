@@ -1,0 +1,523 @@
+<title>A Rota do Paraguai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+:root{
+  --bg:#EDEFEC;
+  --surface:#F8F9F7;
+  --surface-2:#E4E7E3;
+  --text:#171D1B;
+  --muted:#5C6660;
+  --rule:#C9D0CA;
+  --rule-strong:#8E9A93;
+  --br:#9A3B2C;
+  --py:#0E6A5A;
+  --gold:#8A6414;
+  --gold-bg:#EDE4CD;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121614;
+    --surface:#1A201D;
+    --surface-2:#232A26;
+    --text:#E7EAE6;
+    --muted:#97A29C;
+    --rule:#2E3733;
+    --rule-strong:#586460;
+    --br:#DE8973;
+    --py:#4FC3A8;
+    --gold:#D9AC4E;
+    --gold-bg:#2A2418;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121614;
+  --surface:#1A201D;
+  --surface-2:#232A26;
+  --text:#E7EAE6;
+  --muted:#97A29C;
+  --rule:#2E3733;
+  --rule-strong:#586460;
+  --br:#DE8973;
+  --py:#4FC3A8;
+  --gold:#D9AC4E;
+  --gold-bg:#2A2418;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:18px;
+  line-height:1.62;
+  margin:0;
+  padding:0 20px 96px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto}
+.col{max-width:660px}
+
+h1,h2,h3,.num,.eyebrow,th,.tag,.chip{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+.eyebrow,.tag,.chip,.mono,figcaption,.foot{font-family:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace}
+
+/* ---------- masthead ---------- */
+header.masthead{
+  padding:72px 0 32px;
+  border-bottom:2px solid var(--text);
+  margin-bottom:8px;
+}
+.kicker{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 20px;
+}
+h1{
+  font-size:clamp(42px,8vw,86px);
+  line-height:.95;
+  font-weight:700;
+  letter-spacing:-.028em;
+  margin:0 0 22px;
+  text-wrap:balance;
+}
+.dek{
+  font-size:20px;line-height:1.5;color:var(--muted);
+  max-width:620px;margin:0 0 28px;
+}
+.stamp{
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:24px;
+}
+
+/* ---------- sections ---------- */
+section{padding:52px 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:none}
+.eyebrow{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--py);display:flex;align-items:center;gap:12px;margin:0 0 18px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule);max-width:120px}
+h2{
+  font-size:clamp(27px,4.2vw,38px);line-height:1.08;font-weight:700;
+  letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance;
+}
+h3{
+  font-size:19px;font-weight:600;letter-spacing:-.008em;
+  margin:34px 0 10px;
+}
+p{margin:0 0 17px}
+.lead{font-size:20px;line-height:1.55}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--py);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--py);outline-offset:3px;border-radius:2px}
+ul{margin:0 0 17px;padding-left:0;list-style:none}
+li{position:relative;padding-left:22px;margin-bottom:11px}
+li::before{
+  content:"";position:absolute;left:2px;top:.72em;
+  width:7px;height:1px;background:var(--rule-strong);
+}
+ul.plain li::before{display:none}
+
+/* ---------- number strip ---------- */
+.strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  margin:8px 0 34px;
+}
+.stat{background:var(--surface);padding:20px 18px 18px}
+.stat .num{
+  display:block;font-size:34px;font-weight:700;letter-spacing:-.03em;
+  line-height:1;font-variant-numeric:tabular-nums;margin-bottom:8px;
+}
+.stat .num.py{color:var(--py)}
+.stat .num.br{color:var(--br)}
+.stat .lbl{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.45;
+  color:var(--muted);display:block;
+}
+
+/* ---------- tables ---------- */
+.scroller{overflow-x:auto;margin:26px 0 10px;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;line-height:1.45}
+th{
+  text-align:left;font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:600;color:var(--muted);padding:13px 16px;
+  border-bottom:1px solid var(--rule-strong);white-space:nowrap;
+}
+td{padding:13px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.co{font-family:Archivo,sans-serif;font-weight:600;white-space:nowrap}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover{background:var(--surface-2)}
+
+/* ---------- comparison bars ---------- */
+.cmp{display:flex;flex-direction:column;gap:22px;margin:28px 0 12px}
+.cmp-row .cmp-t{
+  font-family:Archivo,sans-serif;font-weight:600;font-size:15px;margin-bottom:9px;
+}
+.bar{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:center;margin-bottom:6px}
+.bar .side{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);
+}
+.track{display:flex;align-items:center;gap:10px}
+.fill{height:13px;border-radius:1px}
+.fill.br{background:var(--br)}
+.fill.py{background:var(--py)}
+.val{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cmp-src{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);margin-top:4px}
+
+/* ---------- callouts ---------- */
+.box{
+  background:var(--surface);border:1px solid var(--rule);
+  padding:24px 26px;margin:28px 0;
+}
+.box.warn{border-left:3px solid var(--br)}
+.box.key{border-left:3px solid var(--gold);background:var(--gold-bg)}
+.box h3{margin-top:0}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.tag{
+  display:inline-block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--rule-strong);padding:3px 8px;margin-bottom:12px;
+}
+blockquote{
+  margin:26px 0;padding:0 0 0 22px;border-left:2px solid var(--rule-strong);
+  font-size:21px;line-height:1.42;font-style:italic;
+}
+blockquote cite{
+  display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+  font-style:normal;letter-spacing:.06em;color:var(--muted);margin-top:12px;
+}
+
+/* ---------- ledger (law/tax lists) ---------- */
+.ledger{border-top:1px solid var(--rule-strong);margin:24px 0 10px}
+.ledger .row{
+  display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:8px 26px;
+  padding:15px 0;border-bottom:1px solid var(--rule);
+}
+.ledger .k{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.5;
+  color:var(--muted);letter-spacing:.02em;
+}
+.ledger .v{font-size:16px;line-height:1.5}
+.ledger .v p{margin:0}
+
+footer{
+  padding:44px 0 0;border-top:2px solid var(--text);margin-top:56px;
+}
+.foot{font-size:12px;line-height:1.7;color:var(--muted)}
+.foot a{color:var(--muted)}
+.srcs{columns:2;column-gap:32px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.65}
+.srcs a{display:block;break-inside:avoid;margin-bottom:5px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule)}
+.srcs a:hover{color:var(--py);border-color:var(--py)}
+
+@media (max-width:640px){
+  body{font-size:17px;padding:0 16px 64px}
+  .ledger .row{grid-template-columns:1fr;gap:4px}
+  .srcs{columns:1}
+  header.masthead{padding:48px 0 26px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker">Levantamento · Migração industrial e negócio imobiliário</p>
+  <h1>A Rota do<br>Paraguai</h1>
+  <p class="dek">O que os dados públicos confirmam sobre a mudança de empresas brasileiras para o Paraguai — quantas foram, quanto economizam, o que fazem com os funcionários — e como funciona, juridicamente, o negócio de lotear terra lá.</p>
+  <div class="stamp">
+    <span>21 · Agosto · 2026</span>
+    <span>Fontes: MIC/CNIME · BCP · Focus/BCB · DNM · ABC Color</span>
+    <span>Documento de trabalho</span>
+  </div>
+</header>
+
+<section>
+  <p class="eyebrow">Veredicto</p>
+  <h2>Sim, é real — e é maior do que parece de longe</h2>
+  <div class="col">
+    <p class="lead">A informação que você ouviu está correta no essencial. Não é boato de fronteira nem caso isolado: é um movimento contínuo, medido pelo próprio governo paraguaio, com dez anos de série histórica e aceleração forte desde 2023.</p>
+  </div>
+
+  <div class="strip">
+    <div class="stat"><span class="num py">232</span><span class="lbl">empresas estrangeiras no regime de maquila desde 2007 — cerca de 70% brasileiras</span></div>
+    <div class="stat"><span class="num py">US$ 1,31 bi</span><span class="lbl">exportado pela maquila em 2025 — quadruplicou desde 2016 (+342%)</span></div>
+    <div class="stat"><span class="num py">35.357</span><span class="lbl">empregos diretos na maquila em 2025, alta de 18% em um ano</span></div>
+    <div class="stat"><span class="num br">67%</span><span class="lbl">das exportações da maquila paraguaia têm o Brasil como destino</span></div>
+    <div class="stat"><span class="num br">~25 mil</span><span class="lbl">empregos estimados como transferidos do Brasil, segundo a câmara de empresários brasileiros no país</span></div>
+  </div>
+
+  <div class="col">
+    <p>Em 2024, das 332 indústrias enquadradas no regime, <strong>223 eram de origem brasileira</strong> — 69% do total. Nos últimos quatro anos, 66 empresas brasileiras abriram operação. E o ritmo não caiu: no primeiro bimestre de 2026 a maquila exportou US$ 248 milhões, 26% acima do mesmo período de 2025, com projeção de fechar o ano cerca de US$ 300 milhões acima do recorde anterior.</p>
+    <p>O perfil setorial diz muito sobre <em>quem</em> vai: autopeças (34% do emprego), confecções e têxteis (16%), alumínio (14%) e alimentos (12%). Em número de operações, confecção lidera com 89, seguida de plásticos (47) e alumínio (30). É indústria de transformação intensiva em mão de obra — exatamente o tipo de operação que o custo brasileiro esmaga.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">O mecanismo</p>
+  <h2>A Lei de Maquila, em termos práticos</h2>
+  <div class="col">
+    <p>A Lei nº 1.064/97 permite que uma empresa estrangeira instale no Paraguai uma unidade que industrializa por encomenda da matriz. Não é preciso mudar a empresa inteira: na maioria dos casos transfere-se só uma etapa — corte, costura, montagem, acabamento, embalagem — mantendo administração, marca e mercado no Brasil.</p>
+  </div>
+
+  <div class="ledger">
+    <div class="row"><div class="k">Tributo único</div><div class="v"><p><strong>1%</strong> — incide sobre o maior valor entre o agregado em território paraguaio (salários, serviços locais, insumos comprados lá, depreciação) e a fatura de exportação à matriz.</p></div></div>
+    <div class="row"><div class="k">Isenções</div><div class="v"><p>Imposto sobre Renda Empresarial (IRE), Imposto sobre Dividendos e Utilidades (IDU), IVA, e retenção na remessa de lucros ao acionista estrangeiro.</p></div></div>
+    <div class="row"><div class="k">Insumos e máquinas</div><div class="v"><p>Entram em admissão temporária, com suspensão total dos tributos aduaneiros.</p></div></div>
+    <div class="row"><div class="k">Volta ao Brasil</div><div class="v"><p>Se o produto cumprir a regra de origem do Mercosul, entra no Brasil com <strong>imposto de importação zero</strong>. Aqui há divergência nas fontes: umas falam em 40% de conteúdo regional, outras em 55% ou salto de posição tarifária (NCM). É o primeiro ponto a fechar com um despachante/tributarista antes de qualquer conta.</p></div></div>
+    <div class="row"><div class="k">Fora da maquila</div><div class="v"><p>O regime geral paraguaio é o chamado <strong>10-10-10</strong>: 10% de IRE, 10% de IVA, 10% de IRP. Dividendos: 8% ao residente, 15% ao exterior.</p></div></div>
+  </div>
+
+  <div class="box warn col">
+    <span class="tag">Atenção — lado brasileiro</span>
+    <p>Nada disso apaga a tributação no Brasil. Pela <strong>Lei 14.754/2023</strong>, o lucro de entidade controlada no exterior por pessoa física residente no Brasil é tributado a 15% em 31 de dezembro de cada ano, <em>independentemente de distribuição</em>, quando a controlada está em país de tributação favorecida ou goza de regime fiscal privilegiado. Um regime que tributa a 1% dificilmente escapa dessa qualificação — mas não achei confirmação de que a maquila conste nominalmente das listas da IN 1.037/2010. <strong>Essa é a pergunta número um para o tributarista</strong>, porque muda inteiramente a economia do arranjo.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Quem já foi</p>
+  <h2>A lista, com o que se sabe de cada uma</h2>
+  <div class="col">
+    <p>A Lupo você lembrou certo — e ela virou o caso emblemático porque uma empresa de 104 anos anunciou publicamente o motivo. O que segue é o que está documentado em imprensa e fontes oficiais; onde o dado é de parceria ou terceirização, está dito.</p>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr><th>Empresa</th><th>Setor</th><th>Movimento</th><th class="n">Investimento</th><th class="n">Empregos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="co">Lupo</td><td>Meias e vestuário</td><td>Fábrica própria em Ciudad del Este, no regime de maquila; capacidade de 20 milhões de pares/ano</td><td class="n">R$ 30 mi+</td><td class="n">~110</td></tr>
+        <tr><td class="co">Grupo Dass</td><td>Calçados (Nike, Adidas)</td><td>Nova fábrica para abastecer o mercado brasileiro</td><td class="n">US$ 40 mi</td><td class="n">600 (projetados)</td></tr>
+        <tr><td class="co">Lunelli</td><td>Têxtil / moda</td><td>Fábrica desde 2019; novo aporte de grande porte em preparação</td><td class="n">US$ 20 mi</td><td class="n">—</td></tr>
+        <tr><td class="co">Riachuelo</td><td>Varejo de moda</td><td>Centro de costura em parceria com a paraguaia Texcin; 2ª fase anunciada</td><td class="n">US$ 5 + 5 mi</td><td class="n">—</td></tr>
+        <tr><td class="co">Renner</td><td>Varejo de moda</td><td>Contrata confecções paraguaias terceirizadas (Texcin, Hoahi)</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">C&amp;A</td><td>Varejo de moda</td><td>Mesmo modelo de terceirização têxtil</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">Carrefour</td><td>Varejo</td><td>Mesmo modelo de terceirização têxtil</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">Karsten</td><td>Cama, mesa e banho</td><td>Passou a fabricar toalhas no Paraguai em 2026</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">Kidy</td><td>Calçados infantis</td><td>Decidiu produzir no Paraguai neste ano</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">Efisa</td><td>Madeira e embalagens</td><td>No país desde 2012 com floresta e beneficiamento; nova unidade de embalagens e pallets no 2º semestre</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">JBS</td><td>Frigorífico</td><td>Opera no país fora do regime de maquila</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">Vale</td><td>Mineração / logística</td><td>Presença fora do regime de maquila</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td class="co">Havan</td><td>Varejo</td><td><em>Ainda não é fato.</em> Luciano Hang foi recebido pelo presidente paraguaio e a rede estuda a primeira loja fora do Brasil, na região de Assunção. Nenhum investimento foi anunciado — e seria loja, não fábrica.</td><td class="n">—</td><td class="n">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote>
+    Não é que a Lupo foi para o Paraguai. O Brasil empurrou a gente para o Paraguai. Os impostos estão comendo a operação de forma violenta.
+    <cite>Liliana Aufiero, presidente da Lupo</cite>
+  </blockquote>
+  <div class="col">
+    <p>O gatilho declarado pela Lupo foi a <strong>Lei 14.789/2023</strong>, que encareceu o aproveitamento das subvenções de ICMS usadas pela indústria. A unidade paraguaia opera com estrutura de custo pelo menos <strong>28% menor</strong> que a brasileira.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">A conta</p>
+  <h2>Por que a matemática fecha do outro lado da ponte</h2>
+
+  <div class="cmp">
+    <div class="cmp-row">
+      <div class="cmp-t">Energia elétrica industrial (US$/MWh)</div>
+      <div class="bar"><span class="side">Brasil</span><div class="track"><div class="fill br" style="width:62%"></div><span class="val">113–117</span></div></div>
+      <div class="bar"><span class="side">Paraguai</span><div class="track"><div class="fill py" style="width:22%"></div><span class="val">41</span></div></div>
+      <p class="cmp-src">Chile 175 · Uruguai 142 — o Paraguai tem a tarifa mais baixa do Cone Sul (Itaipu e Yacyretá)</p>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-t">Encargos sobre a folha, acima do salário</div>
+      <div class="bar"><span class="side">Brasil</span><div class="track"><div class="fill br" style="width:70%"></div><span class="val">60% a 100%+</span></div></div>
+      <div class="bar"><span class="side">Paraguai</span><div class="track"><div class="fill py" style="width:26%"></div><span class="val">25% a 35%</span></div></div>
+      <p class="cmp-src">IPS patronal 16,5% contra 20% de INSS — e sem FGTS, sem PIS/Pasep, sem Sistema S</p>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-t">Carga tributária efetiva total da operação</div>
+      <div class="bar"><span class="side">Brasil</span><div class="track"><div class="fill br" style="width:66%"></div><span class="val">~33%</span></div></div>
+      <div class="bar"><span class="side">Paraguai</span><div class="track"><div class="fill py" style="width:30%"></div><span class="val">abaixo de 15%</span></div></div>
+      <p class="cmp-src">Na maquila, o tributo direto sobre a operação é de 1%</p>
+    </div>
+  </div>
+
+  <div class="col">
+    <p>Somando tudo, as estimativas de redução de custo total variam entre <strong>20% e 50%</strong> conforme a fonte e a intensidade de mão de obra do negócio — 28% no caso concreto da Lupo, que é o número mais confiável porque veio da própria empresa. Uma regra prática que circula entre consultores: com o orçamento de 10 funcionários no Brasil, contrata-se 14 ou 15 no Paraguai com a mesma qualificação.</p>
+    <p>O salário mínimo paraguaio subiu para <strong>₲ 3.044.000</strong> em julho de 2026 — cerca de R$ 2,6 mil. Não é uma economia de salário-base gigantesca; a economia está nos encargos, na energia e no tributo.</p>
+  </div>
+
+  <div class="box col">
+    <h3>O pano de fundo macro — dos dois lados</h3>
+    <p><strong>Brasil.</strong> O Boletim Focus projeta Selic em <strong>14% no fim de 2026</strong>, 12% em 2027 e 10,5% em 2028; PIB de 1,99% em 2026, 1,60% em 2027 e 2,00% em 2028; IPCA de 5,11% em 2026. Ou seja: sua leitura de "juros altos e economia travada por uns três anos" é o que o mercado projeta. O que os números <em>não</em> mostram é "crise absoluta" — é crescimento medíocre com juro caro, que para indústria de margem apertada dá quase no mesmo, mas é bom nomear com precisão.</p>
+    <p><strong>Paraguai.</strong> PIB de 4,2% em 2026 (o Moody's projeta 4,5%), inflação convergindo à meta de 3,5%, dívida pública em torno de 34% do PIB e grau de investimento <strong>Baa3</strong> reafirmado pela Moody's em julho de 2026, com perspectiva estável. É um país pequeno, mas com a casa macroeconômica arrumada.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Os trabalhadores</p>
+  <h2>Contratam lá — e levam a chefia daqui</h2>
+  <div class="col">
+    <p>Essa é a sua pergunta mais específica, e a resposta é um modelo híbrido bastante consistente entre as empresas:</p>
+    <ul>
+      <li><strong>A massa operária é paraguaia.</strong> É todo o sentido do negócio — encargo menor, contratação local. Os 35.357 empregos diretos da maquila são majoritariamente paraguaios.</li>
+      <li><strong>A camada técnica e de supervisão vem do Brasil.</strong> A Câmara de Empresários Brasileiros no Paraguai é explícita: parte dos trabalhadores mais especializados ainda vem do Brasil, porque a qualificação local é apontada como o principal gargalo. Estudos acadêmicos sobre maquila registram o mesmo padrão — a mão de obra especializada é importada da matriz.</li>
+      <li><strong>Há escassez real disputada.</strong> As primeiras indústrias absorveram os técnicos disponíveis. Hoje, com várias empresas do mesmo setor concentradas em cidades pequenas, falta profissional técnico — e isso vira custo de rotatividade e de expatriação.</li>
+    </ul>
+
+    <h3>E o fluxo de brasileiros para lá é grande</h3>
+    <ul>
+      <li><strong>23.526</strong> brasileiros receberam autorização de residência no Paraguai em 2025, segundo a Dirección Nacional de Migraciones.</li>
+      <li>No 1º trimestre de 2026 foram <strong>9.125 pedidos</strong> de brasileiros — <strong>64%</strong> de todos os pedidos de estrangeiros.</li>
+      <li>Em 2025, quase 43 mil pessoas de todas as nacionalidades pediram residência, alta de 50% sobre o ano anterior.</li>
+      <li>Estima-se em torno de <strong>246 mil</strong> brasileiros vivendo regularmente no país — a maior colônia brasileira da América Latina.</li>
+    </ul>
+
+    <h3>Como se leva alguém, na prática</h3>
+    <p>Pelo acordo de residência do Mercosul o caminho é comparativamente simples, mas mudou: hoje a regra é obter primeiro a <strong>residência temporária (2 anos)</strong> e depois requerer a permanente, pedida 90 dias antes do vencimento. Documentos: passaporte com validade de pelo menos 1 ano, certidão de nascimento apostilada e traduzida (emitida nos últimos 90 dias), antecedentes criminais apostilados, comprovante de renda e de residência. As taxas oficiais rondam <strong>US$ 350 a 400</strong> na temporária e cerca de <strong>US$ 2.200</strong> na conversão para permanente.</p>
+    <p>Guarde esse detalhe da <strong>residência permanente</strong> — ele reaparece decisivo na parte de loteamentos.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Loteamentos</p>
+  <h2>O outro negócio: lotear terra no Paraguai</h2>
+  <div class="col">
+    <p class="lead">Sua intuição aqui também está certa, e por um motivo econômico sólido: as fábricas trazem gente, a gente precisa morar, e o Paraguai tem o pior déficit habitacional da região. A demanda não é especulativa — é estrutural.</p>
+  </div>
+
+  <div class="strip">
+    <div class="stat"><span class="num py">65,5%</span><span class="lbl">dos lares paraguaios com déficit habitacional — o maior da América Latina (59,1% qualitativo, 6,4% quantitativo)</span></div>
+    <div class="stat"><span class="num py">1,12 mi</span><span class="lbl">de domicílios com déficit, em números absolutos</span></div>
+    <div class="stat"><span class="num py">US$ 3 bi</span><span class="lbl">movimentação projetada do mercado imobiliário paraguaio em 2026</span></div>
+    <div class="stat"><span class="num py">900 mil m²</span><span class="lbl">construídos em 2024, contra 250 mil m² dez anos antes</span></div>
+    <div class="stat"><span class="num py">9,9%</span><span class="lbl">taxa da AFD para financiar incorporador — até 85% do projeto, teto de US$ 2 mi por operação</span></div>
+  </div>
+
+  <div class="col">
+    <p>Há um programa público puxando a demanda: o <strong>Che Róga Porã</strong>, já na versão 3.0, que ampliou o limite de renda familiar de 6 para 9 salários mínimos e elevou o valor financiável para ₲ 790 milhões. São cerca de 6.100 famílias com crédito pré-aprovado, projeção de 7.000 a 7.500 no ano, e mais de US$ 269 milhões em operações. Entre 2021 e junho de 2026, foram 19.909 créditos habitacionais aprovados, somando US$ 886,9 milhões.</p>
+    <p>E há brasileiros fazendo exatamente o que você descreveu: a <strong>Antonini Engenharia</strong>, por exemplo, iniciou expansão no Paraguai com loteamentos residenciais e moradia popular. Comitivas de empresários brasileiros chegam semanalmente, e o imobiliário está entre os setores que concentram quase metade do investimento estrangeiro que entra no país.</p>
+    <p>Sobre preço de terra, circula uma comparação de <strong>US$ 10 a 15 mil por hectare no Paraguai contra US$ 20 a 25 mil no Brasil</strong>. Trate como ordem de grandeza, não como cotação: sem região, aptidão e distância de núcleo urbano, esse número não decide nada.</p>
+  </div>
+
+  <h3>A legislação, em detalhe</h3>
+  <div class="col">
+    <p>O loteamento é regido pela <strong>Lei nº 1.909/2002 ("De Loteamientos")</strong> combinada com a <strong>Lei Orgânica Municipal nº 3.966/2010</strong> (arts. 245 a 258, alterados pelas Leis 4.715/2012 e 5.346). Loteamento é definido como toda divisão de um imóvel em duas ou mais frações destinadas à venda, em zona urbana, suburbana ou rural com fim de urbanização.</p>
+  </div>
+
+  <div class="ledger">
+    <div class="row"><div class="k">Aprovação</div><div class="v"><p>Dupla: aprovação provisória da Intendência Municipal e aprovação definitiva da Junta Municipal.</p></div></div>
+    <div class="row"><div class="k">Documentos exigidos</div><div class="v"><p>Projeto de loteamento com laudo pericial de lotes, ruas e frações para praças e edifícios públicos; título de propriedade e certificado de condições de domínio da Dirección General de Registros Públicos; imposto imobiliário quitado; memória descritiva assinada por profissional habilitado; declaração de impacto ambiental.</p></div></div>
+    <div class="row"><div class="k">Obras a cargo do loteador</div><div class="v"><p>Abertura e limpeza das ruas e avenidas previstas no projeto.</p></div></div>
+    <div class="row"><div class="k">Doação obrigatória</div><div class="v"><p>Transferência gratuita e às custas do loteador, à Municipalidade, das vias de circulação. Para imóveis de <strong>2 hectares ou mais</strong>: mais <strong>5% para praças</strong> e <strong>2% para edifícios públicos</strong>, sobre a área total dos lotes comercializados. Prazo: 180 dias da aprovação.</p></div></div>
+    <div class="row"><div class="k">Lote mínimo</div><div class="v"><p><strong>360 m²</strong> em zona urbana. Ordenança municipal pode admitir menos em soluções de interesse social ou regularização de ocupações anteriores à lei.</p></div></div>
+    <div class="row"><div class="k">Registro</div><div class="v"><p>Um ano para completar a inscrição em favor da Municipalidade. Multa por descumprimento: 20 jornais mínimos por hectare loteado. <strong>Não se pode vender lote antes de inscrita a resolução final.</strong></p></div></div>
+    <div class="row"><div class="k">Venda a prazo</div><div class="v"><p>O loteador inscreve a resolução municipal aprovatória na Dirección General de Registros Públicos, e inscreve também os contratos de compra e venda a prazo, na DGRP e no cadastro municipal.</p></div></div>
+    <div class="row"><div class="k">A regra dos 25%</div><div class="v"><p>Pela Lei 1.909/02, o contrato deve prever que, <strong>pagos 25% do preço total, o comprador pode exigir a escritura pública de transferência</strong> — ficando o lote hipotecado em favor do vendedor até a quitação. É um direito pouco exercido, mas existe, e obriga o loteador a estruturar a operação com hipoteca desde o início.</p></div></div>
+  </div>
+
+  <div class="box key col">
+    <span class="tag">O ponto que decide tudo</span>
+    <h3>A faixa de 50 km da fronteira</h3>
+    <p>A <strong>Lei nº 2.532/2005</strong> cria a Zona de Segurança Fronteiriça: uma faixa de <strong>50 quilômetros</strong> ao longo das fronteiras terrestres e fluviais. Dentro dela, estrangeiros de países limítrofes — brasileiro é exatamente esse caso — <strong>não podem ser proprietários, condôminos ou usufrutuários de imóveis rurais</strong>. A vedação alcança pessoas jurídicas majoritariamente compostas por esses estrangeiros.</p>
+    <p>Ou seja: comprar uma fazenda perto de Ciudad del Este, Salto del Guairá ou Pedro Juan Caballero para lotear é justamente a operação bloqueada. As exceções previstas em lei são: direitos adquiridos antes da lei, herança, adjudicação judicial ou dação em pagamento a bancos, <strong>e estrangeiro com residência permanente no Paraguai</strong> — mais autorização por decreto do Executivo por interesse público. Imóveis <em>urbanos</em> (casas, apartamentos, lotes dentro de cidades) ficam fora da restrição e podem ser adquiridos livremente.</p>
+    <p>Há ainda um parecer jurídico do Ministério de Economia y Finanzas (Dictamen DGPEJBF nº 49/2025) analisando o art. 4º dessa lei para constituição de sociedades na zona fronteiriça. Se a ideia envolver terra rural em faixa de fronteira, esse parecer e a via da residência permanente são o primeiro item da pauta com um advogado paraguaio.</p>
+  </div>
+
+  <h3>A conta tributária do imóvel</h3>
+  <div class="ledger">
+    <div class="row"><div class="k">Imposto imobiliário</div><div class="v"><p>1% ao ano sobre o valor da avaliação fiscal — e a avaliação fiscal paraguaia é historicamente muito abaixo do valor de mercado.</p></div></div>
+    <div class="row"><div class="k">IVA na venda</div><div class="v"><p>Incide sobre 30% do valor do bem (70% isento), resultando em algo próximo de <strong>1,5%</strong> do valor total.</p></div></div>
+    <div class="row"><div class="k">Venda não habitual</div><div class="v"><p>Renda presumida de 30% do preço, alíquota de 15% → <strong>4,5%</strong> sobre o preço, retido pelo escrivão no ato da transferência.</p></div></div>
+    <div class="row"><div class="k">Venda habitual (loteador)</div><div class="v"><p>Atividade habitual de compra e venda de imóveis é tributada como renda empresarial — IRE de 10% sobre o lucro no regime geral.</p></div></div>
+    <div class="row"><div class="k">Custos de transmissão</div><div class="v"><p>Taxa municipal de transferência de 0,3% a 0,5% conforme o município; inscrição registral em torno de 0,8% do valor.</p></div></div>
+  </div>
+
+  <div class="col">
+    <p>Um traço estrutural do mercado que muda o desenho financeiro: <strong>o financiamento imobiliário paraguaio é feito majoritariamente pela própria incorporadora</strong>, não por banco. Entrada baixa e parcelamento direto são a norma. Isso significa que o loteador é também o banco — o capital de giro e o risco de crédito ficam com ele, e a régua de inadimplência do modelo brasileiro de "loteamento com carteira própria" se aplica quase inteira.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">O que não aparece nos folhetos</p>
+  <h2>Riscos que precisam entrar na conta</h2>
+  <div class="col">
+    <ul>
+      <li><strong>Informalidade documental.</strong> Reservas sem contrato, sinais sem documentação de respaldo e comercialização de imóveis ainda não regularizados são práticas correntes no mercado imobiliário paraguaio. A mitigação é banal e inegociável: verificação dominial e jurídica por advogado local antes de qualquer assinatura ou sinal.</li>
+      <li><strong>Títulos falsos.</strong> Há investigação em curso, com repercussão no Brasil, sobre esquemas de títulos falsos no Paraguai. Certificado de condições de domínio atualizado na DGRP não é formalidade — é o item que separa negócio de prejuízo.</li>
+      <li><strong>Mão de obra técnica escassa.</strong> Vale tanto para indústria quanto para construção. Em cidade pequena com várias empresas do mesmo ramo, o técnico bom é disputado a salário crescente — parte da economia projetada evapora aí.</li>
+      <li><strong>Dependência do Brasil.</strong> 67% das exportações da maquila voltam para cá. Uma mudança de regra de origem, uma medida de defesa comercial ou uma reforma tributária brasileira que reequilibre a carga muda a equação do dia para a noite — e a reforma já está em implantação.</li>
+      <li><strong>Pressão política no Brasil.</strong> O tema já produziu estudo legislativo no Senado e manifestações de parlamentares sobre perda de empresas, empregos e arrecadação. É um regime exposto a resposta institucional.</li>
+      <li><strong>A trave fiscal brasileira.</strong> Repetindo, porque é o risco que mais frequentemente passa batido: controlada no exterior em regime de tributação favorecida faz o residente brasileiro pagar 15% sobre o lucro todo dia 31 de dezembro, distribuído ou não.</li>
+      <li><strong>Mercado interno pequeno.</strong> São cerca de 7 milhões de habitantes. O Paraguai funciona como plataforma de custo para exportar, não como mercado consumidor de escala.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Próximos passos</p>
+  <h2>As cinco perguntas para levar aos assessores</h2>
+  <div class="col">
+    <ul>
+      <li><strong>Ao tributarista:</strong> a maquila paraguaia caracteriza regime fiscal privilegiado para fins da Lei 14.754/2023 e da IN 1.037/2010? Qual o custo brasileiro efetivo, ano a ano, de manter a controlada?</li>
+      <li><strong>Ao tributarista / despachante:</strong> qual é, hoje, o percentual de conteúdo regional exigido para o produto voltar ao Brasil com imposto zero — 40%, 55% ou salto de NCM? A operação pretendida atinge esse índice?</li>
+      <li><strong>A um advogado paraguaio:</strong> a área pretendida está dentro dos 50 km de fronteira? É rural ou urbana? A residência permanente resolve, ou é caso de decreto do Executivo?</li>
+      <li><strong>A um advogado paraguaio:</strong> como estruturar a venda a prazo com a hipoteca da regra dos 25%, e qual o prazo real de aprovação municipal na comuna específica?</li>
+      <li><strong>Ao contador:</strong> qual a economia líquida <em>depois</em> da tributação brasileira, do custo de expatriar supervisão e da logística adicional? O número que interessa não é os 28% da Lupo — é o seu.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p class="foot"><strong>Documento de trabalho.</strong> Levantamento a partir de fontes públicas em 21 de agosto de 2026. Não é parecer jurídico, contábil ou tributário, e não substitui análise de advogado paraguaio e de especialista em tributação internacional antes de qualquer decisão de investimento. Números de imprensa foram mantidos com a atribuição da fonte; onde as fontes divergem, a divergência está registrada no texto.</p>
+  <h3>Fontes</h3>
+  <div class="srcs">
+    <a href="https://exame.com/bussola/como-a-lei-maquila-no-paraguai-esta-atraindo-empresas-brasileiras/">Exame — Lei da maquila atrai empresas brasileiras</a>
+    <a href="https://www.poder360.com.br/poder-economia/mais-de-230-empresas-brasileiras-ja-produzem-no-paraguai/">Poder360 — Mais de 230 empresas brasileiras produzem no Paraguai</a>
+    <a href="https://forbes.com.br/forbes-money/2026/06/empresas-brasileiras-paraguai-lei-de-maquila/">Forbes Brasil — Da ponte pra lá</a>
+    <a href="https://conjur.com.br/2026-mai-26/menos-impostos-e-energia-barata-levam-industrias-brasileiras-ao-paraguai/">Conjur — Menos impostos e energia barata</a>
+    <a href="https://timesbrasil.com.br/mundo/mais-de-200-empresas-brasileiras-migram-para-o-paraguai-e-reduzem-custos-em-ate-40/">Times Brasil/CNBC — Redução de custos de até 40%</a>
+    <a href="https://www.gazetadopovo.com.br/economia/empresas-brasileiras-paraguai-impostos-havan-lupo/">Gazeta do Povo — Da Lupo à Havan</a>
+    <a href="https://neofeed.com.br/negocios/lupo-vai-ter-fabrica-no-paraguai-e-engrossa-a-lista-de-empresas-brasileiras-que-investem-no-pais/">NeoFeed — Lupo terá fábrica no Paraguai</a>
+    <a href="https://www.h2foz.com.br/paraguai/fabrica-da-lupo-no-paraguai-saiba-mais/">H2Foz — A fábrica da Lupo no Paraguai</a>
+    <a href="https://ndmais.com.br/economia/negocios/grupo-dass-desembarca-no-paraguai-600-empregos/">ND+ — Grupo Dass e os 600 empregos</a>
+    <a href="https://www.nsctotal.com.br/colunistas/loetz/grupo-lunelli-cresce-e-vai-para-o-paraguai">NSC Total — Grupo Lunelli no Paraguai</a>
+    <a href="https://www.gazetadopovo.com.br/mundo/luciano-hang-loja-havan-paraguai/">Gazeta do Povo — Hang avalia expandir a Havan</a>
+    <a href="https://www.abc.com.py/negocios/2026/01/23/record-y-expansion-la-maquila-paraguaya-espera-un-2026-prometedor/">ABC Color — Maquila exportou US$ 1.300 milhões em 2025</a>
+    <a href="https://www.lanacion.com.py/negocios_edicion_impresa/2025/11/13/maquila-mas-de-usd-1000-millones-exportados-y-35000-empleos-directos/">La Nación PY — 35 mil empregos diretos na maquila</a>
+    <a href="https://www.mic.gov.py/maquila-a-febrero-del-2025-las-exportaciones-totales-ascienden-a-usd-197-millones-registrando-en-un-solo-mes-mas-de-1-500-nuevos-empleos-vinculados/">MIC Paraguai — Estatísticas da maquila</a>
+    <a href="https://www.migalhas.com.br/depeso/453833/maquila-no-paraguai-uma-analise-de-desempenho-e-perspectivas">Migalhas — Maquila: desempenho e perspectivas</a>
+    <a href="https://www.jusbrasil.com.br/artigos/a-lei-maquila-do-paraguai-lei-n-1064-97-e-suas-vantagens-para-os-empresarios-brasileiros-uma-analise-juridica/5730426596">Jusbrasil — Lei 1.064/97 e vantagens ao empresário brasileiro</a>
+    <a href="https://www12.senado.leg.br/publicacoes/estudos-legislativos/tipos-de-estudos/boletins-legislativos/bol67">Senado Federal — Instalação de indústrias brasileiras no Paraguai</a>
+    <a href="https://paraguaiguia.com/eis-trabalhistas-no-paraguai-custos/">Guia Paraguai — Leis trabalhistas, custos e encargos 2026</a>
+    <a href="https://paraguailivre.com/news/paraguai-salario-minimo-2026">Paraguai Livre — Salário mínimo de ₲ 3.044.000</a>
+    <a href="https://jornaldobras.com.br/noticia/122995/empresarios-e-trabalhadores-brasileiros-lideram-exodo-produtivo-para-o-paraguai">Jornal do Brás — Êxodo produtivo e dados de migração</a>
+    <a href="https://periodicosonline.uems.br/fronteiracidadania/article/download/4148/3292">UEMS — A deslocação de empresas brasileiras para o Paraguai</a>
+    <a href="https://viaparaguay.com/pt/guias/morar-no-paraguai-brasileiros-guia-2026">Via Paraguay — Residência para brasileiros, guia 2026</a>
+    <a href="https://www.bcp.gov.py/en/web/institucional/w/el-banco-central-del-paraguay-proyecta-un-crecimiento-del-pib-del-6-en-2025-y-del-4-2-en-2026-con-una-inflacion-que-convergeria-gradualmente-a-la-meta-del-3-5-en-2026">Banco Central do Paraguai — Projeções 2026</a>
+    <a href="https://www.bcp.gov.py/en/web/institucional/w/moodys-reafirma-la-calificacion-soberana-de-paraguay-en-grado-de-inversion-con-perspectiva-estable">BCP — Moody's reafirma o grau de investimento</a>
+    <a href="https://www.pv-magazine-latam.com/2026/02/26/precios-de-la-electricidad-en-el-cono-sur-uruguay-registra-la-tarifa-industrial-y-residencial-mas-alta-paraguay-la-mas-baja/">PV Magazine — Tarifas de energia no Cone Sul</a>
+    <a href="https://conteudos.xpi.com.br/economia/boletim-focus-inflacao-segue-em-alta-para-2027-e-2028-27-07-2026/">XP — Boletim Focus, projeções 2026-2028</a>
+    <a href="https://www.abc.com.py/economia/2026/07/17/paraguay-lidera-el-deficit-habitacional-regional-afecta-al-655-de-los-hogares/">ABC Color — Paraguai lidera o déficit habitacional regional</a>
+    <a href="https://www.lanacion.com.py/negocios/2026/07/23/mercado-inmobiliario-movilizara-cerca-de-usd-3000-millones-en-operaciones-en-2026/">La Nación PY — Mercado imobiliário e os US$ 3 bilhões</a>
+    <a href="https://www.abc.com.py/economia/2026/07/03/che-roga-pora-el-muvh-reporta-6100-creditos-preaprobados-para-vivienda/">ABC Color — Che Róga Porã e os créditos pré-aprovados</a>
+    <a href="https://www.estatenews.com.py/noticia/afd-impulsa-financiamiento-a-desarrolladores-para-ampliar-oferta-habitacional.html">EstateNews PY — AFD financia incorporadores a 9,9%</a>
+    <a href="https://www.ip.gov.py/ip/2025/03/13/empresarios-brasileros-apuestan-por-paraguay-con-inversiones-en-el-sector-inmobiliario/">Agencia IP — Brasileiros investem em loteamentos e moradia popular</a>
+    <a href="https://www.bacn.gov.py/leyes-paraguayas/2587/ley-n-1909-loteamientos">BACN — Lei nº 1.909/2002, De Loteamientos</a>
+    <a href="https://www.bacn.gov.py/leyes-paraguayas/3049/modifica-los-articulos-245-246-248-250-255-y-258-de-la-ley-n-396610-organica-municipal-modificada-por-la-ley-n-471512">BACN — Lei nº 5.346, altera a Lei Orgânica Municipal</a>
+    <a href="https://www.abc.com.py/nacionales/2026/01/20/compra-de-lote-a-plazos-se-puede-exigir-el-titulo-con-solo-el-25-pagado/">ABC Color — A regra dos 25% e a escritura</a>
+    <a href="https://www.bacn.gov.py/leyes-paraguayas/4025/ley-n-2532-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay">BACN — Lei nº 2.532/2005, Zona de Segurança Fronteiriça</a>
+    <a href="https://consultoria.com.py/extranjeros-propiedades-frontera-paraguay-guia-legal/">Cáceres &amp; Schneider — Estrangeiros e imóveis na zona de fronteira</a>
+    <a href="https://www.mef.gov.py/sites/default/files/2025-07/DICTAMEN%20JURIDICO%20N%C2%BA%2049_2025%20%20An%C3%A1lisis%20del%20Art%204%20de%20la%20Ley%20253205%20para%20la%20constituci%C3%B3n%20de%20sociedades%20en%20zona%20de%20seguridad%20fronteriza%20(3).pdf">MEF Paraguai — Dictamen jurídico nº 49/2025</a>
+    <a href="https://holacasa.com.py/que-impuestos-pagar-en-la-compraventa-de-inmuebles-en-paraguay/">HolaCasa — Impostos na compra e venda de imóveis, guia 2026</a>
+    <a href="https://inmovia.com.py/guia-completa-de-impuestos-inmobiliarios-en-paraguay-para-inversores-extranjeros-2025/">Inmovia — Impostos imobiliários para investidores estrangeiros</a>
+    <a href="https://www.mayerbrown.com/pt/insights/publications/2024/05/tax-law-highlights-taxation-of-offshore-assets-law-no-1475423">Mayer Brown — Tributação de ativos offshore, Lei 14.754/23</a>
+    <a href="https://transferpricingdigital.com.br/transfer-pricing/in-1037-paraiso-fiscal/">Transfer Pricing Digital — IN 1.037 e regimes fiscais privilegiados</a>
+    <a href="https://www.guiaparaguai.com/post/vale-a-pena-investir-em-im%C3%B3veis-no-paraguai-pre%C3%A7os-de-lotes-e-aluguel-no-paraguai">Guia Paraguai — Preços de lotes e aluguéis</a>
+  </div>
+</footer>
+
+</div>
