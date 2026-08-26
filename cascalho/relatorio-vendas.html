@@ -1,0 +1,790 @@
+<title>Cascalheira Grison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+
+<style>
+:root {
+  color-scheme: light;
+  --ground:      #f7f5f1;
+  --surface:     #fbfaf8;
+  --surface-2:   #f1eee8;
+  --ink:         #17140f;
+  --ink-2:       #57514a;
+  --ink-3:       #8b8479;
+  --rule:        #e2ddd3;
+  --rule-strong: #c9c1b3;
+  --accent:      #7d3a12;
+  --accent-soft: #f0e4da;
+  --s1: #2a78d6;  --s2: #eb6834;  --s3: #1baf7a;  --s4: #eda100;
+  --o1: #86b6ef;  --o2: #5598e7;  --o3: #2a78d6;  --o4: #1c5cab;  --o5: #104281;
+  --alerta:      #b8541b;
+  --alerta-bg:   #fbeee4;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground:      #100f0e;
+    --surface:     #191817;
+    --surface-2:   #221f1d;
+    --ink:         #f5f2ec;
+    --ink-2:       #c0b9ae;
+    --ink-3:       #8b8479;
+    --rule:        #2b2926;
+    --rule-strong: #403c37;
+    --accent:      #d98a52;
+    --accent-soft: #2c211a;
+    --s1: #3987e5;  --s2: #d95926;  --s3: #199e70;  --s4: #c98500;
+    --o1: #184f95;  --o2: #256abf;  --o3: #3987e5;  --o4: #6da7ec;  --o5: #9ec5f4;
+    --alerta:      #e59b63;
+    --alerta-bg:   #2a1f16;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground:      #100f0e;
+  --surface:     #191817;
+  --surface-2:   #221f1d;
+  --ink:         #f5f2ec;
+  --ink-2:       #c0b9ae;
+  --ink-3:       #8b8479;
+  --rule:        #2b2926;
+  --rule-strong: #403c37;
+  --accent:      #d98a52;
+  --accent-soft: #2c211a;
+  --s1: #3987e5;  --s2: #d95926;  --s3: #199e70;  --s4: #c98500;
+  --o1: #184f95;  --o2: #256abf;  --o3: #3987e5;  --o4: #6da7ec;  --o5: #9ec5f4;
+  --alerta:      #e59b63;
+  --alerta-bg:   #2a1f16;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.folha { max-width: 1080px; margin: 0 auto; padding: 0 28px 96px; }
+
+/* ---- masthead ------------------------------------------------------- */
+.masthead { padding: 72px 0 40px; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 18px;
+}
+.masthead h1 {
+  font-size: clamp(38px, 6vw, 62px); font-weight: 700; letter-spacing: -.028em;
+  line-height: 1.02; margin: 0 0 20px; text-wrap: balance; max-width: 16ch;
+}
+.dek {
+  font-family: Newsreader, Georgia, serif; font-size: 21px; line-height: 1.5;
+  color: var(--ink-2); margin: 0; max-width: 62ch;
+}
+.ficha {
+  display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 34px;
+  padding-top: 22px; border-top: 1px solid var(--rule);
+  font-size: 13px; color: var(--ink-3);
+}
+.ficha b { color: var(--ink-2); font-weight: 600; }
+
+/* ---- estratos: o separador de seção ecoa a pilha do pavimento -------- */
+.estrato { margin: 72px 0 34px; }
+.estrato::before {
+  content: ""; display: block; height: 4px; background: var(--accent);
+  width: 56px; margin-bottom: 3px;
+}
+.estrato::after {
+  content: ""; display: block; height: 1px; background: var(--rule-strong);
+}
+.estrato h2 {
+  font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  margin: 0 0 14px; color: var(--ink-2);
+}
+
+h3 {
+  font-size: 27px; font-weight: 600; letter-spacing: -.02em; line-height: 1.2;
+  margin: 0 0 14px; text-wrap: balance; max-width: 24ch;
+}
+p {
+  font-family: Newsreader, Georgia, serif; font-size: 18px; line-height: 1.62;
+  color: var(--ink-2); margin: 0 0 18px; max-width: 66ch;
+}
+p strong { color: var(--ink); font-weight: 500; }
+p.nota {
+  font-family: Archivo, system-ui, sans-serif; font-size: 13.5px;
+  line-height: 1.55; color: var(--ink-3); max-width: 74ch;
+}
+
+/* ---- aviso ----------------------------------------------------------- */
+.aviso {
+  background: var(--alerta-bg); border-left: 3px solid var(--alerta);
+  padding: 20px 24px; margin: 0 0 8px;
+}
+.aviso h4 {
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  margin: 0 0 8px; color: var(--alerta);
+}
+.aviso p { font-size: 16px; margin: 0 0 10px; color: var(--ink-2); max-width: 70ch; }
+.aviso p:last-child { margin-bottom: 0; }
+
+/* ---- placas de número ------------------------------------------------ */
+.placas {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+}
+.placa { background: var(--surface); padding: 22px 20px 20px; }
+.placa .rot {
+  font-size: 11px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0 0 10px;
+}
+.placa .val {
+  font-size: clamp(23px, 2.4vw, 30px); font-weight: 600; letter-spacing: -.03em; line-height: 1.05;
+  color: var(--ink); display: block;
+}
+.placa .val .un { font-size: 15px; font-weight: 500; color: var(--ink-3); letter-spacing: 0; }
+.placa .sub { font-size: 12.5px; color: var(--ink-3); margin: 9px 0 0; line-height: 1.4; }
+.placa.destaque .val { color: var(--accent); }
+
+/* ---- cartão de gráfico ----------------------------------------------- */
+.cartao {
+  background: var(--surface); border: 1px solid var(--rule);
+  padding: 26px 26px 20px; margin: 26px 0;
+}
+.cartao > h4 {
+  font-size: 16px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.01em;
+}
+.cartao > .sub {
+  font-size: 13.5px; color: var(--ink-3); margin: 0 0 22px; max-width: 72ch; line-height: 1.5;
+}
+.viz { width: 100%; overflow-x: auto; }
+.viz svg { display: block; }
+
+.legenda { display: flex; flex-wrap: wrap; gap: 7px 20px; margin: 0 0 18px; }
+.legenda span { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-2); }
+.legenda i { width: 11px; height: 11px; border-radius: 2px; flex: none; }
+
+/* ---- tabelas --------------------------------------------------------- */
+.rolagem { overflow-x: auto; margin: 22px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 520px; }
+caption {
+  text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3); padding-bottom: 10px;
+}
+th {
+  text-align: right; font-weight: 600; font-size: 11.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-3);
+  padding: 0 0 9px 18px; border-bottom: 1px solid var(--rule-strong);
+}
+th:first-child, td:first-child { text-align: left; padding-left: 0; }
+td {
+  text-align: right; padding: 9px 0 9px 18px; border-bottom: 1px solid var(--rule);
+  font-variant-numeric: tabular-nums; color: var(--ink-2);
+}
+td:first-child { color: var(--ink); }
+tbody tr:last-child td { border-bottom: 1px solid var(--rule-strong); }
+tfoot td { font-weight: 600; color: var(--ink); border-bottom: none; padding-top: 11px; }
+.pastilha {
+  display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .04em;
+  padding: 2px 8px; border-radius: 2px; background: var(--surface-2); color: var(--ink-2);
+  white-space: nowrap;
+}
+
+/* ---- achados --------------------------------------------------------- */
+.achados { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 26px 0; }
+.achado { background: var(--surface); padding: 24px 26px; display: grid; grid-template-columns: 46px 1fr; gap: 18px; }
+.achado .n {
+  font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--accent);
+  padding-top: 4px; font-variant-numeric: tabular-nums;
+}
+.achado h5 { font-size: 17px; font-weight: 600; margin: 0 0 7px; letter-spacing: -.01em; }
+.achado p { font-size: 15.5px; margin: 0; max-width: 68ch; }
+
+/* ---- pendências ------------------------------------------------------ */
+.pendencias { list-style: none; padding: 0; margin: 22px 0; }
+.pendencias li {
+  padding: 17px 0 17px 26px; border-bottom: 1px solid var(--rule);
+  font-size: 15.5px; color: var(--ink-2); position: relative; max-width: 74ch;
+}
+.pendencias li::before {
+  content: ""; position: absolute; left: 0; top: 26px;
+  width: 9px; height: 1px; background: var(--accent);
+}
+.pendencias li b { color: var(--ink); font-weight: 600; }
+
+/* ---- tooltip --------------------------------------------------------- */
+#dica {
+  position: fixed; pointer-events: none; opacity: 0; transition: opacity .1s;
+  background: var(--ink); color: var(--ground); padding: 9px 12px;
+  font-size: 12.5px; line-height: 1.45; border-radius: 3px; z-index: 60;
+  font-variant-numeric: tabular-nums; max-width: 260px;
+}
+#dica b { display: block; font-size: 13px; margin-bottom: 3px; color: var(--ground); }
+
+.marca:hover { opacity: .82; }
+.marca { transition: opacity .1s; }
+
+/* ---- rodapé ---------------------------------------------------------- */
+footer {
+  margin-top: 76px; padding-top: 26px; border-top: 1px solid var(--rule-strong);
+  font-size: 12.5px; color: var(--ink-3); line-height: 1.6; max-width: 74ch;
+}
+footer b { color: var(--ink-2); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (max-width: 860px) { .placas { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .placas { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .folha { padding: 0 18px 64px; }
+  .masthead { padding: 48px 0 32px; }
+  .achado { grid-template-columns: 1fr; gap: 6px; }
+}
+</style>
+
+<div id="dica" role="status" aria-live="polite"></div>
+
+<div class="folha">
+
+<header class="masthead">
+  <p class="eyebrow">Grupo Grison · Cascalheira · Palmas/TO</p>
+  <h1>De onde vem o dinheiro do cascalho</h1>
+  <p class="dek">Análise do histórico completo de vendas, segmentado por tipo de cliente e por
+    modalidade de entrega — a base para decidir se a parceria de extração na área do vizinho
+    se paga.</p>
+  <div class="ficha">
+    <span><b>Fonte</b> relatório de vendas por cliente e produto</span>
+    <span><b>Emitido</b> 26/08/2026</span>
+    <span><b>Escopo</b> acumulado desde o início da operação</span>
+    <span><b>Registros</b> 342 linhas · 289 clientes</span>
+  </div>
+</header>
+
+<section>
+  <div class="aviso">
+    <h4>Duas ressalvas antes dos números</h4>
+    <p><b>O relatório não tem data.</b> É um consolidado de todo o período, sem coluna de emissão.
+      Nada aqui mostra evolução, tendência ou sazonalidade — e sazonalidade pesa muito em
+      cascalho, porque a chuva para a extração. Onde aparece um valor por ano, é o acumulado
+      dividido por três anos de operação, e está marcado como estimativa.</p>
+    <p><b>A venda de lotes ficou fora.</b> O relatório mistura a cascalheira com onze lançamentos
+      de frações do loteamento Serra Bella, que somam R$&nbsp;1.955.015,65 e não têm nenhuma
+      relação com extração. Foram removidos integralmente.</p>
+  </div>
+</section>
+
+<div class="estrato"><h2>O tamanho da operação</h2></div>
+
+<div class="placas" id="placas"></div>
+
+<p class="nota" style="margin-top:16px">Receita própria é o faturamento menos o frete que a
+  cascalheira cobra do cliente e repassa inteiro ao caminhoneiro. Só a receita própria fica na
+  empresa, e é sobre ela que os custos de extração precisam caber.</p>
+
+<div class="estrato"><h2>Canal de venda</h2></div>
+
+<h3>Metade do dinheiro sai pelo portão, sem ninguém entregar nada</h3>
+
+<p>A operação vende de quatro jeitos diferentes, e eles não têm nada a ver um com o outro. Na
+  <strong>retirada</strong>, o cliente encosta o caminhão no pátio e leva — é o caminhoneiro que
+  revende, o pedreiro com carreto, a locadora. No <strong>granel</strong>, a obra compra por metro
+  cúbico e leva com frota própria: são três clientes só, e um deles sozinho é um quarto de tudo.
+  Na <strong>entrega</strong>, a cascalheira fecha o frete junto com o material. E há um único
+  <strong>contrato fechado</strong>, lançado a preço cheio numa linha só.</p>
+
+<div class="cartao">
+  <h4>Receita própria por canal</h4>
+  <p class="sub">Já descontado o frete repassado. Passe o mouse para ver o faturamento bruto de
+    cada canal.</p>
+  <div class="viz" id="g-canal"></div>
+</div>
+
+<p class="nota">O contrato fechado é uma venda única lançada em uma só linha, sem quantidade
+  real de material — por isso o volume e o valor por m³ dessa linha não são comparáveis aos
+  demais canais.</p>
+
+<div class="rolagem">
+  <table id="t-canal">
+    <caption>Canal de venda em números</caption>
+    <thead><tr><th>Canal</th><th>Faturamento</th><th>Frete repassado</th><th>Receita própria</th><th>Volume m³</th><th>Clientes</th><th>R$/m³ próprio</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="estrato"><h2>A conta do frete</h2></div>
+
+<h3>A venda entregue parece a mais cara e é a que menos rende</h3>
+
+<p>Cada produto tem dois preços bem separados no sistema: o preço de pátio e o preço entregue.
+  O Aterro 12m³ sai a <strong>R$&nbsp;153</strong> no pátio e a <strong>R$&nbsp;390</strong>
+  entregue; o Sub Base 12m³, a R$&nbsp;250 e R$&nbsp;480. A diferença não é margem — é o frete,
+  que vai inteiro para o caminhoneiro. Descontando esse repasse, os três canais rendem
+  praticamente o mesmo por metro cúbico.</p>
+
+<div class="cartao">
+  <h4>R$ por m³ — antes e depois do frete</h4>
+  <p class="sub">O preço entregue é quase três vezes o de pátio. O que sobra para a cascalheira
+    é o mesmo nos três canais.</p>
+  <div class="legenda" id="l-m3"></div>
+  <div class="viz" id="g-m3"></div>
+</div>
+
+<p><strong>A consequência prática:</strong> 139 clientes — quase metade da carteira — compram na
+  modalidade entrega e produzem <strong>R$&nbsp;43.809</strong> de receita própria, 4,4% do total.
+  Cada venda entregue dá o mesmo trabalho de atendimento, cobrança e nota que uma venda grande, e
+  rende o mesmo por m³ de uma retirada. É o canal que consome mais operação por real que entra.</p>
+
+<div class="estrato"><h2>Quem compra</h2></div>
+
+<h3>Dezesseis construtoras valem tanto quanto 241 pessoas físicas</h3>
+
+<p>Tipo de cliente e modalidade são coisas independentes, e o cruzamento mostra isso: há
+  construtora que retira com frota própria, há construtora que quer o material posto na obra, e
+  há pessoa física nos dois lados. Quem manda no faturamento é a construtora comprando a granel;
+  quem sustenta o giro do dia a dia é a pessoa física retirando no pátio.</p>
+
+<div class="cartao">
+  <h4>Tipo de cliente × modalidade</h4>
+  <p class="sub">Receita própria. As barras somam o total de cada tipo de cliente.</p>
+  <div class="legenda" id="l-cruz"></div>
+  <div class="viz" id="g-cruz"></div>
+</div>
+
+<div class="estrato"><h2>Concentração</h2></div>
+
+<h3>Cinco clientes respondem por quase metade do faturamento</h3>
+
+<p>A Sollus Construtora sozinha é <strong>26,8%</strong> de tudo. Somada à Prefeitura de Palmas,
+  as duas somam <strong>38,8%</strong>. Do outro lado da curva, 126 clientes compraram uma única
+  carga na vida inteira da operação. Uma carteira desse formato é confortável enquanto as duas
+  contas grandes estão comprando, e perigosa no dia em que uma delas para — o que é exatamente o
+  risco que uma parceria de longo prazo com investimento em licenciamento precisa suportar.</p>
+
+<div class="cartao">
+  <h4>Curva de concentração</h4>
+  <p class="sub">Participação acumulada no faturamento, do maior cliente para o menor.</p>
+  <div class="viz" id="g-pareto"></div>
+</div>
+
+<div class="rolagem">
+  <table id="t-top">
+    <caption>Dez maiores clientes</caption>
+    <thead><tr><th>Cliente</th><th>Tipo</th><th>Canal</th><th>Faturamento</th><th>Volume m³</th><th>% do total</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="cartao">
+  <h4>Recorrência da carteira</h4>
+  <p class="sub">Clientes por volume total comprado, em cargas equivalentes de 12m³.</p>
+  <div class="viz" id="g-recor"></div>
+</div>
+
+<div class="estrato"><h2>Produto</h2></div>
+
+<h3>O produto é a própria pilha do pavimento</h3>
+
+<p>Aterro, sub base e base são as três camadas de uma pavimentação, da mais barata e volumosa
+  para a mais nobre. O aterro é <strong>52% do volume</strong> e o produto de menor valor por m³ —
+  R$&nbsp;12,69 na carga de 12m³, contra R$&nbsp;23,59 do sub base do mesmo tamanho. Subir o mix na
+  direção do sub base é a alavanca de preço que a operação tem sem depender de cliente novo.</p>
+
+<div class="rolagem">
+  <table id="t-prod">
+    <caption>Produtos vendidos</caption>
+    <thead><tr><th>Produto</th><th>Receita própria</th><th>Volume m³</th><th>R$/m³</th><th>Clientes</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="estrato"><h2>O que isso significa para a parceria</h2></div>
+
+<div class="achados">
+  <div class="achado">
+    <div class="n">01</div>
+    <div>
+      <h5>O parâmetro que interessa é R$&nbsp;15,23 por m³</h5>
+      <p>É o que a cascalheira embolsa por metro cúbico vendido, líquido de frete, na média de
+        todos os canais. Todo custo da nova área — royalty ao vizinho, ANM, licenciamento,
+        máquina, combustível, mão de obra e recuperação — precisa caber dentro desse número.
+        Um royalty de 20% sobre a receita própria consome R$&nbsp;3,05 por m³.</p>
+    </div>
+  </div>
+  <div class="achado">
+    <div class="n">02</div>
+    <div>
+      <h5>A operação gira cerca de 21.600 m³ por ano</h5>
+      <p>São 64.869 m³ acumulados em aproximadamente três anos. Esse é o número que dimensiona a
+        nova área: uma jazida precisa ter volume aproveitável para vários anos nesse ritmo para
+        justificar o custo fixo de licenciamento e o passivo de recuperação. Confirmar o ritmo
+        real com o relatório datado é o primeiro passo antes de negociar prazo.</p>
+    </div>
+  </div>
+  <div class="achado">
+    <div class="n">03</div>
+    <div>
+      <h5>Vender entregue não melhora a margem</h5>
+      <p>O canal entrega rende R$&nbsp;14,43/m³ próprio contra R$&nbsp;14,26 da retirada — mesmo
+        patamar, com toda a operação de frete no meio. Se a parceria aumentar a distância até o
+        cliente, o frete sobe e essa igualdade se desfaz contra a entrega. A nova área ser mais
+        longe da cidade tem efeito direto no canal que já é o mais fraco.</p>
+    </div>
+  </div>
+  <div class="achado">
+    <div class="n">04</div>
+    <div>
+      <h5>Quase nada sai com nota</h5>
+      <p>De R$&nbsp;1.042.113 de material, R$&nbsp;40.135 foram faturados com nota fiscal — 3,9%.
+        Uma operação com registro na ANM, licença ambiental e contrato de royalty com terceiro
+        passa a ter obrigações de escrituração, CFEM e comprovação de origem do minério que a
+        operação informal de hoje não tem. Esse é um custo de conformidade a levantar com o
+        contador antes de assinar, não depois.</p>
+    </div>
+  </div>
+  <div class="achado">
+    <div class="n">05</div>
+    <div>
+      <h5>Dois clientes seguram quase 40% do faturamento</h5>
+      <p>Sollus e Prefeitura de Palmas. Contrato de prefeitura muda com gestão e com licitação;
+        obra de construtora acaba. Antes de assumir royalty de longo prazo e passivo de
+        recuperação de área, vale saber se essas duas contas têm horizonte — e o que sobra da
+        operação sem elas: R$&nbsp;583.671 acumulados, ou R$&nbsp;195 mil por ano.</p>
+    </div>
+  </div>
+</div>
+
+<div class="estrato"><h2>Para fechar a conta</h2></div>
+
+<p>Esta rodada olhou só a receita. Para responder se a parceria vale a pena faltam duas coisas —
+  uma que está no sistema e outra que está com você.</p>
+
+<ul class="pendencias">
+  <li><b>O relatório de vendas com data de emissão.</b> Sem ele não há série mensal, não dá para
+    medir sazonalidade nem ver se a operação está crescendo ou encolhendo — e a decisão de
+    investir em licenciamento depende da tendência, não da média.</li>
+  <li><b>Os custos reais da operação de hoje.</b> Escavadeira e trator (próprios ou alugados, com
+    horas e combustível), mão de obra, manutenção, energia e a parcela de administração. Com o
+    custo por m³ de hoje, o cálculo da área nova é subtração.</li>
+  <li><b>Os números da nova área.</b> O percentual e a base de cálculo do royalty ao vizinho — 20%
+    sobre faturamento bruto e 20% sobre receita própria são contas muito diferentes —, o volume
+    estimado da jazida, a distância até o pátio e até os clientes, e o prazo do contrato.</li>
+  <li><b>O custo de entrar na ANM e sair dela.</b> Licenciamento, taxas, CFEM, o plano de
+    recuperação da área degradada e a garantia exigida. É custo que aparece no começo e no fim, e
+    não some se a jazida render menos que o esperado.</li>
+</ul>
+
+<footer>
+  <p style="font-family:inherit;font-size:inherit;color:inherit;max-width:none">
+  <b>Documento de trabalho.</b> Análise interna preparada a partir do relatório de vendas exportado
+  do sistema em 26/08/2026. Não é parecer contábil, tributário nem de viabilidade mineral. A
+  segmentação por modalidade é inferida da faixa de preço de cada produto, não de um campo de
+  cadastro, e o frete repassado é uma estimativa pela diferença entre o preço entregue e o preço
+  de pátio do mesmo produto — os dois critérios estão descritos no script que gera estes números e
+  devem ser conferidos contra a operação real. As conclusões dependem de custos que ainda não
+  foram levantados. Antes de qualquer decisão sobre a parceria, submeter a análise ao contador do
+  grupo e a um especialista em direito minerário e ambiental.</p>
+</footer>
+
+</div>
+
+<script id="dados" type="application/json">{"fonte":{"linhas_material":342,"clientes":289,"fracoes_excluidas":{"linhas":11,"valor":1955015.65},"sem_data":true},"precos":{"limiar_entrega":{"Aterro 06m³":205.0,"Aterro 12m³":249.0,"Sub Base 06m³":235.0,"Sub Base 12m³":325.0},"patio":{"Aterro 06m³":130.0,"Aterro 12m³":153.33,"Sub Base 06m³":165.0,"Sub Base 12m³":250.0}},"totais":{"faturamento":1042113.0,"frete_repassado":54184.69,"receita_propria":987928.31,"m3":64869.08,"preco_medio_m3":16.06,"receita_propria_m3":15.23,"ticket_medio_cliente":3605.93,"valor_faturado_nf":40135.0},"por_produto":{"Aterro 12m³":{"faturamento":452796.0,"frete_repassado":44339.69,"receita_propria":408456.31,"m3":32188.0,"linhas":231,"clientes":231,"preco_m3":14.07,"receita_propria_m3":12.69},"Cascalho Sub Base":{"faturamento":362363.0,"frete_repassado":0.0,"receita_propria":362363.0,"m3":22778.0,"linhas":2,"clientes":2,"preco_m3":15.91,"receita_propria_m3":15.91},"Sub Base 12m³":{"faturamento":165638.0,"frete_repassado":6729.0,"receita_propria":158909.0,"m3":6737.08,"linhas":56,"clientes":56,"preco_m3":24.59,"receita_propria_m3":23.59},"Aterro de Argila":{"faturamento":20590.0,"frete_repassado":0.0,"receita_propria":20590.0,"m3":1420.0,"linhas":1,"clientes":1,"preco_m3":14.5,"receita_propria_m3":14.5},"Cascalho Base":{"faturamento":19680.0,"frete_repassado":0.0,"receita_propria":19680.0,"m3":984.0,"linhas":1,"clientes":1,"preco_m3":20.0,"receita_propria_m3":20.0},"Aterro 06m³":{"faturamento":10981.0,"frete_repassado":1761.0,"receita_propria":9220.0,"m3":426.0,"linhas":31,"clientes":31,"preco_m3":25.78,"receita_propria_m3":21.64},"Sub Base 06m³":{"faturamento":8160.0,"frete_repassado":1355.0,"receita_propria":6805.0,"m3":252.0,"linhas":16,"clientes":16,"preco_m3":32.38,"receita_propria_m3":27.0},"Cascalho Base 12m³":{"faturamento":1505.0,"frete_repassado":0.0,"receita_propria":1505.0,"m3":60.0,"linhas":3,"clientes":3,"preco_m3":25.08,"receita_propria_m3":25.08},"frete ( Nermisio)":{"faturamento":400.0,"frete_repassado":0.0,"receita_propria":400.0,"m3":24.0,"linhas":1,"clientes":1,"preco_m3":16.67,"receita_propria_m3":16.67}},"por_modalidade":{"Retirada":{"faturamento":520772.0,"frete_repassado":0.0,"receita_propria":520772.0,"m3":36526.08,"linhas":189,"clientes":149,"preco_m3":14.26,"receita_propria_m3":14.26},"Granel":{"faturamento":404307.0,"frete_repassado":0.0,"receita_propria":404307.0,"m3":25295.0,"linhas":6,"clientes":3,"preco_m3":15.98,"receita_propria_m3":15.98},"Entrega":{"faturamento":97994.0,"frete_repassado":54184.69,"receita_propria":43809.31,"m3":3036.0,"linhas":146,"clientes":139,"preco_m3":32.28,"receita_propria_m3":14.43},"Contrato fechado":{"faturamento":19040.0,"frete_repassado":0.0,"receita_propria":19040.0,"m3":12.0,"linhas":1,"clientes":1,"preco_m3":1586.67,"receita_propria_m3":1586.67}},"por_tipo":{"Pessoa física":{"faturamento":396756.0,"frete_repassado":44237.88,"receita_propria":352518.12,"m3":26261.08,"linhas":272,"clientes":241,"preco_m3":15.11,"receita_propria_m3":13.42},"Construtora":{"faturamento":367870.0,"frete_repassado":3705.05,"receita_propria":364164.95,"m3":22062.0,"linhas":24,"clientes":16,"preco_m3":16.67,"receita_propria_m3":16.51},"Poder público":{"faturamento":126497.0,"frete_repassado":0.0,"receita_propria":126497.0,"m3":6790.0,"linhas":5,"clientes":2,"preco_m3":18.63,"receita_propria_m3":18.63},"Empresa (outros)":{"faturamento":116775.0,"frete_repassado":6241.76,"receita_propria":110533.24,"m3":7278.0,"linhas":34,"clientes":24,"preco_m3":16.04,"receita_propria_m3":15.19},"Locadora de máquinas":{"faturamento":34215.0,"frete_repassado":0.0,"receita_propria":34215.0,"m3":2478.0,"linhas":7,"clientes":6,"preco_m3":13.81,"receita_propria_m3":13.81}},"cruzamento":[{"tipo":"Pessoa física","modalidade":"Retirada","faturamento":317752.0,"m3":23860.08,"receita_propria":317752.0},{"tipo":"Construtora","modalidade":"Granel","faturamento":279360.0,"m3":18624.0,"receita_propria":279360.0},{"tipo":"Poder público","modalidade":"Granel","faturamento":124897.0,"m3":6670.0,"receita_propria":124897.0},{"tipo":"Empresa (outros)","modalidade":"Retirada","faturamento":104120.0,"m3":6840.0,"receita_propria":104120.0},{"tipo":"Pessoa física","modalidade":"Entrega","faturamento":78954.0,"m3":2400.0,"receita_propria":34716.12},{"tipo":"Construtora","modalidade":"Retirada","faturamento":63085.0,"m3":3228.0,"receita_propria":63085.0},{"tipo":"Locadora de máquinas","modalidade":"Retirada","faturamento":34215.0,"m3":2478.0,"receita_propria":34215.0},{"tipo":"Construtora","modalidade":"Contrato fechado","faturamento":19040.0,"m3":12.0,"receita_propria":19040.0},{"tipo":"Empresa (outros)","modalidade":"Entrega","faturamento":12655.0,"m3":438.0,"receita_propria":6413.24},{"tipo":"Construtora","modalidade":"Entrega","faturamento":6385.0,"m3":198.0,"receita_propria":2679.95},{"tipo":"Poder público","modalidade":"Retirada","faturamento":1600.0,"m3":120.0,"receita_propria":1600.0},{"tipo":"Pessoa física","modalidade":"Granel","faturamento":50.0,"m3":1.0,"receita_propria":50.0}],"top_clientes":[{"nome":"Sollus Construtora E Incorporadora Ltda - Canarana/MT","tipo":"Construtora","faturamento":279360.0,"m3":18624.0,"preco_m3":15.0,"modalidade":"Granel"},{"nome":"Prefeitura de Palmas","tipo":"Poder público","faturamento":124897.0,"m3":6670.0,"preco_m3":18.73,"modalidade":"Granel"},{"nome":"AUTO POSTO VITAL COMERCIO DE COMBUSTIVEIS LTDA","tipo":"Empresa (outros)","faturamento":32000.0,"m3":1536.0,"preco_m3":20.83,"modalidade":"Retirada"},{"nome":"Coceno Construtora Centro Norte Ltda","tipo":"Construtora","faturamento":30750.0,"m3":1476.0,"preco_m3":20.83,"modalidade":"Retirada"},{"nome":"Valdemir Silva Lima","tipo":"Pessoa física","faturamento":25619.0,"m3":1980.0,"preco_m3":12.94,"modalidade":"Retirada"},{"nome":"Nermisio Alves Da Silva","tipo":"Pessoa física","faturamento":20450.0,"m3":1572.0,"preco_m3":13.01,"modalidade":"Retirada"},{"nome":"Gessivaldo Mesquita","tipo":"Pessoa física","faturamento":19679.0,"m3":1440.0,"preco_m3":13.67,"modalidade":"Retirada"},{"nome":"Rafael Bobcat","tipo":"Pessoa física","faturamento":19300.0,"m3":1476.0,"preco_m3":13.08,"modalidade":"Retirada"},{"nome":"Construtora Alja Ltda","tipo":"Construtora","faturamento":19040.0,"m3":12.0,"preco_m3":1586.67,"modalidade":"Contrato fechado"},{"nome":"Wanderson Rego Matos","tipo":"Pessoa física","faturamento":18145.0,"m3":1410.0,"preco_m3":12.87,"modalidade":"Retirada"},{"nome":"S. M. P. BORGES LTDA","tipo":"Empresa (outros)","faturamento":14950.0,"m3":780.0,"preco_m3":19.17,"modalidade":"Retirada"},{"nome":"Marco Pupis Bezerra Coelho","tipo":"Pessoa física","faturamento":13630.0,"m3":1056.0,"preco_m3":12.91,"modalidade":"Retirada"},{"nome":"Márcio Rodrigues Oliveira","tipo":"Empresa (outros)","faturamento":12720.0,"m3":960.0,"preco_m3":13.25,"modalidade":"Retirada"},{"nome":"Prates Locações de Máquinas e Equipamentos Ltda","tipo":"Pessoa física","faturamento":12600.0,"m3":1080.0,"preco_m3":11.67,"modalidade":"Retirada"},{"nome":"Robert De Carvalho Rocha","tipo":"Pessoa física","faturamento":12095.0,"m3":942.0,"preco_m3":12.84,"modalidade":"Retirada"},{"nome":"Unilson Goncalves De Sousa","tipo":"Pessoa física","faturamento":10830.0,"m3":846.0,"preco_m3":12.8,"modalidade":"Retirada"},{"nome":"Fabim Materiais Para Construcao Ltda","tipo":"Construtora","faturamento":10750.0,"m3":630.0,"preco_m3":17.06,"modalidade":"Retirada"},{"nome":"Guim Locacao De Maquinas E Equipamentos Ltda","tipo":"Locadora de máquinas","faturamento":10650.0,"m3":840.0,"preco_m3":12.68,"modalidade":"Retirada"},{"nome":"Lm Locações Mundial Ltda","tipo":"Locadora de máquinas","faturamento":10445.0,"m3":822.0,"preco_m3":12.71,"modalidade":"Retirada"},{"nome":"Domingos Rodrigues De Oliveira","tipo":"Pessoa física","faturamento":8870.0,"m3":696.0,"preco_m3":12.74,"modalidade":"Retirada"}],"pareto":[{"n":1,"pct":26.81},{"n":2,"pct":38.79},{"n":3,"pct":41.86},{"n":4,"pct":44.81},{"n":5,"pct":47.27},{"n":6,"pct":49.23},{"n":7,"pct":51.12},{"n":8,"pct":52.97},{"n":9,"pct":54.8},{"n":10,"pct":56.54},{"n":11,"pct":57.98},{"n":12,"pct":59.29},{"n":13,"pct":60.51},{"n":14,"pct":61.71},{"n":15,"pct":62.88},{"n":16,"pct":63.91},{"n":17,"pct":64.95},{"n":18,"pct":65.97},{"n":19,"pct":66.97},{"n":20,"pct":67.82},{"n":21,"pct":68.64},{"n":22,"pct":69.37},{"n":23,"pct":70.03},{"n":24,"pct":70.69},{"n":25,"pct":71.34},{"n":26,"pct":71.98},{"n":27,"pct":72.61},{"n":28,"pct":73.21},{"n":29,"pct":73.81},{"n":30,"pct":74.41},{"n":31,"pct":74.99},{"n":32,"pct":75.56},{"n":33,"pct":76.13},{"n":34,"pct":76.7},{"n":35,"pct":77.23},{"n":36,"pct":77.75},{"n":37,"pct":78.27},{"n":38,"pct":78.77},{"n":39,"pct":79.26},{"n":40,"pct":79.74},{"n":41,"pct":80.18},{"n":42,"pct":80.62},{"n":43,"pct":81.03},{"n":44,"pct":81.41},{"n":45,"pct":81.8},{"n":46,"pct":82.16},{"n":47,"pct":82.52},{"n":48,"pct":82.87},{"n":49,"pct":83.21},{"n":50,"pct":83.54},{"n":51,"pct":83.86},{"n":52,"pct":84.19},{"n":53,"pct":84.49},{"n":54,"pct":84.77},{"n":55,"pct":85.04},{"n":56,"pct":85.31},{"n":57,"pct":85.57},{"n":58,"pct":85.82},{"n":59,"pct":86.05},{"n":60,"pct":86.26},{"n":61,"pct":86.47},{"n":62,"pct":86.67},{"n":63,"pct":86.86},{"n":64,"pct":87.06},{"n":65,"pct":87.25},{"n":66,"pct":87.43},{"n":67,"pct":87.61},{"n":68,"pct":87.78},{"n":69,"pct":87.95},{"n":70,"pct":88.11},{"n":71,"pct":88.26},{"n":72,"pct":88.42},{"n":73,"pct":88.57},{"n":74,"pct":88.73},{"n":75,"pct":88.87},{"n":76,"pct":89.01},{"n":77,"pct":89.16},{"n":78,"pct":89.3},{"n":79,"pct":89.44},{"n":80,"pct":89.58},{"n":81,"pct":89.72},{"n":82,"pct":89.85},{"n":83,"pct":89.98},{"n":84,"pct":90.11},{"n":85,"pct":90.24},{"n":86,"pct":90.36},{"n":87,"pct":90.48},{"n":88,"pct":90.6},{"n":89,"pct":90.72},{"n":90,"pct":90.84},{"n":91,"pct":90.95},{"n":92,"pct":91.07},{"n":93,"pct":91.18},{"n":94,"pct":91.29},{"n":95,"pct":91.39},{"n":96,"pct":91.5},{"n":97,"pct":91.6},{"n":98,"pct":91.7},{"n":99,"pct":91.8},{"n":100,"pct":91.9},{"n":101,"pct":92.0},{"n":102,"pct":92.1},{"n":103,"pct":92.2},{"n":104,"pct":92.3},{"n":105,"pct":92.39},{"n":106,"pct":92.48},{"n":107,"pct":92.57},{"n":108,"pct":92.66},{"n":109,"pct":92.74},{"n":110,"pct":92.83},{"n":111,"pct":92.91},{"n":112,"pct":92.98},{"n":113,"pct":93.06},{"n":114,"pct":93.14},{"n":115,"pct":93.21},{"n":116,"pct":93.29},{"n":117,"pct":93.36},{"n":118,"pct":93.44},{"n":119,"pct":93.51},{"n":120,"pct":93.59},{"n":121,"pct":93.66},{"n":122,"pct":93.73},{"n":123,"pct":93.8},{"n":124,"pct":93.87},{"n":125,"pct":93.94},{"n":126,"pct":94.01},{"n":127,"pct":94.08},{"n":128,"pct":94.14},{"n":129,"pct":94.21},{"n":130,"pct":94.28},{"n":131,"pct":94.34},{"n":132,"pct":94.41},{"n":133,"pct":94.47},{"n":134,"pct":94.53},{"n":135,"pct":94.59},{"n":136,"pct":94.66},{"n":137,"pct":94.71},{"n":138,"pct":94.77},{"n":139,"pct":94.83},{"n":140,"pct":94.89},{"n":141,"pct":94.94},{"n":142,"pct":95.0},{"n":143,"pct":95.06},{"n":144,"pct":95.11},{"n":145,"pct":95.17},{"n":146,"pct":95.22},{"n":147,"pct":95.27},{"n":148,"pct":95.32},{"n":149,"pct":95.36},{"n":150,"pct":95.41},{"n":151,"pct":95.46},{"n":152,"pct":95.51},{"n":153,"pct":95.55},{"n":154,"pct":95.6},{"n":155,"pct":95.65},{"n":156,"pct":95.7},{"n":157,"pct":95.74},{"n":158,"pct":95.79},{"n":159,"pct":95.83},{"n":160,"pct":95.88},{"n":161,"pct":95.92},{"n":162,"pct":95.97},{"n":163,"pct":96.01},{"n":164,"pct":96.05},{"n":165,"pct":96.1},{"n":166,"pct":96.14},{"n":167,"pct":96.18},{"n":168,"pct":96.23},{"n":169,"pct":96.27},{"n":170,"pct":96.31},{"n":171,"pct":96.35},{"n":172,"pct":96.4},{"n":173,"pct":96.44},{"n":174,"pct":96.48},{"n":175,"pct":96.52},{"n":176,"pct":96.56},{"n":177,"pct":96.61},{"n":178,"pct":96.65},{"n":179,"pct":96.69},{"n":180,"pct":96.73},{"n":181,"pct":96.77},{"n":182,"pct":96.81},{"n":183,"pct":96.85},{"n":184,"pct":96.89},{"n":185,"pct":96.93},{"n":186,"pct":96.97},{"n":187,"pct":97.01},{"n":188,"pct":97.05},{"n":189,"pct":97.08},{"n":190,"pct":97.12},{"n":191,"pct":97.16},{"n":192,"pct":97.2},{"n":193,"pct":97.24},{"n":194,"pct":97.28},{"n":195,"pct":97.31},{"n":196,"pct":97.35},{"n":197,"pct":97.39},{"n":198,"pct":97.43},{"n":199,"pct":97.47},{"n":200,"pct":97.5},{"n":201,"pct":97.54},{"n":202,"pct":97.58},{"n":203,"pct":97.62},{"n":204,"pct":97.65},{"n":205,"pct":97.69},{"n":206,"pct":97.73},{"n":207,"pct":97.77},{"n":208,"pct":97.8},{"n":209,"pct":97.84},{"n":210,"pct":97.88},{"n":211,"pct":97.92},{"n":212,"pct":97.95},{"n":213,"pct":97.99},{"n":214,"pct":98.03},{"n":215,"pct":98.06},{"n":216,"pct":98.1},{"n":217,"pct":98.14},{"n":218,"pct":98.17},{"n":219,"pct":98.21},{"n":220,"pct":98.24},{"n":221,"pct":98.28},{"n":222,"pct":98.31},{"n":223,"pct":98.35},{"n":224,"pct":98.39},{"n":225,"pct":98.42},{"n":226,"pct":98.46},{"n":227,"pct":98.49},{"n":228,"pct":98.52},{"n":229,"pct":98.56},{"n":230,"pct":98.59},{"n":231,"pct":98.62},{"n":232,"pct":98.66},{"n":233,"pct":98.69},{"n":234,"pct":98.73},{"n":235,"pct":98.76},{"n":236,"pct":98.79},{"n":237,"pct":98.82},{"n":238,"pct":98.86},{"n":239,"pct":98.89},{"n":240,"pct":98.92},{"n":241,"pct":98.95},{"n":242,"pct":98.98},{"n":243,"pct":99.01},{"n":244,"pct":99.04},{"n":245,"pct":99.07},{"n":246,"pct":99.1},{"n":247,"pct":99.13},{"n":248,"pct":99.16},{"n":249,"pct":99.19},{"n":250,"pct":99.22},{"n":251,"pct":99.25},{"n":252,"pct":99.28},{"n":253,"pct":99.31},{"n":254,"pct":99.34},{"n":255,"pct":99.37},{"n":256,"pct":99.39},{"n":257,"pct":99.42},{"n":258,"pct":99.45},{"n":259,"pct":99.48},{"n":260,"pct":99.51},{"n":261,"pct":99.54},{"n":262,"pct":99.56},{"n":263,"pct":99.59},{"n":264,"pct":99.61},{"n":265,"pct":99.64},{"n":266,"pct":99.66},{"n":267,"pct":99.68},{"n":268,"pct":99.7},{"n":269,"pct":99.72},{"n":270,"pct":99.73},{"n":271,"pct":99.75},{"n":272,"pct":99.76},{"n":273,"pct":99.78},{"n":274,"pct":99.79},{"n":275,"pct":99.81},{"n":276,"pct":99.82},{"n":277,"pct":99.84},{"n":278,"pct":99.85},{"n":279,"pct":99.87},{"n":280,"pct":99.89},{"n":281,"pct":99.9},{"n":282,"pct":99.91},{"n":283,"pct":99.93},{"n":284,"pct":99.94},{"n":285,"pct":99.96},{"n":286,"pct":99.97},{"n":287,"pct":99.98},{"n":288,"pct":100.0},{"n":289,"pct":100.0}],"recorrencia":{"mais de 50":20,"1 carga":126,"21 a 50":26,"6 a 20":38,"2 a 5":79}}</script>
+
+<script>
+const D = JSON.parse(document.getElementById("dados").textContent);
+
+const brl = v => v.toLocaleString("pt-BR", {style:"currency", currency:"BRL", maximumFractionDigits:0});
+const brl2 = v => v.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits:2, maximumFractionDigits:2});
+const n0 = v => v.toLocaleString("pt-BR", {maximumFractionDigits:0});
+const n1 = v => v.toLocaleString("pt-BR", {minimumFractionDigits:1, maximumFractionDigits:1});
+const pct = v => n1(v) + "%";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+
+/* ---- tooltip compartilhado -------------------------------------------- */
+const dica = document.getElementById("dica");
+function ligaDica(el, html) {
+  const mostra = e => {
+    dica.innerHTML = html;
+    dica.style.opacity = 1;
+    const r = dica.getBoundingClientRect();
+    let x = e.clientX + 14, y = e.clientY - r.height - 12;
+    if (x + r.width > innerWidth - 8) x = e.clientX - r.width - 14;
+    if (y < 8) y = e.clientY + 18;
+    dica.style.left = x + "px"; dica.style.top = y + "px";
+  };
+  el.addEventListener("mousemove", mostra);
+  el.addEventListener("mouseenter", mostra);
+  el.addEventListener("mouseleave", () => { dica.style.opacity = 0; });
+  el.setAttribute("tabindex", "0");
+  el.addEventListener("focus", () => {
+    const b = el.getBoundingClientRect();
+    dica.innerHTML = html; dica.style.opacity = 1;
+    dica.style.left = b.left + "px"; dica.style.top = (b.top - dica.getBoundingClientRect().height - 10) + "px";
+  });
+  el.addEventListener("blur", () => { dica.style.opacity = 0; });
+}
+const SVG = "http://www.w3.org/2000/svg";
+const cria = (t, a) => { const e = document.createElementNS(SVG, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+
+/* ---- placas de número -------------------------------------------------- */
+const T = D.totais, ANOS = 3;
+document.getElementById("placas").innerHTML = [
+  ["Receita própria", brl(T.receita_propria), "líquida do frete repassado", true],
+  ["Faturamento bruto", brl(T.faturamento), "frete repassado: " + brl(T.frete_repassado)],
+  ["Volume extraído", n0(T.m3) + " <span class='un'>m³</span>", "≈ " + n0(T.m3/ANOS) + " m³/ano (estimativa)"],
+  ["Receita por m³", brl2(T.receita_propria_m3), "média de todos os canais"],
+  ["Clientes", n0(D.fonte.clientes), "ticket médio " + brl(T.ticket_medio_cliente)],
+  ["Faturado com NF", brl(T.valor_faturado_nf), pct(T.valor_faturado_nf/T.faturamento*100) + " do faturamento"],
+].map(([r,v,s,d]) => `<div class="placa${d?" destaque":""}"><p class="rot">${r}</p><span class="val">${v}</span><p class="sub">${s}</p></div>`).join("");
+
+/* ---- eixo de valor: escala e ticks ------------------------------------- */
+function escala(max) {
+  const bruto = max / 4, exp = Math.pow(10, Math.floor(Math.log10(bruto)));
+  const passo = [1,2,2.5,5,10].map(m => m*exp).find(p => p >= bruto);
+  const topo = Math.ceil(max/passo)*passo, ticks = [];
+  for (let v = 0; v <= topo + 1e-6; v += passo) ticks.push(v);
+  return {topo, ticks};
+}
+
+/* ---- barras horizontais ------------------------------------------------ */
+function barrasH(alvo, dados, opc) {
+  const el = document.getElementById(alvo);
+  const ROT = opc.rotulo || 190, ALT = opc.altura || 34, ESP = 14, TOPO = 8, BASE = 30;
+  const L = Math.max(680, el.clientWidth || 680), W = L - ROT - 96;
+  const H = TOPO + dados.length*(ALT+ESP) - ESP + BASE;
+  const s = cria("svg", {viewBox:`0 0 ${L} ${H}`, width:L, height:H, role:"img"});
+  const max = Math.max(...dados.map(d => d.segs ? d.segs.reduce((a,x)=>a+x.v,0) : d.v));
+  const {topo, ticks} = escala(max);
+  const x = v => ROT + v/topo*W;
+
+  ticks.forEach(t => {
+    s.appendChild(cria("line", {x1:x(t), x2:x(t), y1:TOPO, y2:H-BASE, stroke:"var(--rule)", "stroke-width":1}));
+    const l = cria("text", {x:x(t), y:H-BASE+18, "text-anchor":"middle", fill:"var(--ink-3)", "font-size":11});
+    l.textContent = opc.tick ? opc.tick(t) : n0(t/1000)+"k";
+    s.appendChild(l);
+  });
+
+  dados.forEach((d, i) => {
+    const y = TOPO + i*(ALT+ESP);
+    const rot = cria("text", {x:ROT-14, y:y+ALT/2+4, "text-anchor":"end", fill:"var(--ink)", "font-size":13, "font-weight":500});
+    rot.textContent = d.nome; s.appendChild(rot);
+
+    const segs = d.segs || [{v:d.v, cor:opc.cor || "var(--s1)", nome:d.nome}];
+    let acc = 0;
+    segs.forEach(g => {
+      if (g.v <= 0) return;
+      const x0 = x(acc), x1 = x(acc+g.v), w = Math.max(1, x1-x0-(acc>0?2:0));
+      const r = cria("rect", {x: acc>0 ? x0+2 : x0, y, width:w, height:ALT, fill:g.cor, rx:3, class:"marca"});
+      ligaDica(r, `<b>${esc(d.nome)}${g.nome && d.segs ? " · " + esc(g.nome) : ""}</b>${opc.dica ? opc.dica(g, d) : brl(g.v)}`);
+      s.appendChild(r); acc += g.v;
+    });
+    const val = cria("text", {x:x(acc)+10, y:y+ALT/2+4, fill:"var(--ink-2)", "font-size":12.5, "font-weight":600});
+    val.setAttribute("font-variant-numeric", "tabular-nums");
+    val.textContent = opc.valor ? opc.valor(d, acc) : brl(acc);
+    s.appendChild(val);
+  });
+  s.appendChild(cria("line", {x1:ROT, x2:ROT, y1:TOPO, y2:H-BASE, stroke:"var(--rule-strong)", "stroke-width":1}));
+  el.innerHTML = ""; el.appendChild(s);
+}
+
+/* ---- barras verticais agrupadas ---------------------------------------- */
+function barrasV(alvo, grupos, series, opc) {
+  const el = document.getElementById(alvo);
+  const ESQ = 58, TOPO = 12, BASE = 44, L = Math.max(660, el.clientWidth || 660), H = 300;
+  const W = L - ESQ - 20, AP = H - TOPO - BASE;
+  const s = cria("svg", {viewBox:`0 0 ${L} ${H}`, width:L, height:H, role:"img"});
+  const max = Math.max(...grupos.flatMap(g => series.map(k => g.vals[k.chave])));
+  const {topo, ticks} = escala(max);
+  const y = v => TOPO + AP - v/topo*AP;
+  const passoG = W/grupos.length;
+  const larg = Math.min(52, passoG*0.22), folga = larg*0.6;
+
+  ticks.forEach(t => {
+    s.appendChild(cria("line", {x1:ESQ, x2:ESQ+W, y1:y(t), y2:y(t), stroke:"var(--rule)", "stroke-width":1}));
+    const l = cria("text", {x:ESQ-12, y:y(t)+4, "text-anchor":"end", fill:"var(--ink-3)", "font-size":11});
+    l.textContent = opc.tick ? opc.tick(t) : n0(t); s.appendChild(l);
+  });
+  grupos.forEach((g, i) => {
+    const cx = ESQ + passoG*(i+0.5);
+    const total = larg*series.length + folga*(series.length-1);
+    series.forEach((k, j) => {
+      const v = g.vals[k.chave]; if (v == null) return;
+      const bx = cx - total/2 + j*(larg+folga);
+      const r = cria("rect", {x:bx, y:y(v), width:larg, height:Math.max(1, TOPO+AP-y(v)), fill:k.cor, rx:3, class:"marca"});
+      ligaDica(r, `<b>${esc(g.nome)} · ${esc(k.nome)}</b>${opc.dica ? opc.dica(g, k) : brl2(v)}`);
+      s.appendChild(r);
+      const t = cria("text", {x:bx+larg/2, y:y(v)-8, "text-anchor":"middle", fill:"var(--ink-2)", "font-size":11.5, "font-weight":600});
+      t.setAttribute("font-variant-numeric", "tabular-nums");
+      t.textContent = opc.rotuloVal ? opc.rotuloVal(v) : n0(v); s.appendChild(t);
+    });
+    const l = cria("text", {x:cx, y:H-BASE+22, "text-anchor":"middle", fill:"var(--ink)", "font-size":13, "font-weight":500});
+    l.textContent = g.nome; s.appendChild(l);
+    if (g.sub) {
+      const l2 = cria("text", {x:cx, y:H-BASE+38, "text-anchor":"middle", fill:"var(--ink-3)", "font-size":11});
+      l2.textContent = g.sub; s.appendChild(l2);
+    }
+  });
+  s.appendChild(cria("line", {x1:ESQ, x2:ESQ+W, y1:TOPO+AP, y2:TOPO+AP, stroke:"var(--rule-strong)", "stroke-width":1}));
+  el.innerHTML = ""; el.appendChild(s);
+}
+
+/* ---- legenda ----------------------------------------------------------- */
+const legenda = (alvo, itens) => document.getElementById(alvo).innerHTML =
+  itens.map(i => `<span><i style="background:${i.cor}"></i>${esc(i.nome)}</span>`).join("");
+
+/* ======================================================================== */
+const ORDEM = ["Retirada", "Granel", "Entrega", "Contrato fechado"];
+const canais = ORDEM.filter(k => D.por_modalidade[k]).map(k => ({nome:k, ...D.por_modalidade[k]}));
+const CORES = {"Retirada":"var(--s1)", "Granel":"var(--s2)", "Entrega":"var(--s3)", "Contrato fechado":"var(--s4)"};
+const tipos = Object.keys(D.por_tipo);
+
+function canal() {
+barrasH("g-canal", canais.map(c => ({nome:c.nome, v:c.receita_propria, meta:c})), {
+  cor: "var(--s1)",
+  dica: (g, d) => {
+    const c = canais.find(x => x.nome === d.nome);
+    return `Receita própria ${brl(c.receita_propria)}<br>Faturamento ${brl(c.faturamento)}` +
+           (c.frete_repassado ? `<br>Frete repassado ${brl(c.frete_repassado)}` : "") +
+           `<br>${n0(c.m3)} m³ · ${n0(c.clientes)} cliente${c.clientes>1?"s":""}`;
+  },
+});
+
+document.querySelector("#t-canal tbody").innerHTML = canais.map(c => `<tr>
+  <td>${esc(c.nome)}</td><td>${brl(c.faturamento)}</td>
+  <td>${c.frete_repassado ? brl(c.frete_repassado) : "—"}</td>
+  <td>${brl(c.receita_propria)}</td><td>${n0(c.m3)}</td><td>${n0(c.clientes)}</td>
+  <td>${c.nome === "Contrato fechado" ? "—" : brl2(c.receita_propria_m3)}</td></tr>`).join("") +
+  `<tr><td><b>Total</b></td><td><b>${brl(T.faturamento)}</b></td><td><b>${brl(T.frete_repassado)}</b></td>
+   <td><b>${brl(T.receita_propria)}</b></td><td><b>${n0(T.m3)}</b></td><td><b>${n0(D.fonte.clientes)}</b></td>
+   <td><b>${brl2(T.receita_propria_m3)}</b></td></tr>`;
+}
+
+/* R$/m³ bruto vs líquido ------------------------------------------------- */
+function precoM3() {
+legenda("l-m3", [{nome:"Preço cobrado (bruto)", cor:"var(--s1)"}, {nome:"Fica na cascalheira (líquido de frete)", cor:"var(--s2)"}]);
+barrasV("g-m3",
+  ["Retirada","Granel","Entrega"].map(k => {
+    const c = D.por_modalidade[k];
+    return {nome:k, sub:n0(c.clientes)+" clientes", vals:{bruto:c.preco_m3, liq:c.receita_propria_m3}};
+  }),
+  [{chave:"bruto", nome:"Preço cobrado", cor:"var(--s1)"}, {chave:"liq", nome:"Receita própria", cor:"var(--s2)"}],
+  {tick: t => "R$ " + n0(t), rotuloVal: v => brl2(v).replace("R$ ", ""),
+   dica: (g, k) => `${brl2(g.vals[k.chave])} por m³`}
+);
+}
+
+/* cruzamento tipo × modalidade ------------------------------------------- */
+function cruzamento() {
+legenda("l-cruz", ORDEM.map(k => ({nome:k, cor:CORES[k]})));
+barrasH("g-cruz", tipos.map(t => ({
+    nome: t,
+    segs: ORDEM.map(m => {
+      const c = D.cruzamento.find(x => x.tipo === t && x.modalidade === m);
+      return {v: c ? c.receita_propria : 0, cor: CORES[m], nome: m, m3: c ? c.m3 : 0};
+    }).filter(g => g.v > 0),
+  })), {
+  rotulo: 200,
+  dica: (g) => `Receita própria ${brl(g.v)}<br>${n0(g.m3)} m³`,
+  valor: (d, acc) => brl(acc) + "  ·  " + n0(D.por_tipo[d.nome].clientes) + " cli",
+});
+}
+
+/* pareto ------------------------------------------------------------------ */
+function pareto() {
+  const el = document.getElementById("g-pareto");
+  const ESQ = 52, TOPO = 16, BASE = 46, L = Math.max(660, el.clientWidth || 660), H = 280;
+  const W = L - ESQ - 24, AP = H - TOPO - BASE, N = D.pareto.length;
+  const s = cria("svg", {viewBox:`0 0 ${L} ${H}`, width:L, height:H, role:"img"});
+  const x = i => ESQ + (i-1)/(N-1)*W, y = p => TOPO + AP - p/100*AP;
+
+  [0,25,50,75,100].forEach(p => {
+    s.appendChild(cria("line", {x1:ESQ, x2:ESQ+W, y1:y(p), y2:y(p), stroke:"var(--rule)", "stroke-width":1}));
+    const l = cria("text", {x:ESQ-12, y:y(p)+4, "text-anchor":"end", fill:"var(--ink-3)", "font-size":11});
+    l.textContent = p + "%"; s.appendChild(l);
+  });
+  const area = "M" + ESQ + "," + y(0) + D.pareto.map(p => "L" + x(p.n) + "," + y(p.pct)).join("") + "L" + (ESQ+W) + "," + y(0) + "Z";
+  s.appendChild(cria("path", {d:area, fill:"var(--s1)", opacity:.10}));
+  s.appendChild(cria("path", {d:"M" + D.pareto.map(p => x(p.n) + "," + y(p.pct)).join("L"),
+    fill:"none", stroke:"var(--s1)", "stroke-width":2, "stroke-linejoin":"round"}));
+
+  [1,5,10,20,50,100].forEach(n => {
+    const p = D.pareto[n-1]; if (!p) return;
+    s.appendChild(cria("circle", {cx:x(n), cy:y(p.pct), r:5, fill:"var(--s1)", stroke:"var(--surface)", "stroke-width":2, class:"marca"}));
+    const g = s.lastChild;
+    ligaDica(g, `<b>${n} maior${n>1?"es":""} cliente${n>1?"s":""}</b>${pct(p.pct)} do faturamento`);
+    if ([5,20,100].includes(n)) {
+      const t = cria("text", {x:x(n)+14, y:y(p.pct)-13, fill:"var(--ink)", "font-size":12, "font-weight":600});
+      t.textContent = `${n} clientes = ${pct(p.pct)}`; s.appendChild(t);
+    }
+  });
+  [1,50,100,200,289].forEach(n => {
+    const t = cria("text", {x:x(n), y:H-BASE+22, "text-anchor":"middle", fill:"var(--ink-3)", "font-size":11});
+    t.textContent = n; s.appendChild(t);
+  });
+  const cap = cria("text", {x:ESQ+W/2, y:H-BASE+40, "text-anchor":"middle", fill:"var(--ink-3)", "font-size":11.5});
+  cap.textContent = "clientes, ordenados do maior para o menor"; s.appendChild(cap);
+  s.appendChild(cria("line", {x1:ESQ, x2:ESQ+W, y1:TOPO+AP, y2:TOPO+AP, stroke:"var(--rule-strong)", "stroke-width":1}));
+  el.innerHTML = ""; el.appendChild(s);
+}
+
+/* top clientes ------------------------------------------------------------ */
+document.querySelector("#t-top tbody").innerHTML = D.top_clientes.slice(0,10).map(c => `<tr>
+  <td>${esc(c.nome)}</td><td style="text-align:left"><span class="pastilha">${esc(c.tipo)}</span></td>
+  <td style="text-align:left"><span class="pastilha">${esc(c.modalidade)}</span></td>
+  <td>${brl(c.faturamento)}</td><td>${n0(c.m3)}</td>
+  <td>${pct(c.faturamento/T.faturamento*100)}</td></tr>`).join("");
+
+/* recorrência ------------------------------------------------------------- */
+function recorrencia() {
+  const FAIXAS = ["1 carga","2 a 5","6 a 20","21 a 50","mais de 50"];
+  const RAMPA = ["var(--o1)","var(--o2)","var(--o3)","var(--o4)","var(--o5)"];
+  const el = document.getElementById("g-recor");
+  const ESQ = 46, TOPO = 22, BASE = 46, L = Math.max(620, el.clientWidth || 620), H = 260;
+  const W = L - ESQ - 20, AP = H - TOPO - BASE;
+  const s = cria("svg", {viewBox:`0 0 ${L} ${H}`, width:L, height:H, role:"img"});
+  const vals = FAIXAS.map(f => D.recorrencia[f] || 0);
+  const {topo, ticks} = escala(Math.max(...vals));
+  const y = v => TOPO + AP - v/topo*AP, passo = W/FAIXAS.length, larg = Math.min(76, passo*0.56);
+  ticks.forEach(t => {
+    s.appendChild(cria("line", {x1:ESQ, x2:ESQ+W, y1:y(t), y2:y(t), stroke:"var(--rule)", "stroke-width":1}));
+    const l = cria("text", {x:ESQ-12, y:y(t)+4, "text-anchor":"end", fill:"var(--ink-3)", "font-size":11});
+    l.textContent = n0(t); s.appendChild(l);
+  });
+  FAIXAS.forEach((f, i) => {
+    const cx = ESQ + passo*(i+0.5), v = vals[i];
+    const r = cria("rect", {x:cx-larg/2, y:y(v), width:larg, height:Math.max(1, TOPO+AP-y(v)), fill:RAMPA[i], rx:3, class:"marca"});
+    ligaDica(r, `<b>${esc(f)}</b>${v} clientes · ${pct(v/D.fonte.clientes*100)} da carteira`);
+    s.appendChild(r);
+    const t = cria("text", {x:cx, y:y(v)-9, "text-anchor":"middle", fill:"var(--ink)", "font-size":13, "font-weight":600});
+    t.textContent = v; s.appendChild(t);
+    const l = cria("text", {x:cx, y:H-BASE+22, "text-anchor":"middle", fill:"var(--ink)", "font-size":12.5});
+    l.textContent = f; s.appendChild(l);
+  });
+  const cap = cria("text", {x:ESQ+W/2, y:H-BASE+40, "text-anchor":"middle", fill:"var(--ink-3)", "font-size":11.5});
+  cap.textContent = "cargas equivalentes de 12m³ compradas no total"; s.appendChild(cap);
+  s.appendChild(cria("line", {x1:ESQ, x2:ESQ+W, y1:TOPO+AP, y2:TOPO+AP, stroke:"var(--rule-strong)", "stroke-width":1}));
+  el.innerHTML = ""; el.appendChild(s);
+}
+
+/* produtos ---------------------------------------------------------------- */
+document.querySelector("#t-prod tbody").innerHTML = Object.entries(D.por_produto)
+  .filter(([, v]) => v.m3 >= 50)
+  .map(([k, v]) => `<tr><td>${esc(k)}</td><td>${brl(v.receita_propria)}</td>
+    <td>${n0(v.m3)}</td><td>${brl2(v.receita_propria_m3)}</td><td>${n0(v.clientes)}</td></tr>`).join("");
+
+/* desenha, e redesenha quando a largura muda ------------------------------ */
+function desenhar() { canal(); precoM3(); cruzamento(); pareto(); recorrencia(); }
+desenhar();
+
+let larguraAtual = innerWidth, aguarda;
+addEventListener("resize", () => {
+  if (Math.abs(innerWidth - larguraAtual) < 40) return;   // ignora a barra de endereço no celular
+  larguraAtual = innerWidth;
+  clearTimeout(aguarda);
+  aguarda = setTimeout(desenhar, 180);
+});
+</script>
