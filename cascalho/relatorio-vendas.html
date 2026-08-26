@@ -286,35 +286,52 @@ footer b { color: var(--ink-2); }
   cascalheira cobra do cliente e repassa inteiro ao caminhoneiro. Só a receita própria fica na
   empresa, e é sobre ela que os custos de extração precisam caber.</p>
 
-<div class="estrato"><h2>Canal de venda</h2></div>
+<div class="estrato"><h2>Varejo × atacado</h2></div>
 
-<h3>Metade do dinheiro sai pelo portão, sem ninguém entregar nada</h3>
+<h3>O varejo é 59% do faturamento — e o caminhoneiro está dentro dele</h3>
 
-<p>A operação vende de quatro jeitos diferentes, e eles não têm nada a ver um com o outro. Na
-  <strong>retirada</strong>, o cliente encosta o caminhão no pátio e leva — é o caminhoneiro que
-  revende, o pedreiro com carreto, a locadora. No <strong>granel</strong>, a obra compra por metro
-  cúbico e leva com frota própria: são três clientes só, e um deles sozinho é um quarto de tudo.
-  Na <strong>entrega</strong>, a cascalheira fecha o frete junto com o material. E há um único
-  <strong>contrato fechado</strong>, lançado a preço cheio numa linha só.</p>
+<p>O corte que importa não é quem aparece no cadastro, é <strong>como o material saiu</strong>. Se
+  saiu por carga, é varejo: alguém precisava de uma carga de aterro para levantar um terreno. Se
+  saiu por metro cúbico para uma obra, é atacado. O caminhoneiro que enche o caminhão no pátio não
+  é o consumidor daquele cascalho — alguém o abordou na rua, pediu a carga, ele comprou e revendeu.
+  A venda é de varejo; muda só o veículo que carrega.</p>
 
 <div class="cartao">
-  <h4>Receita própria por canal</h4>
-  <p class="sub">Já descontado o frete repassado. Passe o mouse para ver o faturamento bruto de
-    cada canal.</p>
+  <h4>Faturamento por canal de negócio</h4>
+  <p class="sub">Varejo é tudo que sai por carga, com ou sem entrega nossa. Atacado é o metro
+    cúbico vendido direto para obra.</p>
   <div class="viz" id="g-canal"></div>
 </div>
 
-<p class="nota">O contrato fechado é uma venda única lançada em uma só linha, sem quantidade
-  real de material — por isso o volume e o valor por m³ dessa linha não são comparáveis aos
-  demais canais.</p>
-
 <div class="rolagem">
   <table id="t-canal">
-    <caption>Canal de venda em números</caption>
-    <thead><tr><th>Canal</th><th>Faturamento</th><th>Frete repassado</th><th>Receita própria</th><th>Volume m³</th><th>Clientes</th><th>R$/m³ próprio</th></tr></thead>
+    <caption>Varejo e atacado em números</caption>
+    <thead><tr><th>Canal</th><th>Faturamento</th><th>Frete repassado</th><th>Receita própria</th><th>Volume m³</th><th>Cargas</th><th>Clientes</th><th>R$/m³ próprio</th></tr></thead>
     <tbody></tbody>
   </table>
 </div>
+
+<p>São <strong>quatro clientes</strong> no atacado e <strong>285</strong> no varejo, movimentando
+  quase o mesmo dinheiro. E o atacado rende <strong>mais</strong> por metro cúbico — R$&nbsp;16,73
+  contra R$&nbsp;14,27 — porque o cascalho a granel sai sem o custo de atender 285 pessoas.</p>
+
+<h3>Setenta por cento do varejo passa pela mão de 45 revendedores</h3>
+
+<p>Dentro do varejo dá para ver quem carrega. Quarenta e cinco clientes acumularam vinte cargas ou
+  mais retirando no pátio — é a frota que revende, e são eles que sustentam o giro. Outros 104
+  retiraram avulso, e 139 pediram entrega. A conta é dura: <strong>esses 45 valem mais
+  que o triplo de todo o resto do varejo somado</strong>.</p>
+
+<div class="cartao">
+  <h4>Dentro do varejo: quem leva a carga</h4>
+  <p class="sub">Receita própria, já sem o frete repassado. O critério de revenda é vinte cargas
+    ou mais retiradas no pátio ao longo de toda a operação.</p>
+  <div class="viz" id="g-varejo"></div>
+</div>
+
+<p class="nota">Os quatro clientes de atacado são a Sollus, a Prefeitura de Palmas, e mais duas
+  linhas menores. O contrato fechado da Construtora Alja é uma venda única lançada em uma só linha,
+  sem quantidade real de material — por isso o volume e o valor por m³ dela não são comparáveis.</p>
 
 <div class="estrato"><h2>A conta do frete</h2></div>
 
@@ -335,7 +352,8 @@ footer b { color: var(--ink-2); }
 </div>
 
 <p><strong>A consequência prática:</strong> 139 clientes — quase metade da carteira — compram na
-  modalidade entrega e produzem <strong>R$&nbsp;43.809</strong> de receita própria, 4,4% do total.
+  modalidade entrega e produzem <strong>R$&nbsp;43.809</strong> de receita própria, 4,4% do total
+  da operação e 7,8% do varejo.
   Cada venda entregue dá o mesmo trabalho de atendimento, cobrança e nota que uma venda grande, e
   rende o mesmo por m³ de uma retirada. É o canal que consome mais operação por real que entra.</p>
 
@@ -402,6 +420,36 @@ footer b { color: var(--ink-2); }
   </table>
 </div>
 
+<div class="estrato"><h2>Ritmo</h2></div>
+
+<h3>Na safra a operação fatura cinco vezes o que fatura na chuva</h3>
+
+<p>Três anos de extração, seis meses bons por ano. A média plana de R$&nbsp;28.948 por mês não
+  existe na prática — ela é a divisão de um ano que na verdade acontece em metade do tempo. O que
+  a operação vive é um mês de safra perto de <strong>R$&nbsp;49&nbsp;mil</strong> e um mês de chuva
+  perto de <strong>R$&nbsp;8,7&nbsp;mil</strong>.</p>
+
+<div class="cartao">
+  <h4>Faturamento por mês, conforme a sazonalidade</h4>
+  <p class="sub">Cenário, não medição: o export não tem data. É o acumulado de três anos
+    redistribuído sob a premissa de que 85% da venda cai nos seis meses de seca.</p>
+  <div class="viz" id="g-ritmo"></div>
+</div>
+
+<div class="rolagem">
+  <table id="t-ritmo">
+    <caption>O mesmo acumulado, lido de três formas</caption>
+    <thead><tr><th>Leitura</th><th>Faturamento/mês</th><th>Receita própria/mês</th><th>m³/mês</th><th>Cargas/mês</th><th>Cargas/dia útil</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<p><strong>Por que isso muda a decisão:</strong> royalty, licença, encargo de mão de obra e
+  manutenção correm nos doze meses; a receita entra em seis. O mês de safra precisa pagar a si
+  mesmo e ao mês de chuva. Se o contrato com o vizinho tiver piso mínimo mensal ou anual
+  independente de produção, é na entressafra que ele machuca — e é isso que precisa estar escrito
+  no contrato antes de assinar.</p>
+
 <div class="estrato"><h2>O que isso significa para a parceria</h2></div>
 
 <div class="achados">
@@ -418,15 +466,28 @@ footer b { color: var(--ink-2); }
   <div class="achado">
     <div class="n">02</div>
     <div>
-      <h5>A operação gira cerca de 21.600 m³ por ano</h5>
-      <p>São 64.869 m³ acumulados em aproximadamente três anos. Esse é o número que dimensiona a
-        nova área: uma jazida precisa ter volume aproveitável para vários anos nesse ritmo para
-        justificar o custo fixo de licenciamento e o passivo de recuperação. Confirmar o ritmo
-        real com o relatório datado é o primeiro passo antes de negociar prazo.</p>
+      <h5>A operação gira cerca de 21.600 m³ por ano, em seis meses</h5>
+      <p>São 64.869 m³ acumulados em aproximadamente três anos — mas concentrados na seca, o que
+        dá perto de 3.000 m³ e 158 cargas por mês de safra, ou 7 cargas por dia útil. Esse é o
+        número que dimensiona a nova área e a frente de lavra: a jazida precisa ter volume
+        aproveitável para vários anos nesse ritmo, e a operação precisa conseguir tirar tudo
+        isso na janela seca. Confirmar o ritmo real com o relatório datado é o primeiro passo
+        antes de negociar prazo.</p>
     </div>
   </div>
   <div class="achado">
     <div class="n">03</div>
+    <div>
+      <h5>São dois negócios diferentes dividindo a mesma jazida</h5>
+      <p>O varejo é R$&nbsp;618.766 em 285 clientes e 3.353 cargas; o atacado é R$&nbsp;423.347 em
+        quatro clientes e nenhuma carga — sai por metro cúbico, com frota do comprador. O atacado
+        rende mais por m³ (R$&nbsp;16,73 contra R$&nbsp;14,27) e não consome pátio, atendimento nem
+        cobrança pulverizada. Se a área nova tiver volume, é o atacado que escala; o varejo é o que
+        segura o caixa quando não há obra grande contratada.</p>
+    </div>
+  </div>
+  <div class="achado">
+    <div class="n">04</div>
     <div>
       <h5>Vender entregue não melhora a margem</h5>
       <p>O canal entrega rende R$&nbsp;14,43/m³ próprio contra R$&nbsp;14,26 da retirada — mesmo
@@ -436,7 +497,7 @@ footer b { color: var(--ink-2); }
     </div>
   </div>
   <div class="achado">
-    <div class="n">04</div>
+    <div class="n">05</div>
     <div>
       <h5>Quase nada sai com nota</h5>
       <p>De R$&nbsp;1.042.113 de material, R$&nbsp;40.135 foram faturados com nota fiscal — 3,9%.
@@ -447,7 +508,7 @@ footer b { color: var(--ink-2); }
     </div>
   </div>
   <div class="achado">
-    <div class="n">05</div>
+    <div class="n">06</div>
     <div>
       <h5>Dois clientes seguram quase 40% do faturamento</h5>
       <p>Sollus e Prefeitura de Palmas. Contrato de prefeitura muda com gestão e com licitação;
@@ -492,7 +553,7 @@ footer b { color: var(--ink-2); }
 
 </div>
 
-<script id="dados" type="application/json">{"fonte":{"linhas_material":342,"clientes":289,"fracoes_excluidas":{"linhas":11,"valor":1955015.65},"sem_data":true},"precos":{"limiar_entrega":{"Aterro 06m³":205.0,"Aterro 12m³":249.0,"Sub Base 06m³":235.0,"Sub Base 12m³":325.0},"patio":{"Aterro 06m³":130.0,"Aterro 12m³":153.33,"Sub Base 06m³":165.0,"Sub Base 12m³":250.0}},"totais":{"faturamento":1042113.0,"frete_repassado":54184.69,"receita_propria":987928.31,"m3":64869.08,"preco_medio_m3":16.06,"receita_propria_m3":15.23,"ticket_medio_cliente":3605.93,"valor_faturado_nf":40135.0},"por_produto":{"Aterro 12m³":{"faturamento":452796.0,"frete_repassado":44339.69,"receita_propria":408456.31,"m3":32188.0,"linhas":231,"clientes":231,"preco_m3":14.07,"receita_propria_m3":12.69},"Cascalho Sub Base":{"faturamento":362363.0,"frete_repassado":0.0,"receita_propria":362363.0,"m3":22778.0,"linhas":2,"clientes":2,"preco_m3":15.91,"receita_propria_m3":15.91},"Sub Base 12m³":{"faturamento":165638.0,"frete_repassado":6729.0,"receita_propria":158909.0,"m3":6737.08,"linhas":56,"clientes":56,"preco_m3":24.59,"receita_propria_m3":23.59},"Aterro de Argila":{"faturamento":20590.0,"frete_repassado":0.0,"receita_propria":20590.0,"m3":1420.0,"linhas":1,"clientes":1,"preco_m3":14.5,"receita_propria_m3":14.5},"Cascalho Base":{"faturamento":19680.0,"frete_repassado":0.0,"receita_propria":19680.0,"m3":984.0,"linhas":1,"clientes":1,"preco_m3":20.0,"receita_propria_m3":20.0},"Aterro 06m³":{"faturamento":10981.0,"frete_repassado":1761.0,"receita_propria":9220.0,"m3":426.0,"linhas":31,"clientes":31,"preco_m3":25.78,"receita_propria_m3":21.64},"Sub Base 06m³":{"faturamento":8160.0,"frete_repassado":1355.0,"receita_propria":6805.0,"m3":252.0,"linhas":16,"clientes":16,"preco_m3":32.38,"receita_propria_m3":27.0},"Cascalho Base 12m³":{"faturamento":1505.0,"frete_repassado":0.0,"receita_propria":1505.0,"m3":60.0,"linhas":3,"clientes":3,"preco_m3":25.08,"receita_propria_m3":25.08},"frete ( Nermisio)":{"faturamento":400.0,"frete_repassado":0.0,"receita_propria":400.0,"m3":24.0,"linhas":1,"clientes":1,"preco_m3":16.67,"receita_propria_m3":16.67}},"por_modalidade":{"Retirada":{"faturamento":520772.0,"frete_repassado":0.0,"receita_propria":520772.0,"m3":36526.08,"linhas":189,"clientes":149,"preco_m3":14.26,"receita_propria_m3":14.26},"Granel":{"faturamento":404307.0,"frete_repassado":0.0,"receita_propria":404307.0,"m3":25295.0,"linhas":6,"clientes":3,"preco_m3":15.98,"receita_propria_m3":15.98},"Entrega":{"faturamento":97994.0,"frete_repassado":54184.69,"receita_propria":43809.31,"m3":3036.0,"linhas":146,"clientes":139,"preco_m3":32.28,"receita_propria_m3":14.43},"Contrato fechado":{"faturamento":19040.0,"frete_repassado":0.0,"receita_propria":19040.0,"m3":12.0,"linhas":1,"clientes":1,"preco_m3":1586.67,"receita_propria_m3":1586.67}},"por_tipo":{"Pessoa física":{"faturamento":396756.0,"frete_repassado":44237.88,"receita_propria":352518.12,"m3":26261.08,"linhas":272,"clientes":241,"preco_m3":15.11,"receita_propria_m3":13.42},"Construtora":{"faturamento":367870.0,"frete_repassado":3705.05,"receita_propria":364164.95,"m3":22062.0,"linhas":24,"clientes":16,"preco_m3":16.67,"receita_propria_m3":16.51},"Poder público":{"faturamento":126497.0,"frete_repassado":0.0,"receita_propria":126497.0,"m3":6790.0,"linhas":5,"clientes":2,"preco_m3":18.63,"receita_propria_m3":18.63},"Empresa (outros)":{"faturamento":116775.0,"frete_repassado":6241.76,"receita_propria":110533.24,"m3":7278.0,"linhas":34,"clientes":24,"preco_m3":16.04,"receita_propria_m3":15.19},"Locadora de máquinas":{"faturamento":34215.0,"frete_repassado":0.0,"receita_propria":34215.0,"m3":2478.0,"linhas":7,"clientes":6,"preco_m3":13.81,"receita_propria_m3":13.81}},"cruzamento":[{"tipo":"Pessoa física","modalidade":"Retirada","faturamento":317752.0,"m3":23860.08,"receita_propria":317752.0},{"tipo":"Construtora","modalidade":"Granel","faturamento":279360.0,"m3":18624.0,"receita_propria":279360.0},{"tipo":"Poder público","modalidade":"Granel","faturamento":124897.0,"m3":6670.0,"receita_propria":124897.0},{"tipo":"Empresa (outros)","modalidade":"Retirada","faturamento":104120.0,"m3":6840.0,"receita_propria":104120.0},{"tipo":"Pessoa física","modalidade":"Entrega","faturamento":78954.0,"m3":2400.0,"receita_propria":34716.12},{"tipo":"Construtora","modalidade":"Retirada","faturamento":63085.0,"m3":3228.0,"receita_propria":63085.0},{"tipo":"Locadora de máquinas","modalidade":"Retirada","faturamento":34215.0,"m3":2478.0,"receita_propria":34215.0},{"tipo":"Construtora","modalidade":"Contrato fechado","faturamento":19040.0,"m3":12.0,"receita_propria":19040.0},{"tipo":"Empresa (outros)","modalidade":"Entrega","faturamento":12655.0,"m3":438.0,"receita_propria":6413.24},{"tipo":"Construtora","modalidade":"Entrega","faturamento":6385.0,"m3":198.0,"receita_propria":2679.95},{"tipo":"Poder público","modalidade":"Retirada","faturamento":1600.0,"m3":120.0,"receita_propria":1600.0},{"tipo":"Pessoa física","modalidade":"Granel","faturamento":50.0,"m3":1.0,"receita_propria":50.0}],"top_clientes":[{"nome":"Sollus Construtora E Incorporadora Ltda - Canarana/MT","tipo":"Construtora","faturamento":279360.0,"m3":18624.0,"preco_m3":15.0,"modalidade":"Granel"},{"nome":"Prefeitura de Palmas","tipo":"Poder público","faturamento":124897.0,"m3":6670.0,"preco_m3":18.73,"modalidade":"Granel"},{"nome":"AUTO POSTO VITAL COMERCIO DE COMBUSTIVEIS LTDA","tipo":"Empresa (outros)","faturamento":32000.0,"m3":1536.0,"preco_m3":20.83,"modalidade":"Retirada"},{"nome":"Coceno Construtora Centro Norte Ltda","tipo":"Construtora","faturamento":30750.0,"m3":1476.0,"preco_m3":20.83,"modalidade":"Retirada"},{"nome":"Valdemir Silva Lima","tipo":"Pessoa física","faturamento":25619.0,"m3":1980.0,"preco_m3":12.94,"modalidade":"Retirada"},{"nome":"Nermisio Alves Da Silva","tipo":"Pessoa física","faturamento":20450.0,"m3":1572.0,"preco_m3":13.01,"modalidade":"Retirada"},{"nome":"Gessivaldo Mesquita","tipo":"Pessoa física","faturamento":19679.0,"m3":1440.0,"preco_m3":13.67,"modalidade":"Retirada"},{"nome":"Rafael Bobcat","tipo":"Pessoa física","faturamento":19300.0,"m3":1476.0,"preco_m3":13.08,"modalidade":"Retirada"},{"nome":"Construtora Alja Ltda","tipo":"Construtora","faturamento":19040.0,"m3":12.0,"preco_m3":1586.67,"modalidade":"Contrato fechado"},{"nome":"Wanderson Rego Matos","tipo":"Pessoa física","faturamento":18145.0,"m3":1410.0,"preco_m3":12.87,"modalidade":"Retirada"},{"nome":"S. M. P. BORGES LTDA","tipo":"Empresa (outros)","faturamento":14950.0,"m3":780.0,"preco_m3":19.17,"modalidade":"Retirada"},{"nome":"Marco Pupis Bezerra Coelho","tipo":"Pessoa física","faturamento":13630.0,"m3":1056.0,"preco_m3":12.91,"modalidade":"Retirada"},{"nome":"Márcio Rodrigues Oliveira","tipo":"Empresa (outros)","faturamento":12720.0,"m3":960.0,"preco_m3":13.25,"modalidade":"Retirada"},{"nome":"Prates Locações de Máquinas e Equipamentos Ltda","tipo":"Pessoa física","faturamento":12600.0,"m3":1080.0,"preco_m3":11.67,"modalidade":"Retirada"},{"nome":"Robert De Carvalho Rocha","tipo":"Pessoa física","faturamento":12095.0,"m3":942.0,"preco_m3":12.84,"modalidade":"Retirada"},{"nome":"Unilson Goncalves De Sousa","tipo":"Pessoa física","faturamento":10830.0,"m3":846.0,"preco_m3":12.8,"modalidade":"Retirada"},{"nome":"Fabim Materiais Para Construcao Ltda","tipo":"Construtora","faturamento":10750.0,"m3":630.0,"preco_m3":17.06,"modalidade":"Retirada"},{"nome":"Guim Locacao De Maquinas E Equipamentos Ltda","tipo":"Locadora de máquinas","faturamento":10650.0,"m3":840.0,"preco_m3":12.68,"modalidade":"Retirada"},{"nome":"Lm Locações Mundial Ltda","tipo":"Locadora de máquinas","faturamento":10445.0,"m3":822.0,"preco_m3":12.71,"modalidade":"Retirada"},{"nome":"Domingos Rodrigues De Oliveira","tipo":"Pessoa física","faturamento":8870.0,"m3":696.0,"preco_m3":12.74,"modalidade":"Retirada"}],"pareto":[{"n":1,"pct":26.81},{"n":2,"pct":38.79},{"n":3,"pct":41.86},{"n":4,"pct":44.81},{"n":5,"pct":47.27},{"n":6,"pct":49.23},{"n":7,"pct":51.12},{"n":8,"pct":52.97},{"n":9,"pct":54.8},{"n":10,"pct":56.54},{"n":11,"pct":57.98},{"n":12,"pct":59.29},{"n":13,"pct":60.51},{"n":14,"pct":61.71},{"n":15,"pct":62.88},{"n":16,"pct":63.91},{"n":17,"pct":64.95},{"n":18,"pct":65.97},{"n":19,"pct":66.97},{"n":20,"pct":67.82},{"n":21,"pct":68.64},{"n":22,"pct":69.37},{"n":23,"pct":70.03},{"n":24,"pct":70.69},{"n":25,"pct":71.34},{"n":26,"pct":71.98},{"n":27,"pct":72.61},{"n":28,"pct":73.21},{"n":29,"pct":73.81},{"n":30,"pct":74.41},{"n":31,"pct":74.99},{"n":32,"pct":75.56},{"n":33,"pct":76.13},{"n":34,"pct":76.7},{"n":35,"pct":77.23},{"n":36,"pct":77.75},{"n":37,"pct":78.27},{"n":38,"pct":78.77},{"n":39,"pct":79.26},{"n":40,"pct":79.74},{"n":41,"pct":80.18},{"n":42,"pct":80.62},{"n":43,"pct":81.03},{"n":44,"pct":81.41},{"n":45,"pct":81.8},{"n":46,"pct":82.16},{"n":47,"pct":82.52},{"n":48,"pct":82.87},{"n":49,"pct":83.21},{"n":50,"pct":83.54},{"n":51,"pct":83.86},{"n":52,"pct":84.19},{"n":53,"pct":84.49},{"n":54,"pct":84.77},{"n":55,"pct":85.04},{"n":56,"pct":85.31},{"n":57,"pct":85.57},{"n":58,"pct":85.82},{"n":59,"pct":86.05},{"n":60,"pct":86.26},{"n":61,"pct":86.47},{"n":62,"pct":86.67},{"n":63,"pct":86.86},{"n":64,"pct":87.06},{"n":65,"pct":87.25},{"n":66,"pct":87.43},{"n":67,"pct":87.61},{"n":68,"pct":87.78},{"n":69,"pct":87.95},{"n":70,"pct":88.11},{"n":71,"pct":88.26},{"n":72,"pct":88.42},{"n":73,"pct":88.57},{"n":74,"pct":88.73},{"n":75,"pct":88.87},{"n":76,"pct":89.01},{"n":77,"pct":89.16},{"n":78,"pct":89.3},{"n":79,"pct":89.44},{"n":80,"pct":89.58},{"n":81,"pct":89.72},{"n":82,"pct":89.85},{"n":83,"pct":89.98},{"n":84,"pct":90.11},{"n":85,"pct":90.24},{"n":86,"pct":90.36},{"n":87,"pct":90.48},{"n":88,"pct":90.6},{"n":89,"pct":90.72},{"n":90,"pct":90.84},{"n":91,"pct":90.95},{"n":92,"pct":91.07},{"n":93,"pct":91.18},{"n":94,"pct":91.29},{"n":95,"pct":91.39},{"n":96,"pct":91.5},{"n":97,"pct":91.6},{"n":98,"pct":91.7},{"n":99,"pct":91.8},{"n":100,"pct":91.9},{"n":101,"pct":92.0},{"n":102,"pct":92.1},{"n":103,"pct":92.2},{"n":104,"pct":92.3},{"n":105,"pct":92.39},{"n":106,"pct":92.48},{"n":107,"pct":92.57},{"n":108,"pct":92.66},{"n":109,"pct":92.74},{"n":110,"pct":92.83},{"n":111,"pct":92.91},{"n":112,"pct":92.98},{"n":113,"pct":93.06},{"n":114,"pct":93.14},{"n":115,"pct":93.21},{"n":116,"pct":93.29},{"n":117,"pct":93.36},{"n":118,"pct":93.44},{"n":119,"pct":93.51},{"n":120,"pct":93.59},{"n":121,"pct":93.66},{"n":122,"pct":93.73},{"n":123,"pct":93.8},{"n":124,"pct":93.87},{"n":125,"pct":93.94},{"n":126,"pct":94.01},{"n":127,"pct":94.08},{"n":128,"pct":94.14},{"n":129,"pct":94.21},{"n":130,"pct":94.28},{"n":131,"pct":94.34},{"n":132,"pct":94.41},{"n":133,"pct":94.47},{"n":134,"pct":94.53},{"n":135,"pct":94.59},{"n":136,"pct":94.66},{"n":137,"pct":94.71},{"n":138,"pct":94.77},{"n":139,"pct":94.83},{"n":140,"pct":94.89},{"n":141,"pct":94.94},{"n":142,"pct":95.0},{"n":143,"pct":95.06},{"n":144,"pct":95.11},{"n":145,"pct":95.17},{"n":146,"pct":95.22},{"n":147,"pct":95.27},{"n":148,"pct":95.32},{"n":149,"pct":95.36},{"n":150,"pct":95.41},{"n":151,"pct":95.46},{"n":152,"pct":95.51},{"n":153,"pct":95.55},{"n":154,"pct":95.6},{"n":155,"pct":95.65},{"n":156,"pct":95.7},{"n":157,"pct":95.74},{"n":158,"pct":95.79},{"n":159,"pct":95.83},{"n":160,"pct":95.88},{"n":161,"pct":95.92},{"n":162,"pct":95.97},{"n":163,"pct":96.01},{"n":164,"pct":96.05},{"n":165,"pct":96.1},{"n":166,"pct":96.14},{"n":167,"pct":96.18},{"n":168,"pct":96.23},{"n":169,"pct":96.27},{"n":170,"pct":96.31},{"n":171,"pct":96.35},{"n":172,"pct":96.4},{"n":173,"pct":96.44},{"n":174,"pct":96.48},{"n":175,"pct":96.52},{"n":176,"pct":96.56},{"n":177,"pct":96.61},{"n":178,"pct":96.65},{"n":179,"pct":96.69},{"n":180,"pct":96.73},{"n":181,"pct":96.77},{"n":182,"pct":96.81},{"n":183,"pct":96.85},{"n":184,"pct":96.89},{"n":185,"pct":96.93},{"n":186,"pct":96.97},{"n":187,"pct":97.01},{"n":188,"pct":97.05},{"n":189,"pct":97.08},{"n":190,"pct":97.12},{"n":191,"pct":97.16},{"n":192,"pct":97.2},{"n":193,"pct":97.24},{"n":194,"pct":97.28},{"n":195,"pct":97.31},{"n":196,"pct":97.35},{"n":197,"pct":97.39},{"n":198,"pct":97.43},{"n":199,"pct":97.47},{"n":200,"pct":97.5},{"n":201,"pct":97.54},{"n":202,"pct":97.58},{"n":203,"pct":97.62},{"n":204,"pct":97.65},{"n":205,"pct":97.69},{"n":206,"pct":97.73},{"n":207,"pct":97.77},{"n":208,"pct":97.8},{"n":209,"pct":97.84},{"n":210,"pct":97.88},{"n":211,"pct":97.92},{"n":212,"pct":97.95},{"n":213,"pct":97.99},{"n":214,"pct":98.03},{"n":215,"pct":98.06},{"n":216,"pct":98.1},{"n":217,"pct":98.14},{"n":218,"pct":98.17},{"n":219,"pct":98.21},{"n":220,"pct":98.24},{"n":221,"pct":98.28},{"n":222,"pct":98.31},{"n":223,"pct":98.35},{"n":224,"pct":98.39},{"n":225,"pct":98.42},{"n":226,"pct":98.46},{"n":227,"pct":98.49},{"n":228,"pct":98.52},{"n":229,"pct":98.56},{"n":230,"pct":98.59},{"n":231,"pct":98.62},{"n":232,"pct":98.66},{"n":233,"pct":98.69},{"n":234,"pct":98.73},{"n":235,"pct":98.76},{"n":236,"pct":98.79},{"n":237,"pct":98.82},{"n":238,"pct":98.86},{"n":239,"pct":98.89},{"n":240,"pct":98.92},{"n":241,"pct":98.95},{"n":242,"pct":98.98},{"n":243,"pct":99.01},{"n":244,"pct":99.04},{"n":245,"pct":99.07},{"n":246,"pct":99.1},{"n":247,"pct":99.13},{"n":248,"pct":99.16},{"n":249,"pct":99.19},{"n":250,"pct":99.22},{"n":251,"pct":99.25},{"n":252,"pct":99.28},{"n":253,"pct":99.31},{"n":254,"pct":99.34},{"n":255,"pct":99.37},{"n":256,"pct":99.39},{"n":257,"pct":99.42},{"n":258,"pct":99.45},{"n":259,"pct":99.48},{"n":260,"pct":99.51},{"n":261,"pct":99.54},{"n":262,"pct":99.56},{"n":263,"pct":99.59},{"n":264,"pct":99.61},{"n":265,"pct":99.64},{"n":266,"pct":99.66},{"n":267,"pct":99.68},{"n":268,"pct":99.7},{"n":269,"pct":99.72},{"n":270,"pct":99.73},{"n":271,"pct":99.75},{"n":272,"pct":99.76},{"n":273,"pct":99.78},{"n":274,"pct":99.79},{"n":275,"pct":99.81},{"n":276,"pct":99.82},{"n":277,"pct":99.84},{"n":278,"pct":99.85},{"n":279,"pct":99.87},{"n":280,"pct":99.89},{"n":281,"pct":99.9},{"n":282,"pct":99.91},{"n":283,"pct":99.93},{"n":284,"pct":99.94},{"n":285,"pct":99.96},{"n":286,"pct":99.97},{"n":287,"pct":99.98},{"n":288,"pct":100.0},{"n":289,"pct":100.0}],"recorrencia":{"mais de 50":20,"1 carga":126,"21 a 50":26,"6 a 20":38,"2 a 5":79}}</script>
+<script id="dados" type="application/json">{"fonte":{"linhas_material":342,"clientes":289,"fracoes_excluidas":{"linhas":11,"valor":1955015.65},"sem_data":true},"precos":{"limiar_entrega":{"Aterro 06m³":205.0,"Aterro 12m³":249.0,"Sub Base 06m³":235.0,"Sub Base 12m³":325.0},"patio":{"Aterro 06m³":130.0,"Aterro 12m³":153.33,"Sub Base 06m³":165.0,"Sub Base 12m³":250.0}},"totais":{"cargas":3353.34,"faturamento":1042113.0,"frete_repassado":54184.69,"receita_propria":987928.31,"m3":64869.08,"preco_medio_m3":16.06,"receita_propria_m3":15.23,"ticket_medio_cliente":3605.93,"valor_faturado_nf":40135.0},"por_canal":{"Varejo":{"faturamento":618766.0,"cargas":3353.34,"frete_repassado":54184.69,"receita_propria":564581.31,"m3":39562.08,"linhas":335,"clientes":285,"preco_m3":15.64,"receita_propria_m3":14.27},"Atacado":{"faturamento":423347.0,"cargas":0.0,"frete_repassado":0.0,"receita_propria":423347.0,"m3":25307.0,"linhas":7,"clientes":4,"preco_m3":16.73,"receita_propria_m3":16.73}},"dentro_varejo":{"Revenda (caminhoneiro)":{"faturamento":435468.0,"cargas":2574.0,"frete_repassado":0.0,"receita_propria":435468.0,"m3":30618.0,"linhas":76,"clientes":45,"preco_m3":14.22,"receita_propria_m3":14.22},"Entrega nossa":{"faturamento":97994.0,"cargas":260.0,"frete_repassado":54184.69,"receita_propria":43809.31,"m3":3036.0,"linhas":146,"clientes":139,"preco_m3":32.28,"receita_propria_m3":14.43},"Retirada avulsa":{"faturamento":85304.0,"cargas":519.34,"frete_repassado":0.0,"receita_propria":85304.0,"m3":5908.08,"linhas":113,"clientes":104,"preco_m3":14.44,"receita_propria_m3":14.44}},"ritmo":{"anos":3,"meses_safra":6,"peso_safra":0.85,"ano":{"faturamento":347371.0,"receita_propria":329309.44,"m3":21623.03,"cargas":1117.78},"meses":[{"cenario":"Mês de safra","faturamento":49210.89,"receita_propria":46652.17,"m3":3063.26,"cargas":158.35},{"cenario":"Mês de chuva","faturamento":8684.28,"receita_propria":8232.74,"m3":540.58,"cargas":27.94},{"cenario":"Média plana","faturamento":28947.58,"receita_propria":27442.45,"m3":1801.92,"cargas":93.15}]},"por_produto":{"Aterro 12m³":{"faturamento":452796.0,"cargas":2673.0,"frete_repassado":44339.69,"receita_propria":408456.31,"m3":32188.0,"linhas":231,"clientes":231,"preco_m3":14.07,"receita_propria_m3":12.69},"Cascalho Sub Base":{"faturamento":362363.0,"cargas":0.0,"frete_repassado":0.0,"receita_propria":362363.0,"m3":22778.0,"linhas":2,"clientes":2,"preco_m3":15.91,"receita_propria_m3":15.91},"Sub Base 12m³":{"faturamento":165638.0,"cargas":560.34,"frete_repassado":6729.0,"receita_propria":158909.0,"m3":6737.08,"linhas":56,"clientes":56,"preco_m3":24.59,"receita_propria_m3":23.59},"Aterro de Argila":{"faturamento":20590.0,"cargas":0.0,"frete_repassado":0.0,"receita_propria":20590.0,"m3":1420.0,"linhas":1,"clientes":1,"preco_m3":14.5,"receita_propria_m3":14.5},"Cascalho Base":{"faturamento":19680.0,"cargas":0.0,"frete_repassado":0.0,"receita_propria":19680.0,"m3":984.0,"linhas":1,"clientes":1,"preco_m3":20.0,"receita_propria_m3":20.0},"Aterro 06m³":{"faturamento":10981.0,"cargas":71.0,"frete_repassado":1761.0,"receita_propria":9220.0,"m3":426.0,"linhas":31,"clientes":31,"preco_m3":25.78,"receita_propria_m3":21.64},"Sub Base 06m³":{"faturamento":8160.0,"cargas":42.0,"frete_repassado":1355.0,"receita_propria":6805.0,"m3":252.0,"linhas":16,"clientes":16,"preco_m3":32.38,"receita_propria_m3":27.0},"Cascalho Base 12m³":{"faturamento":1505.0,"cargas":5.0,"frete_repassado":0.0,"receita_propria":1505.0,"m3":60.0,"linhas":3,"clientes":3,"preco_m3":25.08,"receita_propria_m3":25.08},"frete ( Nermisio)":{"faturamento":400.0,"cargas":2.0,"frete_repassado":0.0,"receita_propria":400.0,"m3":24.0,"linhas":1,"clientes":1,"preco_m3":16.67,"receita_propria_m3":16.67}},"por_modalidade":{"Retirada":{"faturamento":520772.0,"cargas":3093.34,"frete_repassado":0.0,"receita_propria":520772.0,"m3":36526.08,"linhas":189,"clientes":149,"preco_m3":14.26,"receita_propria_m3":14.26},"Granel":{"faturamento":404307.0,"cargas":0.0,"frete_repassado":0.0,"receita_propria":404307.0,"m3":25295.0,"linhas":6,"clientes":3,"preco_m3":15.98,"receita_propria_m3":15.98},"Entrega":{"faturamento":97994.0,"cargas":260.0,"frete_repassado":54184.69,"receita_propria":43809.31,"m3":3036.0,"linhas":146,"clientes":139,"preco_m3":32.28,"receita_propria_m3":14.43},"Contrato fechado":{"faturamento":19040.0,"cargas":0.0,"frete_repassado":0.0,"receita_propria":19040.0,"m3":12.0,"linhas":1,"clientes":1,"preco_m3":1586.67,"receita_propria_m3":1586.67}},"por_tipo":{"Pessoa física":{"faturamento":396756.0,"cargas":2231.34,"frete_repassado":44237.88,"receita_propria":352518.12,"m3":26261.08,"linhas":272,"clientes":241,"preco_m3":15.11,"receita_propria_m3":13.42},"Construtora":{"faturamento":367870.0,"cargas":291.0,"frete_repassado":3705.05,"receita_propria":364164.95,"m3":22062.0,"linhas":24,"clientes":16,"preco_m3":16.67,"receita_propria_m3":16.51},"Poder público":{"faturamento":126497.0,"cargas":10.0,"frete_repassado":0.0,"receita_propria":126497.0,"m3":6790.0,"linhas":5,"clientes":2,"preco_m3":18.63,"receita_propria_m3":18.63},"Empresa (outros)":{"faturamento":116775.0,"cargas":614.0,"frete_repassado":6241.76,"receita_propria":110533.24,"m3":7278.0,"linhas":34,"clientes":24,"preco_m3":16.04,"receita_propria_m3":15.19},"Locadora de máquinas":{"faturamento":34215.0,"cargas":207.0,"frete_repassado":0.0,"receita_propria":34215.0,"m3":2478.0,"linhas":7,"clientes":6,"preco_m3":13.81,"receita_propria_m3":13.81}},"cruzamento":[{"tipo":"Pessoa física","modalidade":"Retirada","faturamento":317752.0,"m3":23860.08,"receita_propria":317752.0},{"tipo":"Construtora","modalidade":"Granel","faturamento":279360.0,"m3":18624.0,"receita_propria":279360.0},{"tipo":"Poder público","modalidade":"Granel","faturamento":124897.0,"m3":6670.0,"receita_propria":124897.0},{"tipo":"Empresa (outros)","modalidade":"Retirada","faturamento":104120.0,"m3":6840.0,"receita_propria":104120.0},{"tipo":"Pessoa física","modalidade":"Entrega","faturamento":78954.0,"m3":2400.0,"receita_propria":34716.12},{"tipo":"Construtora","modalidade":"Retirada","faturamento":63085.0,"m3":3228.0,"receita_propria":63085.0},{"tipo":"Locadora de máquinas","modalidade":"Retirada","faturamento":34215.0,"m3":2478.0,"receita_propria":34215.0},{"tipo":"Construtora","modalidade":"Contrato fechado","faturamento":19040.0,"m3":12.0,"receita_propria":19040.0},{"tipo":"Empresa (outros)","modalidade":"Entrega","faturamento":12655.0,"m3":438.0,"receita_propria":6413.24},{"tipo":"Construtora","modalidade":"Entrega","faturamento":6385.0,"m3":198.0,"receita_propria":2679.95},{"tipo":"Poder público","modalidade":"Retirada","faturamento":1600.0,"m3":120.0,"receita_propria":1600.0},{"tipo":"Pessoa física","modalidade":"Granel","faturamento":50.0,"m3":1.0,"receita_propria":50.0}],"top_clientes":[{"nome":"Sollus Construtora E Incorporadora Ltda - Canarana/MT","tipo":"Construtora","faturamento":279360.0,"m3":18624.0,"preco_m3":15.0,"modalidade":"Granel"},{"nome":"Prefeitura de Palmas","tipo":"Poder público","faturamento":124897.0,"m3":6670.0,"preco_m3":18.73,"modalidade":"Granel"},{"nome":"AUTO POSTO VITAL COMERCIO DE COMBUSTIVEIS LTDA","tipo":"Empresa (outros)","faturamento":32000.0,"m3":1536.0,"preco_m3":20.83,"modalidade":"Retirada"},{"nome":"Coceno Construtora Centro Norte Ltda","tipo":"Construtora","faturamento":30750.0,"m3":1476.0,"preco_m3":20.83,"modalidade":"Retirada"},{"nome":"Valdemir Silva Lima","tipo":"Pessoa física","faturamento":25619.0,"m3":1980.0,"preco_m3":12.94,"modalidade":"Retirada"},{"nome":"Nermisio Alves Da Silva","tipo":"Pessoa física","faturamento":20450.0,"m3":1572.0,"preco_m3":13.01,"modalidade":"Retirada"},{"nome":"Gessivaldo Mesquita","tipo":"Pessoa física","faturamento":19679.0,"m3":1440.0,"preco_m3":13.67,"modalidade":"Retirada"},{"nome":"Rafael Bobcat","tipo":"Pessoa física","faturamento":19300.0,"m3":1476.0,"preco_m3":13.08,"modalidade":"Retirada"},{"nome":"Construtora Alja Ltda","tipo":"Construtora","faturamento":19040.0,"m3":12.0,"preco_m3":1586.67,"modalidade":"Contrato fechado"},{"nome":"Wanderson Rego Matos","tipo":"Pessoa física","faturamento":18145.0,"m3":1410.0,"preco_m3":12.87,"modalidade":"Retirada"},{"nome":"S. M. P. BORGES LTDA","tipo":"Empresa (outros)","faturamento":14950.0,"m3":780.0,"preco_m3":19.17,"modalidade":"Retirada"},{"nome":"Marco Pupis Bezerra Coelho","tipo":"Pessoa física","faturamento":13630.0,"m3":1056.0,"preco_m3":12.91,"modalidade":"Retirada"},{"nome":"Márcio Rodrigues Oliveira","tipo":"Empresa (outros)","faturamento":12720.0,"m3":960.0,"preco_m3":13.25,"modalidade":"Retirada"},{"nome":"Prates Locações de Máquinas e Equipamentos Ltda","tipo":"Pessoa física","faturamento":12600.0,"m3":1080.0,"preco_m3":11.67,"modalidade":"Retirada"},{"nome":"Robert De Carvalho Rocha","tipo":"Pessoa física","faturamento":12095.0,"m3":942.0,"preco_m3":12.84,"modalidade":"Retirada"},{"nome":"Unilson Goncalves De Sousa","tipo":"Pessoa física","faturamento":10830.0,"m3":846.0,"preco_m3":12.8,"modalidade":"Retirada"},{"nome":"Fabim Materiais Para Construcao Ltda","tipo":"Construtora","faturamento":10750.0,"m3":630.0,"preco_m3":17.06,"modalidade":"Retirada"},{"nome":"Guim Locacao De Maquinas E Equipamentos Ltda","tipo":"Locadora de máquinas","faturamento":10650.0,"m3":840.0,"preco_m3":12.68,"modalidade":"Retirada"},{"nome":"Lm Locações Mundial Ltda","tipo":"Locadora de máquinas","faturamento":10445.0,"m3":822.0,"preco_m3":12.71,"modalidade":"Retirada"},{"nome":"Domingos Rodrigues De Oliveira","tipo":"Pessoa física","faturamento":8870.0,"m3":696.0,"preco_m3":12.74,"modalidade":"Retirada"}],"pareto":[{"n":1,"pct":26.81},{"n":2,"pct":38.79},{"n":3,"pct":41.86},{"n":4,"pct":44.81},{"n":5,"pct":47.27},{"n":6,"pct":49.23},{"n":7,"pct":51.12},{"n":8,"pct":52.97},{"n":9,"pct":54.8},{"n":10,"pct":56.54},{"n":11,"pct":57.98},{"n":12,"pct":59.29},{"n":13,"pct":60.51},{"n":14,"pct":61.71},{"n":15,"pct":62.88},{"n":16,"pct":63.91},{"n":17,"pct":64.95},{"n":18,"pct":65.97},{"n":19,"pct":66.97},{"n":20,"pct":67.82},{"n":21,"pct":68.64},{"n":22,"pct":69.37},{"n":23,"pct":70.03},{"n":24,"pct":70.69},{"n":25,"pct":71.34},{"n":26,"pct":71.98},{"n":27,"pct":72.61},{"n":28,"pct":73.21},{"n":29,"pct":73.81},{"n":30,"pct":74.41},{"n":31,"pct":74.99},{"n":32,"pct":75.56},{"n":33,"pct":76.13},{"n":34,"pct":76.7},{"n":35,"pct":77.23},{"n":36,"pct":77.75},{"n":37,"pct":78.27},{"n":38,"pct":78.77},{"n":39,"pct":79.26},{"n":40,"pct":79.74},{"n":41,"pct":80.18},{"n":42,"pct":80.62},{"n":43,"pct":81.03},{"n":44,"pct":81.41},{"n":45,"pct":81.8},{"n":46,"pct":82.16},{"n":47,"pct":82.52},{"n":48,"pct":82.87},{"n":49,"pct":83.21},{"n":50,"pct":83.54},{"n":51,"pct":83.86},{"n":52,"pct":84.19},{"n":53,"pct":84.49},{"n":54,"pct":84.77},{"n":55,"pct":85.04},{"n":56,"pct":85.31},{"n":57,"pct":85.57},{"n":58,"pct":85.82},{"n":59,"pct":86.05},{"n":60,"pct":86.26},{"n":61,"pct":86.47},{"n":62,"pct":86.67},{"n":63,"pct":86.86},{"n":64,"pct":87.06},{"n":65,"pct":87.25},{"n":66,"pct":87.43},{"n":67,"pct":87.61},{"n":68,"pct":87.78},{"n":69,"pct":87.95},{"n":70,"pct":88.11},{"n":71,"pct":88.26},{"n":72,"pct":88.42},{"n":73,"pct":88.57},{"n":74,"pct":88.73},{"n":75,"pct":88.87},{"n":76,"pct":89.01},{"n":77,"pct":89.16},{"n":78,"pct":89.3},{"n":79,"pct":89.44},{"n":80,"pct":89.58},{"n":81,"pct":89.72},{"n":82,"pct":89.85},{"n":83,"pct":89.98},{"n":84,"pct":90.11},{"n":85,"pct":90.24},{"n":86,"pct":90.36},{"n":87,"pct":90.48},{"n":88,"pct":90.6},{"n":89,"pct":90.72},{"n":90,"pct":90.84},{"n":91,"pct":90.95},{"n":92,"pct":91.07},{"n":93,"pct":91.18},{"n":94,"pct":91.29},{"n":95,"pct":91.39},{"n":96,"pct":91.5},{"n":97,"pct":91.6},{"n":98,"pct":91.7},{"n":99,"pct":91.8},{"n":100,"pct":91.9},{"n":101,"pct":92.0},{"n":102,"pct":92.1},{"n":103,"pct":92.2},{"n":104,"pct":92.3},{"n":105,"pct":92.39},{"n":106,"pct":92.48},{"n":107,"pct":92.57},{"n":108,"pct":92.66},{"n":109,"pct":92.74},{"n":110,"pct":92.83},{"n":111,"pct":92.91},{"n":112,"pct":92.98},{"n":113,"pct":93.06},{"n":114,"pct":93.14},{"n":115,"pct":93.21},{"n":116,"pct":93.29},{"n":117,"pct":93.36},{"n":118,"pct":93.44},{"n":119,"pct":93.51},{"n":120,"pct":93.59},{"n":121,"pct":93.66},{"n":122,"pct":93.73},{"n":123,"pct":93.8},{"n":124,"pct":93.87},{"n":125,"pct":93.94},{"n":126,"pct":94.01},{"n":127,"pct":94.08},{"n":128,"pct":94.14},{"n":129,"pct":94.21},{"n":130,"pct":94.28},{"n":131,"pct":94.34},{"n":132,"pct":94.41},{"n":133,"pct":94.47},{"n":134,"pct":94.53},{"n":135,"pct":94.59},{"n":136,"pct":94.66},{"n":137,"pct":94.71},{"n":138,"pct":94.77},{"n":139,"pct":94.83},{"n":140,"pct":94.89},{"n":141,"pct":94.94},{"n":142,"pct":95.0},{"n":143,"pct":95.06},{"n":144,"pct":95.11},{"n":145,"pct":95.17},{"n":146,"pct":95.22},{"n":147,"pct":95.27},{"n":148,"pct":95.32},{"n":149,"pct":95.36},{"n":150,"pct":95.41},{"n":151,"pct":95.46},{"n":152,"pct":95.51},{"n":153,"pct":95.55},{"n":154,"pct":95.6},{"n":155,"pct":95.65},{"n":156,"pct":95.7},{"n":157,"pct":95.74},{"n":158,"pct":95.79},{"n":159,"pct":95.83},{"n":160,"pct":95.88},{"n":161,"pct":95.92},{"n":162,"pct":95.97},{"n":163,"pct":96.01},{"n":164,"pct":96.05},{"n":165,"pct":96.1},{"n":166,"pct":96.14},{"n":167,"pct":96.18},{"n":168,"pct":96.23},{"n":169,"pct":96.27},{"n":170,"pct":96.31},{"n":171,"pct":96.35},{"n":172,"pct":96.4},{"n":173,"pct":96.44},{"n":174,"pct":96.48},{"n":175,"pct":96.52},{"n":176,"pct":96.56},{"n":177,"pct":96.61},{"n":178,"pct":96.65},{"n":179,"pct":96.69},{"n":180,"pct":96.73},{"n":181,"pct":96.77},{"n":182,"pct":96.81},{"n":183,"pct":96.85},{"n":184,"pct":96.89},{"n":185,"pct":96.93},{"n":186,"pct":96.97},{"n":187,"pct":97.01},{"n":188,"pct":97.05},{"n":189,"pct":97.08},{"n":190,"pct":97.12},{"n":191,"pct":97.16},{"n":192,"pct":97.2},{"n":193,"pct":97.24},{"n":194,"pct":97.28},{"n":195,"pct":97.31},{"n":196,"pct":97.35},{"n":197,"pct":97.39},{"n":198,"pct":97.43},{"n":199,"pct":97.47},{"n":200,"pct":97.5},{"n":201,"pct":97.54},{"n":202,"pct":97.58},{"n":203,"pct":97.62},{"n":204,"pct":97.65},{"n":205,"pct":97.69},{"n":206,"pct":97.73},{"n":207,"pct":97.77},{"n":208,"pct":97.8},{"n":209,"pct":97.84},{"n":210,"pct":97.88},{"n":211,"pct":97.92},{"n":212,"pct":97.95},{"n":213,"pct":97.99},{"n":214,"pct":98.03},{"n":215,"pct":98.06},{"n":216,"pct":98.1},{"n":217,"pct":98.14},{"n":218,"pct":98.17},{"n":219,"pct":98.21},{"n":220,"pct":98.24},{"n":221,"pct":98.28},{"n":222,"pct":98.31},{"n":223,"pct":98.35},{"n":224,"pct":98.39},{"n":225,"pct":98.42},{"n":226,"pct":98.46},{"n":227,"pct":98.49},{"n":228,"pct":98.52},{"n":229,"pct":98.56},{"n":230,"pct":98.59},{"n":231,"pct":98.62},{"n":232,"pct":98.66},{"n":233,"pct":98.69},{"n":234,"pct":98.73},{"n":235,"pct":98.76},{"n":236,"pct":98.79},{"n":237,"pct":98.82},{"n":238,"pct":98.86},{"n":239,"pct":98.89},{"n":240,"pct":98.92},{"n":241,"pct":98.95},{"n":242,"pct":98.98},{"n":243,"pct":99.01},{"n":244,"pct":99.04},{"n":245,"pct":99.07},{"n":246,"pct":99.1},{"n":247,"pct":99.13},{"n":248,"pct":99.16},{"n":249,"pct":99.19},{"n":250,"pct":99.22},{"n":251,"pct":99.25},{"n":252,"pct":99.28},{"n":253,"pct":99.31},{"n":254,"pct":99.34},{"n":255,"pct":99.37},{"n":256,"pct":99.39},{"n":257,"pct":99.42},{"n":258,"pct":99.45},{"n":259,"pct":99.48},{"n":260,"pct":99.51},{"n":261,"pct":99.54},{"n":262,"pct":99.56},{"n":263,"pct":99.59},{"n":264,"pct":99.61},{"n":265,"pct":99.64},{"n":266,"pct":99.66},{"n":267,"pct":99.68},{"n":268,"pct":99.7},{"n":269,"pct":99.72},{"n":270,"pct":99.73},{"n":271,"pct":99.75},{"n":272,"pct":99.76},{"n":273,"pct":99.78},{"n":274,"pct":99.79},{"n":275,"pct":99.81},{"n":276,"pct":99.82},{"n":277,"pct":99.84},{"n":278,"pct":99.85},{"n":279,"pct":99.87},{"n":280,"pct":99.89},{"n":281,"pct":99.9},{"n":282,"pct":99.91},{"n":283,"pct":99.93},{"n":284,"pct":99.94},{"n":285,"pct":99.96},{"n":286,"pct":99.97},{"n":287,"pct":99.98},{"n":288,"pct":100.0},{"n":289,"pct":100.0}],"recorrencia":{"mais de 50":20,"1 carga":126,"21 a 50":26,"6 a 20":38,"2 a 5":79}}</script>
 
 <script>
 const D = JSON.parse(document.getElementById("dados").textContent);
@@ -573,7 +634,7 @@ function barrasH(alvo, dados, opc) {
     const rot = cria("text", {x:ROT-14, y:y+ALT/2+4, "text-anchor":"end", fill:"var(--ink)", "font-size":13, "font-weight":500});
     rot.textContent = d.nome; s.appendChild(rot);
 
-    const segs = d.segs || [{v:d.v, cor:opc.cor || "var(--s1)", nome:d.nome}];
+    const segs = d.segs || [{v:d.v, cor:d.cor || opc.cor || "var(--s1)", nome:d.nome}];
     let acc = 0;
     segs.forEach(g => {
       if (g.v <= 0) return;
@@ -638,29 +699,71 @@ const legenda = (alvo, itens) => document.getElementById(alvo).innerHTML =
 
 /* ======================================================================== */
 const ORDEM = ["Retirada", "Granel", "Entrega", "Contrato fechado"];
-const canais = ORDEM.filter(k => D.por_modalidade[k]).map(k => ({nome:k, ...D.por_modalidade[k]}));
 const CORES = {"Retirada":"var(--s1)", "Granel":"var(--s2)", "Entrega":"var(--s3)", "Contrato fechado":"var(--s4)"};
 const tipos = Object.keys(D.por_tipo);
+const CANAIS = ["Varejo", "Atacado"];
 
 function canal() {
-barrasH("g-canal", canais.map(c => ({nome:c.nome, v:c.receita_propria, meta:c})), {
-  cor: "var(--s1)",
+barrasH("g-canal", CANAIS.map(k => ({nome:k, v:D.por_canal[k].faturamento})), {
+  rotulo: 110,
   dica: (g, d) => {
-    const c = canais.find(x => x.nome === d.nome);
-    return `Receita própria ${brl(c.receita_propria)}<br>Faturamento ${brl(c.faturamento)}` +
-           (c.frete_repassado ? `<br>Frete repassado ${brl(c.frete_repassado)}` : "") +
-           `<br>${n0(c.m3)} m³ · ${n0(c.clientes)} cliente${c.clientes>1?"s":""}`;
+    const c = D.por_canal[d.nome];
+    return `Faturamento ${brl(c.faturamento)} · ${pct(c.faturamento/T.faturamento*100)}<br>` +
+           `Receita própria ${brl(c.receita_propria)}<br>` +
+           `${n0(c.m3)} m³ · ${n0(c.clientes)} cliente${c.clientes>1?"s":""}` +
+           (c.cargas ? `<br>${n0(c.cargas)} cargas` : "");
   },
+  valor: (d, acc) => brl(acc) + "  ·  " + pct(acc/T.faturamento*100),
 });
 
-document.querySelector("#t-canal tbody").innerHTML = canais.map(c => `<tr>
-  <td>${esc(c.nome)}</td><td>${brl(c.faturamento)}</td>
-  <td>${c.frete_repassado ? brl(c.frete_repassado) : "—"}</td>
-  <td>${brl(c.receita_propria)}</td><td>${n0(c.m3)}</td><td>${n0(c.clientes)}</td>
-  <td>${c.nome === "Contrato fechado" ? "—" : brl2(c.receita_propria_m3)}</td></tr>`).join("") +
+document.querySelector("#t-canal tbody").innerHTML = CANAIS.map(k => {
+  const c = D.por_canal[k];
+  return `<tr><td>${esc(k)}</td><td>${brl(c.faturamento)}</td>
+    <td>${c.frete_repassado ? brl(c.frete_repassado) : "—"}</td>
+    <td>${brl(c.receita_propria)}</td><td>${n0(c.m3)}</td>
+    <td>${c.cargas ? n0(c.cargas) : "—"}</td><td>${n0(c.clientes)}</td>
+    <td>${brl2(c.receita_propria_m3)}</td></tr>`;
+}).join("") +
   `<tr><td><b>Total</b></td><td><b>${brl(T.faturamento)}</b></td><td><b>${brl(T.frete_repassado)}</b></td>
-   <td><b>${brl(T.receita_propria)}</b></td><td><b>${n0(T.m3)}</b></td><td><b>${n0(D.fonte.clientes)}</b></td>
-   <td><b>${brl2(T.receita_propria_m3)}</b></td></tr>`;
+   <td><b>${brl(T.receita_propria)}</b></td><td><b>${n0(T.m3)}</b></td><td><b>${n0(T.cargas)}</b></td>
+   <td><b>${n0(D.fonte.clientes)}</b></td><td><b>${brl2(T.receita_propria_m3)}</b></td></tr>`;
+}
+
+/* dentro do varejo: quem leva a carga ------------------------------------- */
+const VAREJO = ["Revenda (caminhoneiro)", "Retirada avulsa", "Entrega nossa"];
+
+function varejo() {
+barrasH("g-varejo", VAREJO.filter(k => D.dentro_varejo[k])
+  .map(k => ({nome:k, v:D.dentro_varejo[k].receita_propria})), {
+  rotulo: 210,
+  dica: (g, d) => {
+    const c = D.dentro_varejo[d.nome];
+    return `Receita própria ${brl(c.receita_propria)}<br>Faturamento ${brl(c.faturamento)}` +
+           (c.frete_repassado ? `<br>Frete repassado ${brl(c.frete_repassado)}` : "") +
+           `<br>${n0(c.cargas)} cargas · ${n0(c.m3)} m³<br>${n0(c.clientes)} clientes · ${brl2(c.receita_propria_m3)}/m³`;
+  },
+  valor: (d, acc) => brl(acc) + "  ·  " + n0(D.dentro_varejo[d.nome].clientes) + " cli",
+});
+}
+
+/* ritmo mensal ------------------------------------------------------------- */
+function ritmo() {
+barrasV("g-ritmo",
+  D.ritmo.meses.map(m => ({nome:m.cenario, sub:n0(m.cargas)+" cargas/mês",
+                           vals:{fat:m.faturamento}})),
+  [{chave:"fat", nome:"Faturamento por mês", cor:"var(--s1)"}],
+  {tick: t => "R$ " + n0(t/1000) + "k",
+   rotuloVal: v => brl(v),
+   dica: (g) => {
+     const m = D.ritmo.meses.find(x => x.cenario === g.nome);
+     return `Faturamento ${brl(m.faturamento)}<br>Receita própria ${brl(m.receita_propria)}<br>` +
+            `${n0(m.m3)} m³ · ${n0(m.cargas)} cargas`;
+   }}
+);
+
+document.querySelector("#t-ritmo tbody").innerHTML = D.ritmo.meses.map(m => `<tr>
+  <td>${esc(m.cenario)}</td><td>${brl(m.faturamento)}</td><td>${brl(m.receita_propria)}</td>
+  <td>${n0(m.m3)}</td><td>${n0(m.cargas)}</td><td>${n1(m.cargas/22)}</td></tr>`).join("");
 }
 
 /* R$/m³ bruto vs líquido ------------------------------------------------- */
@@ -777,7 +880,7 @@ document.querySelector("#t-prod tbody").innerHTML = Object.entries(D.por_produto
     <td>${n0(v.m3)}</td><td>${brl2(v.receita_propria_m3)}</td><td>${n0(v.clientes)}</td></tr>`).join("");
 
 /* desenha, e redesenha quando a largura muda ------------------------------ */
-function desenhar() { canal(); precoM3(); cruzamento(); pareto(); recorrencia(); }
+function desenhar() { canal(); varejo(); precoM3(); cruzamento(); pareto(); recorrencia(); ritmo(); }
 desenhar();
 
 let larguraAtual = innerWidth, aguarda;

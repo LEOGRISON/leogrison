@@ -42,6 +42,16 @@ VAO_MINIMO = 1.30          # o vão só separa faixas se o preço saltar 30%
 CONTRATO_FECHADO = 5.0    # preço acima de 5x a mediana é contrato, não carga
 PISO_CARGA = 3.0          # preço abaixo de 1/3 do pátio é preço por m³, não por carga
 
+# O caminhoneiro que enche o caminhão no pátio não é o consumidor: alguém pediu
+# aquela carga na rua e ele comprou para revender. A venda é de varejo, e só o
+# veículo muda. Varejo é, portanto, tudo que sai por carga — quem carrega não
+# entra na conta. Atacado é o que sai por metro cúbico para uma obra.
+REVENDA_CARGAS = 20       # cargas acumuladas a partir das quais o cliente é revenda
+
+ANOS_OPERACAO = 3         # informado pela operação; o export não tem data
+MESES_SAFRA = 6           # meses de seca por ano — na chuva a extração praticamente para
+PESO_SAFRA = 0.85         # fatia do ano que cai na safra no cenário intermediário
+
 
 def numero(txt):
     """Converte o número no formato brasileiro do relatório para float."""
@@ -175,6 +185,36 @@ def ler(caminho):
     return linhas
 
 
+def ritmo(faturamento, propria, volume, cargas):
+    """
+    Média por mês sob três leituras da sazonalidade. O export não tem data, então
+    isto é aritmética sobre o acumulado, não medição: a operação informa três anos
+    de extração e seis meses bons por ano — na chuva a frente de lavra para.
+    """
+    def bloco(nome, fatia, meses):
+        return {"cenario": nome,
+                "faturamento": round(faturamento * fatia / meses, 2),
+                "receita_propria": round(propria * fatia / meses, 2),
+                "m3": round(volume * fatia / meses, 2),
+                "cargas": round(cargas * fatia / meses, 2)}
+
+    safra = ANOS_OPERACAO * MESES_SAFRA
+    return {
+        "anos": ANOS_OPERACAO,
+        "meses_safra": MESES_SAFRA,
+        "peso_safra": PESO_SAFRA,
+        "ano": {"faturamento": round(faturamento / ANOS_OPERACAO, 2),
+                "receita_propria": round(propria / ANOS_OPERACAO, 2),
+                "m3": round(volume / ANOS_OPERACAO, 2),
+                "cargas": round(cargas / ANOS_OPERACAO, 2)},
+        "meses": [
+            bloco("Mês de safra", PESO_SAFRA, safra),
+            bloco("Mês de chuva", 1 - PESO_SAFRA, safra),
+            bloco("Média plana", 1.0, ANOS_OPERACAO * 12),
+        ],
+    }
+
+
 def analisar(linhas):
     fracoes = [x for x in linhas if x["produto"].startswith("Fração")]
     mat = [x for x in linhas if not x["produto"].startswith("Fração")]
@@ -192,21 +232,46 @@ def analisar(linhas):
                       if x["modalidade"] == "Entrega" and base else 0.0)
         x["receita_propria"] = x["total"] - x["frete"]
 
+    for x in mat:
+        x["canal"] = "Atacado" if x["modalidade"] in ("Granel", "Contrato fechado") else "Varejo"
+        x["cargas"] = 0.0 if x["canal"] == "Atacado" else x["qtde"]
+
+    # dentro do varejo, quem levou a carga
+    retiradas = collections.defaultdict(float)
+    for x in mat:
+        if x["modalidade"] == "Retirada":
+            retiradas[x["cliente"]] += x["qtde"]
+    revenda = {c for c, q in retiradas.items() if q >= REVENDA_CARGAS}
+    for x in mat:
+        if x["canal"] != "Varejo":
+            x["quem_levou"] = None
+        elif x["modalidade"] == "Entrega":
+            x["quem_levou"] = "Entrega nossa"
+        elif x["cliente"] in revenda:
+            x["quem_levou"] = "Revenda (caminhoneiro)"
+        else:
+            x["quem_levou"] = "Retirada avulsa"
+
     faturamento = sum(x["total"] for x in mat)
     frete = sum(x["frete"] for x in mat)
     volume = sum(x["m3"] for x in mat)
+    cargas = sum(x["cargas"] for x in mat)
 
     def resumir(chave):
         d = collections.defaultdict(lambda: {"faturamento": 0.0, "m3": 0.0, "frete": 0.0,
-                                             "linhas": 0, "clientes": set()})
+                                             "cargas": 0.0, "linhas": 0, "clientes": set()})
         for x in mat:
+            if chave(x) is None:
+                continue
             a = d[chave(x)]
             a["faturamento"] += x["total"]
             a["m3"] += x["m3"]
             a["frete"] += x["frete"]
+            a["cargas"] += x["cargas"]
             a["linhas"] += 1
             a["clientes"].add(x["cliente"])
         return {k: {"faturamento": round(v["faturamento"], 2),
+                    "cargas": round(v["cargas"], 2),
                     "frete_repassado": round(v["frete"], 2),
                     "receita_propria": round(v["faturamento"] - v["frete"], 2),
                     "m3": round(v["m3"], 2),
@@ -260,6 +325,7 @@ def analisar(linhas):
             "patio": {k: round(v, 2) for k, v in sorted(patio.items())},
         },
         "totais": {
+            "cargas": round(cargas, 2),
             "faturamento": round(faturamento, 2),
             "frete_repassado": round(frete, 2),
             "receita_propria": round(faturamento - frete, 2),
@@ -269,6 +335,9 @@ def analisar(linhas):
             "ticket_medio_cliente": round(faturamento / len(porcli), 2),
             "valor_faturado_nf": round(sum(x["valor_faturado"] for x in mat), 2),
         },
+        "por_canal": resumir(lambda x: x["canal"]),
+        "dentro_varejo": resumir(lambda x: x["quem_levou"]),
+        "ritmo": ritmo(faturamento, faturamento - frete, volume, cargas),
         "por_produto": resumir(lambda x: x["produto"]),
         "por_modalidade": resumir(lambda x: x["modalidade"]),
         "por_tipo": resumir(lambda x: x["tipo"]),
