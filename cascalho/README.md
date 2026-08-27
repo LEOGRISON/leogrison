@@ -49,3 +49,13 @@ conferidos contra a operação real antes de a análise virar decisão.
   fechar a margem por m³.
 - **Números da área nova.** Base de cálculo do royalty, volume da jazida, distâncias, prazo, custo
   de licenciamento na ANM e o passivo de recuperação.
+
+## Pedido ao financeiro
+
+`pedido-financeiro.html` é a lista de levantamento a ser enviada ao financeiro: o relatório que o
+Bling precisa exportar (Vendas › Pedidos de venda › Exportar, com data por linha) e as perguntas
+de custo operacional. Escopo deliberadamente limitado a opex — licenciamento, recuperação de área
+e capex ficam com o advogado e com o especialista em direito minerário.
+
+A lista dos 45 clientes classificados como revenda é gerada sob demanda a partir do export e não
+fica versionada, pelo mesmo motivo do `.xls`.

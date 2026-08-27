@@ -1,0 +1,541 @@
+<title>Pedido ao Financeiro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+
+<style>
+:root {
+  color-scheme: light;
+  --ground:      #f7f5f1;
+  --surface:     #fbfaf8;
+  --surface-2:   #f1eee8;
+  --ink:         #17140f;
+  --ink-2:       #57514a;
+  --ink-3:       #8b8479;
+  --rule:        #e2ddd3;
+  --rule-strong: #c9c1b3;
+  --accent:      #7d3a12;
+  --alerta:      #b8541b;
+  --alerta-bg:   #fbeee4;
+  --ok:          #0ca30c;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground:      #100f0e;  --surface:   #191817;  --surface-2:   #221f1d;
+    --ink:         #f5f2ec;  --ink-2:     #c0b9ae;  --ink-3:       #8b8479;
+    --rule:        #2b2926;  --rule-strong: #403c37;
+    --accent:      #d98a52;  --alerta:    #e59b63;  --alerta-bg:   #2a1f16;
+    --ok:          #3ec13e;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground:      #100f0e;  --surface:   #191817;  --surface-2:   #221f1d;
+  --ink:         #f5f2ec;  --ink-2:     #c0b9ae;  --ink-3:       #8b8479;
+  --rule:        #2b2926;  --rule-strong: #403c37;
+  --accent:      #d98a52;  --alerta:    #e59b63;  --alerta-bg:   #2a1f16;
+  --ok:          #3ec13e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+}
+.folha { max-width: 940px; margin: 0 auto; padding: 0 28px 96px; }
+
+.masthead { padding: 72px 0 36px; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 18px;
+}
+.masthead h1 {
+  font-size: clamp(36px, 5.6vw, 56px); font-weight: 700; letter-spacing: -.028em;
+  line-height: 1.03; margin: 0 0 20px; text-wrap: balance; max-width: 15ch;
+}
+.dek {
+  font-family: Newsreader, Georgia, serif; font-size: 21px; line-height: 1.5;
+  color: var(--ink-2); margin: 0; max-width: 60ch;
+}
+
+.estrato { margin: 68px 0 30px; }
+.estrato::before {
+  content: ""; display: block; height: 4px; background: var(--accent);
+  width: 56px; margin-bottom: 3px;
+}
+.estrato::after { content: ""; display: block; height: 1px; background: var(--rule-strong); }
+.estrato h2 {
+  font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  margin: 0 0 14px; color: var(--ink-2);
+}
+
+h3 {
+  font-size: 25px; font-weight: 600; letter-spacing: -.02em; line-height: 1.22;
+  margin: 0 0 14px; text-wrap: balance; max-width: 26ch;
+}
+p {
+  font-family: Newsreader, Georgia, serif; font-size: 18px; line-height: 1.62;
+  color: var(--ink-2); margin: 0 0 18px; max-width: 64ch;
+}
+p strong { color: var(--ink); font-weight: 500; }
+p.nota {
+  font-family: Archivo, system-ui, sans-serif; font-size: 13.5px;
+  line-height: 1.55; color: var(--ink-3); max-width: 72ch;
+}
+
+.aviso {
+  background: var(--alerta-bg); border-left: 3px solid var(--alerta);
+  padding: 20px 24px; margin: 0 0 24px;
+}
+.aviso h4 {
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  margin: 0 0 8px; color: var(--alerta);
+}
+.aviso p { font-size: 16px; margin: 0 0 10px; color: var(--ink-2); max-width: 68ch; }
+.aviso p:last-child { margin-bottom: 0; }
+
+/* ---- caminho no sistema ---------------------------------------------- */
+.caminho {
+  font-family: Archivo, system-ui, sans-serif; font-size: 15px; font-weight: 600;
+  background: var(--surface-2); border: 1px solid var(--rule);
+  padding: 14px 18px; margin: 0 0 22px; color: var(--ink);
+  display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline;
+}
+.caminho .seta { color: var(--accent); font-weight: 700; }
+.caminho .rot {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3); width: 100%; margin-bottom: 2px;
+}
+
+/* ---- blocos de pergunta ---------------------------------------------- */
+.grupo {
+  border: 1px solid var(--rule); background: var(--surface);
+  margin: 0 0 20px;
+}
+.grupo > header {
+  padding: 20px 24px 16px; border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start;
+}
+.grupo > header .n {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  font-variant-numeric: tabular-nums; padding-top: 4px;
+}
+.grupo > header h4 { font-size: 19px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.015em; }
+.grupo > header .porque {
+  font-family: Newsreader, Georgia, serif; font-size: 16px; color: var(--ink-2);
+  margin: 0; max-width: 60ch; line-height: 1.5;
+}
+
+ul.itens { list-style: none; margin: 0; padding: 0; }
+ul.itens li {
+  border-bottom: 1px solid var(--rule); padding: 0;
+}
+ul.itens li:last-child { border-bottom: none; }
+ul.itens label {
+  display: grid; grid-template-columns: 22px 1fr; gap: 14px;
+  padding: 15px 24px; cursor: pointer; align-items: start;
+}
+ul.itens label:hover { background: var(--surface-2); }
+ul.itens input {
+  appearance: none; width: 17px; height: 17px; margin: 3px 0 0;
+  border: 1.5px solid var(--rule-strong); border-radius: 3px; background: var(--surface);
+  cursor: pointer; flex: none; position: relative;
+}
+ul.itens input:checked { background: var(--ok); border-color: var(--ok); }
+ul.itens input:checked::after {
+  content: ""; position: absolute; left: 5px; top: 1px; width: 4px; height: 9px;
+  border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(42deg);
+}
+ul.itens .txt { font-size: 15.5px; line-height: 1.5; color: var(--ink); }
+ul.itens input:checked ~ .txt { color: var(--ink-3); text-decoration: line-through; }
+ul.itens .txt b { font-weight: 600; }
+ul.itens .txt em {
+  display: block; font-style: normal; font-size: 13.5px; color: var(--ink-3);
+  margin-top: 4px; line-height: 1.45;
+}
+
+/* ---- tabela ----------------------------------------------------------- */
+.rolagem { overflow-x: auto; margin: 22px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; min-width: 520px; }
+caption {
+  text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3); padding-bottom: 10px;
+}
+th {
+  text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-3);
+  padding: 0 18px 9px 0; border-bottom: 1px solid var(--rule-strong);
+}
+td {
+  text-align: left; padding: 10px 18px 10px 0; border-bottom: 1px solid var(--rule);
+  color: var(--ink-2); vertical-align: top;
+}
+td:first-child { color: var(--ink); font-weight: 500; white-space: nowrap; }
+tbody tr:last-child td { border-bottom: 1px solid var(--rule-strong); }
+
+/* ---- fora de escopo --------------------------------------------------- */
+.fora { border: 1px dashed var(--rule-strong); padding: 22px 26px; margin: 22px 0; }
+.fora ul { margin: 0; padding-left: 20px; }
+.fora li { font-size: 15.5px; color: var(--ink-2); margin-bottom: 9px; line-height: 1.5; }
+.fora li:last-child { margin-bottom: 0; }
+.fora li b { color: var(--ink); font-weight: 600; }
+
+.progresso {
+  position: sticky; top: 0; z-index: 20; background: var(--ground);
+  padding: 12px 0 10px; border-bottom: 1px solid var(--rule);
+  font-size: 12.5px; color: var(--ink-3); display: flex; gap: 14px; align-items: center;
+}
+.barra { flex: 1; height: 3px; background: var(--rule); overflow: hidden; }
+.barra i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+.progresso button {
+  font: inherit; font-size: 12px; color: var(--ink-3); background: none;
+  border: 1px solid var(--rule); padding: 3px 10px; cursor: pointer; border-radius: 2px;
+}
+.progresso button:hover { color: var(--ink); border-color: var(--rule-strong); }
+
+footer {
+  margin-top: 72px; padding-top: 26px; border-top: 1px solid var(--rule-strong);
+  font-size: 12.5px; color: var(--ink-3); line-height: 1.6; max-width: 72ch;
+}
+footer b { color: var(--ink-2); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (max-width: 640px) {
+  .folha { padding: 0 18px 64px; }
+  .masthead { padding: 48px 0 28px; }
+  .grupo > header { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+
+<div class="folha">
+
+<header class="masthead">
+  <p class="eyebrow">Grupo Grison · Cascalheira · Levantamento</p>
+  <h1>O que pedir ao financeiro</h1>
+  <p class="dek">Duas listas: o relatório que o Bling precisa exportar, e as perguntas de custo
+    operacional. É o que falta para fechar a conta da parceria de extração na área do vizinho.</p>
+</header>
+
+<div class="progresso">
+  <span id="contagem">0 de 0</span>
+  <span class="barra"><i id="barra"></i></span>
+  <button type="button" id="limpar">Limpar marcações</button>
+</div>
+
+<div class="aviso">
+  <h4>Por que o relatório atual não serve</h4>
+  <p>O arquivo que veio é o <b>Relatório de Vendas agrupado por cliente</b>. Ele consolida tudo
+    num total por cliente e produto, e por isso <b>não tem data</b> — não dá para ver mês, nem
+    tendência, nem sazonalidade. Também mistura a cascalheira com a venda de lotes do Serra Bella
+    e não separa venda por carga de venda a granel.</p>
+  <p>O que resolve é a <b>exportação de pedidos de venda</b>, que sai linha a linha, com data.
+    É outro caminho no sistema, não é o mesmo relatório com outro filtro.</p>
+</div>
+
+<div class="estrato"><h2>Parte 1 — O relatório do Bling</h2></div>
+
+<h3>A exportação de pedidos de venda, período completo</h3>
+
+<p>É a base de tudo. Sem data por linha, nenhuma análise de sazonalidade é possível — e a
+  sazonalidade é justamente o que decide se a operação aguenta um custo fixo de 12 meses com
+  receita entrando em 6.</p>
+
+<div class="caminho">
+  <span class="rot">Caminho no sistema</span>
+  <span>Vendas</span><span class="seta">›</span><span>Pedidos de venda</span>
+  <span class="seta">›</span><span>Exportar</span><span class="seta">›</span>
+  <span>Planilha — Modelo padrão</span>
+</div>
+
+<p class="nota">Os nomes de menu podem variar um pouco conforme a versão e o plano do Bling. Se
+  não achar por aí, o objetivo é qualquer exportação que traga <b>uma linha por item de pedido</b>,
+  com a data. O “Modelo backup” também serve e é mais completo, mas é mais cru de ler.</p>
+
+<div class="grupo">
+  <header>
+    <span class="n">1.1</span>
+    <div>
+      <h4>Filtros da exportação</h4>
+      <p class="porque">Sem alinhar isso, o total da planilha não vai bater com o que já foi
+        analisado e a gente perde tempo reconciliando.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Período: desde o primeiro pedido até hoje.</b>
+      <em>Sem recorte. Se o sistema limitar o intervalo, exportar ano a ano e mandar os arquivos separados.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Todas as situações de pedido, sem filtrar.</b>
+      <em>E dizer quais situações existem (em aberto, atendido, cancelado, em andamento). Preciso saber o que descartar — pedido cancelado no meio infla o faturamento.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Todas as lojas / canais de venda.</b>
+      <em>Se houver mais de uma loja cadastrada no Bling, quero saber quais são e o que cada uma representa.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Formato XLS ou CSV, não PDF.</b></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">1.2</span>
+    <div>
+      <h4>Colunas que a planilha precisa ter</h4>
+      <p class="porque">Se alguma dessas não vier na exportação padrão, dá para escolher as
+        colunas na listagem de pedidos antes de exportar.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Data de emissão do pedido</b> — e, se existir, data de saída ou de entrega
+      <em>A coluna que falta hoje. É a única que não tem substituto.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Número do pedido e situação</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Cliente: nome, CPF/CNPJ, cidade e UF</b>
+      <em>157 dos 289 clientes estão sem documento no cadastro. Sem isso não dá para saber quem é empresa e quem é pessoa.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Produto: descrição, código/SKU e unidade de medida</b>
+      <em>A unidade é crítica — preciso saber se a linha está em carga ou em m³. Hoje tem produto chamado “Aterro 12m³” vendido a preço de metro cúbico.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Quantidade, valor unitário, desconto e valor total do item</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Valor do frete do pedido, no campo próprio de frete</b>
+      <em>No arquivo atual o campo Frete está zerado em todas as linhas, mas o preço entregue é o dobro do preço de pátio. Ou seja: o frete está embutido no valor unitário. Preciso confirmar isso.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Vendedor e comissão, se houver</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Forma e condição de pagamento</b>
+      <em>À vista, prazo, boleto. Muda o custo financeiro e o risco.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Número da nota fiscal vinculada, quando houver</b>
+      <em>Pelo arquivo atual, só R$ 40.135 de R$ 1.042.113 saíram faturados — 3,9%. Quero confirmar isso pela nota, não por dedução.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Observações do pedido</b>
+      <em>É onde costuma estar a informação que não coube em campo nenhum.</em></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">1.3</span>
+    <div>
+      <h4>Mais três exportações do mesmo período</h4>
+      <p class="porque">O pedido de venda mostra o que foi vendido. Estas mostram o que entrou,
+        o que saiu e o que ficou pelo caminho.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Contas a receber, com data de vencimento e data de baixa</b>
+      <em>Faturamento não é dinheiro no caixa. Quero saber quanto do R$ 1,04 milhão foi efetivamente recebido e quanto virou calote.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Contas a pagar por categoria financeira, mês a mês</b>
+      <em>É daqui que sai o custo operacional real, sem depender de memória de ninguém. Financeiro › Ver relatórios financeiros › Resumo de entradas e saídas por categoria.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>DRE ou fluxo de caixa mensal do mesmo período</b>
+      <em>Serve de conferência: se a soma das categorias não bate com o DRE, tem lançamento fora de categoria.</em></span></label></li>
+  </ul>
+</div>
+
+<div class="estrato"><h2>Parte 2 — Custos</h2></div>
+
+<h3>Só o que roda todo mês</h3>
+
+<p>Nada de licença, recuperação de área ou compra de máquina — isso não é com eles. O que preciso
+  é o <strong>custo de operar</strong>, e de um jeito específico: <strong>separado entre o que corre
+  os 12 meses e o que só corre quando a máquina está tirando</strong>. Essa separação é o ponto
+  inteiro, porque a receita entra em seis meses e o custo fixo não tira férias na chuva.</p>
+
+<div class="grupo">
+  <header>
+    <span class="n">2.1</span>
+    <div>
+      <h4>Máquina e extração</h4>
+      <p class="porque">É o maior custo variável e o que vai se repetir na área nova.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>A escavadeira e a pá são próprias ou alugadas?</b>
+      <em>Se alugadas: valor por mês ou por hora, e o que está incluso (operador? manutenção? combustível?).</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Quantas horas de máquina por mês, na seca e na chuva</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Diesel: litros por mês e preço médio pago</b>
+      <em>Ou o consumo por hora de cada equipamento, se souberem.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Manutenção dos últimos 12 meses, valor cheio</b>
+      <em>Peças, óleo, filtros, esteira ou pneu, mão de obra de mecânico. Preventiva e corretiva juntas — quero a média real, não a orçada.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>O trator: qual foi o acerto e quanto vale em dinheiro</b>
+      <em>Foi pago com um lote, não com dinheiro — então não aparece em conta nenhuma. Preciso do valor do lote e de quantos meses de trator ele cobriu, para virar R$ por mês.</em></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">2.2</span>
+    <div>
+      <h4>Carregamento — o que está no preço e o que é cobrado à parte</h4>
+      <p class="porque">O preço de pátio do Aterro 12m³ é R$ 153. Preciso saber se carregar a
+        carga está dentro desses R$ 153 ou se sai por fora.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>O preço de pátio inclui o carregamento pela pá?</b>
+      <em>Ou o cliente paga a “retirada” separado? Se paga, esse valor está lançado no Bling como quê — produto, serviço, ou nada?</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Quanto tempo de máquina leva para carregar uma carga de 12m³</b>
+      <em>Com isso e o consumo por hora, o custo de carregamento por carga sai por conta.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Tem alguém contando as cargas na saída? Balança ou apontamento?</b>
+      <em>Se o controle é o próprio pedido no Bling, ok. Se é caderno, preciso saber, porque aí o volume real e o vendido não batem.</em></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">2.3</span>
+    <div>
+      <h4>Frete — o que é repasse e o que é receita</h4>
+      <p class="porque">Estimei R$ 54.185 de frete embutido no preço. É estimativa, não medição,
+        e é o número que mais muda a margem se estiver errado.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Quando a venda é entregue, o frete entra no preço do produto ou no campo de frete do pedido?</b>
+      <em>Pelo arquivo, está no preço do produto. Confirmar — e, daqui pra frente, lançar no campo de frete, que resolve isso de vez.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>O pagamento ao caminhoneiro tem registro?</b>
+      <em>Sai em contas a pagar? Tem recibo ou nota dele? Se não tem registro nenhum, o frete é uma caixa preta dos dois lados.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Sobra alguma coisa no frete, ou é repasse integral?</b>
+      <em>Cobrar R$ 200 e pagar R$ 200 é uma conta. Cobrar R$ 200 e pagar R$ 170 é outra bem diferente.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Existe tabela de frete por distância ou é negociado carga a carga?</b></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">2.4</span>
+    <div>
+      <h4>Varejo e atacado — confirmar o que eu inferi</h4>
+      <p class="porque">Classifiquei tudo por faixa de preço, não por campo de cadastro. Se
+        existe a informação de verdade no sistema, ela vale mais que a minha inferência.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Existe lista de preço ou tabela por tipo de cliente no Bling?</b>
+      <em>Se existir, é ela que separa revenda de cliente final, e eu paro de adivinhar pelo preço.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Confirmar a lista dos 45 clientes que classifiquei como revenda</b>
+      <em>Mando a lista. Quero saber quais são de fato caminhoneiro revendendo e quais são obra comprando direto.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>O “preço de custo” cadastrado nos produtos significa alguma coisa?</b>
+      <em>A exportação padrão do Bling puxa preço de custo. Para material que a gente extrai, isso costuma estar zerado ou chutado — se for o caso, é melhor eu ignorar do que usar errado.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>As vendas de lotes do Serra Bella entram no mesmo Bling?</b>
+      <em>Entram — achei onze delas, R$ 1.955.015,65. Quero saber se dá para marcá-las com uma categoria ou loja separada, para não precisar filtrar na mão toda vez.</em></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">2.5</span>
+    <div>
+      <h4>Gente</h4>
+      <p class="porque">Folha é custo fixo: corre nos doze meses, inclusive nos seis em que
+        quase não se vende.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Quantas pessoas na operação e o que cada uma faz</b>
+      <em>Operador, apontador, vigia, administrativo.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Custo total da folha por mês, já com encargos</b>
+      <em>Salário mais encargos, FGTS, férias e 13º provisionados. O número cheio, não o líquido.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Quem é CLT, quem é PJ, quem é diarista</b>
+      <em>Diarista some na entressafra; CLT não. Muda tudo no cálculo de custo fixo.</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Vale, alimentação, EPI, exames</b></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">2.6</span>
+    <div>
+      <h4>Estrutura e administração</h4>
+      <p class="porque">Miúdo, mas é o que corre nos doze meses e ninguém lembra de somar.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Energia, água, internet e telefone do pátio</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Honorários da contabilidade e mensalidade do Bling</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Seguro de equipamento, se houver</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Quanto do custo da administração do grupo é rateado para a cascalheira</b>
+      <em>Se hoje não é rateado nada, também é uma resposta — só preciso saber para não subestimar.</em></span></label></li>
+  </ul>
+</div>
+
+<div class="grupo">
+  <header>
+    <span class="n">2.7</span>
+    <div>
+      <h4>Impostos sobre a venda</h4>
+      <p class="porque">Com registro na ANM e contrato com terceiro, a operação sai da
+        informalidade. Preciso saber o tamanho desse degrau antes, não depois.</p>
+    </div>
+  </header>
+  <ul class="itens">
+    <li><label><input type="checkbox"><span class="txt"><b>Qual o regime tributário da empresa e a alíquota efetiva sobre faturamento</b></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>O que acontece hoje com a venda que sai sem nota</b>
+      <em>São 96% do volume. Não é julgamento, é dimensionamento: se tudo passar a sair com nota, quanto de imposto entra na conta?</em></span></label></li>
+    <li><label><input type="checkbox"><span class="txt"><b>Diferença entre o que foi extraído e o que foi vendido</b>
+      <em>Perda no pátio, material que não presta, empolamento. Se a gente tira 100 e vende 90, o custo por m³ vendido é 11% maior do que parece.</em></span></label></li>
+  </ul>
+</div>
+
+<div class="estrato"><h2>O que não perguntar a eles</h2></div>
+
+<div class="fora">
+  <ul>
+    <li><b>Licenciamento na ANM e licença ambiental.</b> É com o advogado e com um consultor de
+      direito minerário. O financeiro não tem como saber.</li>
+    <li><b>PRAD e recuperação da área.</b> Mesma coisa — é projeto técnico, não é lançamento
+      contábil.</li>
+    <li><b>CFEM e obrigações de origem do minério.</b> Vai junto com o licenciamento.</li>
+    <li><b>Compra de máquina ou qualquer investimento.</b> Isso é decisão sua, não custo de
+      operação. Entra na conta depois, separado.</li>
+    <li><b>O percentual e a base do royalty ao vizinho.</b> É negociação, não é dado. Mas vale
+      já decidir uma coisa: <b>royalty amarrado a m³ extraído, não a calendário</b> — piso mensal
+      fixo é o que quebra a operação na chuva.</li>
+  </ul>
+</div>
+
+<div class="estrato"><h2>Como mandar</h2></div>
+
+<p>As planilhas em XLS ou CSV, cruas, do jeito que o Bling exporta — sem formatar, sem juntar
+  abas, sem tirar coluna. Formatação atrapalha mais do que ajuda. As respostas de custo podem
+  vir em texto corrido mesmo, um item por linha; o que importa é <strong>dizer se cada valor é
+  por mês ou por ano, e se corre o ano todo ou só na safra</strong>.</p>
+
+<p class="nota">Onde não souberem o número exato, uma estimativa com a ordem de grandeza vale
+  mais que campo em branco — desde que venha marcada como estimativa.</p>
+
+<footer>
+  <p style="font-family:inherit;font-size:inherit;color:inherit;max-width:none">
+  <b>Documento de trabalho.</b> Lista de levantamento preparada a partir da análise do relatório de
+  vendas exportado em 26/08/2026. Os caminhos de menu do Bling citados aqui podem variar conforme
+  a versão e o plano contratado — o que vale é o conteúdo pedido, não o caminho. Este documento não
+  é parecer contábil, tributário nem de viabilidade mineral, e as questões de licenciamento,
+  recuperação de área e tributação da atividade minerária permanecem com o advogado do grupo e com
+  um especialista em direito minerário e ambiental.</p>
+</footer>
+
+</div>
+
+<script>
+/* Marcação de progresso, guardada só no navegador de quem abre a página. */
+const CHAVE = "pedido-financeiro-cascalheira";
+const caixas = [...document.querySelectorAll("ul.itens input")];
+caixas.forEach((c, i) => c.dataset.i = i);
+
+function guardar() {
+  try {
+    localStorage.setItem(CHAVE, JSON.stringify(caixas.map(c => c.checked)));
+  } catch (e) { /* navegador sem armazenamento — a página funciona igual */ }
+}
+function restaurar() {
+  try {
+    const salvo = JSON.parse(localStorage.getItem(CHAVE) || "[]");
+    if (Array.isArray(salvo)) salvo.forEach((v, i) => { if (caixas[i]) caixas[i].checked = !!v; });
+  } catch (e) { /* idem */ }
+}
+function contar() {
+  const feitos = caixas.filter(c => c.checked).length;
+  document.getElementById("contagem").textContent = `${feitos} de ${caixas.length} conferidos`;
+  document.getElementById("barra").style.width = (feitos / caixas.length * 100) + "%";
+}
+
+restaurar();
+contar();
+caixas.forEach(c => c.addEventListener("change", () => { guardar(); contar(); }));
+document.getElementById("limpar").addEventListener("click", () => {
+  caixas.forEach(c => c.checked = false);
+  guardar(); contar();
+});
+</script>
